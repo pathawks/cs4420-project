@@ -14,19 +14,19 @@ import scala.collection.mutable.PriorityQueue
  *        node, as well as the step to get from current node to that child
  * @param heuristic function that analyzes the desirability of the current state
  */
-def astar[T, S] (a:T, children:T=>List[(T, S)], heuristic:T=>Int):List[S] = {
+def astar[T, S] (a:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int):List[S] = {
   val fringe = PriorityQueue.empty[(Int, Boolean, T, List[S])](
     Ordering.by((_: (Int, Boolean, T, List[S]))._1).reverse
   )
 
-  def search(a:T, currentDepth:Int, solution:List[S]):List[S] = {
-    children(a).foreach {
+  def search(a:T, g:Int, solution:List[S]):List[S] = {
+    makeNodes(a).foreach {
       case (a, s) => {
         val hScore = heuristic(a)
-        val score = currentDepth + hScore
+        val score = g + hScore
         val newSolution = s :: solution
-        val t = (score, hScore == 0, a, newSolution)
-        fringe += t
+        val node = (score, a == goal, a, newSolution)
+        fringe += node
       }
     }
     fringe.isEmpty match {
