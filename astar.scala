@@ -15,24 +15,28 @@ import scala.collection.mutable.PriorityQueue
  * @param heuristic function that analyzes the desirability of the current state
  */
 def astar[T, S] (a:T, children:T=>List[(T, S)], heuristic:T=>Int):List[S] = {
-  val fringe = PriorityQueue.empty[(Int, T, List[S])](
-    Ordering.by((_: (Int, T, List[S]))._1).reverse
+  val fringe = PriorityQueue.empty[(Int, Boolean, T, List[S])](
+    Ordering.by((_: (Int, Boolean, T, List[S]))._1).reverse
   )
 
   def search(a:T, currentDepth:Int, solution:List[S]):List[S] = {
     children(a).foreach {
       case (a, s) => {
-        val score = currentDepth + heuristic(a)
-        val newSolution = solution ++ List(s)
-        val t = (score, a, newSolution)
+        val hScore = heuristic(a)
+        val score = currentDepth + hScore
+        val newSolution = s :: solution
+        val t = (score, hScore == 0, a, newSolution)
         fringe += t
       }
     }
-    fringe.dequeue() match {
-      case (0, _, solution) => solution
-      case (_, a, solution) => search(a, currentDepth + 1, solution)
+    fringe.isEmpty match {
+      case true => Nil
+      case _    => fringe.dequeue() match {
+        case (_, true, _, solution) => solution
+        case (_, _,    a, solution) => search(a, currentDepth + 1, solution)
+      }
     }
   }
 
-  search(a, 0, Nil)
+  search(a, 0, Nil).reverse
 }
