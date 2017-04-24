@@ -156,3 +156,11 @@ def execute(s: State, p: Plan): State = {
     }
   }
 }
+
+def validMoves(s: State): List[(State, Operator)] = {
+  val moves = List(Up, Down, Left, Right)
+  moves.foldLeft(Nil:List[(State, Operator)])( (l, op) => op(s) match {
+    case Some(s1) => (s1, op) :: l
+    case None => l
+  })
+}
