@@ -9,12 +9,13 @@ import scala.collection.mutable.PriorityQueue
 
 /**
  * A* search
- * @param a some initial state
- * @param children function that returns a list of all children for a given
+ * @param initial state
+ * @param goal state we are looking for
+ * @param makeNodes function that returns a list of all children for a given
  *        node, as well as the step to get from current node to that child
  * @param heuristic function that analyzes the desirability of the current state
  */
-def astar[T, S] (a:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int):List[S] = {
+def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int):List[S] = {
   val fringe = PriorityQueue.empty[(Int, Boolean, T, List[S])](
     Ordering.by((_: (Int, Boolean, T, List[S]))._1).reverse
   )
