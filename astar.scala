@@ -33,7 +33,7 @@ def astar[T, S] (a:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int):List[
       case true => Nil
       case _    => fringe.dequeue() match {
         case (_, true, _, solution) => solution
-        case (_, _,    a, solution) => search(a, currentDepth + 1, solution)
+        case (_, _,    a, solution) => search(a, g + 1, solution)
       }
     }
   }
