@@ -20,8 +20,8 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
   // Our fringe will hold nodes and the list of steps to get to that node
   // It will also keep track of if a node matches a goal state
   // It is sorted by g(x) + f(x)
-  val fringe = PriorityQueue.empty[(Int, Boolean, T, List[S])](
-    Ordering.by((_: (Int, Boolean, T, List[S]))._1).reverse
+  val fringe = PriorityQueue.empty[(Int, T, Int, List[S])](
+    Ordering.by((_: (Int, T, Int, List[S]))._1).reverse
   )
 
   /**
@@ -36,19 +36,24 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
       case (a, s) => {
         val hScore = heuristic(a)
         val score = g + hScore
+        val cost = g + 1
         val newSolution = s :: solution
-        val node = (score, a == goal, a, newSolution)
+        val node = (score, a, cost, newSolution)
         fringe += node
       }
     }
     fringe.isEmpty match {                  // If the fringe is empty
       case true => Nil                      //   No solution found; return Nil
       case _    => fringe.dequeue() match { // Else dequeue a node
-        case (_, true, _, solution) => solution
-        case (_, _,    a, solution) => search(a, g + 1, solution)
+        case (_, a, g, solution) => {
+          if (a == goal)
+            solution
+          else
+            search(a, g, solution)
+        }
       }
     }
   }
 
-  search(a, 0, Nil).reverse
+  search(initial, 0, Nil).reverse
 }
