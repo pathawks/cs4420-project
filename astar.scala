@@ -42,14 +42,14 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
         fringe += node
       }
     }
-    fringe.isEmpty match {                  // If the fringe is empty
-      case true => Nil                      //   No solution found; return Nil
-      case _    => fringe.dequeue() match { // Else dequeue a node
+    fringe.isEmpty match {                // If the fringe is empty
+      case true => Nil                    //   No solution found; return Nil
+      case _    => fringe.dequeue match { // Else dequeue a node
         case (_, a, g, solution) => {
-          if (a == goal)                    // If this node matches the goal
-            solution                        //   we have found a solution
-          else                              // Else
-            search(a, g, solution)          //   search its children
+          if (a == goal)                  // If this node matches the goal
+            solution                      //   we have found a solution
+          else                            // Else
+            search(a, g, solution)        //   search its children
         }
       }
     }
