@@ -24,6 +24,9 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
     Ordering.by((_: (Int, T, Int, List[S]))._1).reverse
   )
 
+  var iterations = 0
+  var branches = 0
+
   /**
    * Inner function that actually does the searching
    * @param a state
@@ -31,9 +34,11 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
    * @returns list of steps required to find goal, or Nil if goal was not found
    */
   def search(a:T, g:Int, solution:List[S]):List[S] = {
+    iterations += 1
     // Find all valid moves from a state, and add them to the fringe
     makeNodes(a).foreach {
       case (a, s) => {
+        branches += 1
         val hScore = heuristic(a)
         val score = g + hScore
         val cost = g + 1
@@ -55,5 +60,14 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int)
     }
   }
 
-  search(initial, 0, Nil).reverse
+  val r = search(initial, 0, Nil).reverse
+
+  val avgBranchingFactor = (branches * 1.0) / iterations
+  printf(
+    "expanded nodes: %d\tbranching factor: %.2f\n",
+    iterations,
+    avgBranchingFactor
+  )
+
+  r
 }
