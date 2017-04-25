@@ -75,7 +75,7 @@ case class State(board: Board, emptyPos: Pos) {
 def goalState(n: Int) = {
   var m: Map[Pos,Tile] = Map()
   for (i <- 1 to n; j <- 1 to n) {
-    println((i,j))
+    // println((i,j))
     m = m + ((i,j) -> (j + n * (i - 1)))
   }
   val lastPos = (n,n)
@@ -147,7 +147,7 @@ type Plan = List[Operator]
 // Return the final state if each operator is applicable to the current state;
 // otherwise, raise an exception.
 def execute(s: State, p: Plan): State = {
-  println(s.board)
+  // println(s.board)
   p match {
     case Nil      => s
     case op :: p1 => op(s) match {
