@@ -164,3 +164,15 @@ def validMoves(s: State): List[(State, Operator)] = {
     case None => l
   })
 }
+
+
+def prepare_trial_board(): State = {
+  val startMap = Map(
+    (1,1) -> 1, (1,2) -> 2, (1,3) -> 3,
+    (2,1) -> 4,             (2,3) -> 7,
+    (3,1) -> 6, (3,2) -> 8, (3,3) -> 5
+  )
+  val startBoard = new Board(3, startMap)
+  val start = new State(startBoard, (2, 2)) // start state for the 8-puzzle
+  return start
+}
