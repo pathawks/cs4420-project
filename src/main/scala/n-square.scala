@@ -4,7 +4,7 @@
     Code taken from HW1 for representing Boards
     Names: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-
+import util.control.Breaks._
 // A position on the puzzle boad is encoded just as a pair of integers
 // Each coordinate ranges from 1 to n, where n is the n of the puzzle
 // position (1,1) is the top-left position in the board.
@@ -186,8 +186,5 @@ def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
          val goalRow=scala.math.ceil(1.0*tile/s)
          val goalCol=tile-(goalRow-1)*s
          sum+=scala.math.abs(row-goalRow.toInt)
-         sum+=scala.math.abs(col-goalCol.toInt)
-         print(sum)}
-sum}
-
-
+         sum+=scala.math.abs(col-goalCol.toInt)}
+     sum}
