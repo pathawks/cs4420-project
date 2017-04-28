@@ -182,9 +182,7 @@ def toBoard(cur:State): (Int,Map[Pos,Tile]) ={
 def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
      var sum=0
      for (pair<-tiles){
-         val row=pair._1._1
-         val col=pair._1._2
-         val tile=pair._2
+         val ((row,col),tile)=pair
          val goalRow=scala.math.ceil(1.0*tile/s)
          val goalCol=tile-(goalRow-1)*s
          sum+=scala.math.abs(row-goalRow.toInt)
