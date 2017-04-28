@@ -117,8 +117,7 @@ case object Right extends Operator {
 
 // Up operator
 case object Up extends Operator {
-  // the apply method returns
-  override def apply (s: State): Option[State] =
+  // the apply method returns  override def apply (s: State): Option[State] =
   s match {
     case State(_, (1, _)) => None
     case State(b, (r, c)) => {
@@ -128,8 +127,7 @@ case object Up extends Operator {
   }
 }
 
-// Down operator
-case object Down extends Operator {
+// Down operatorcase object Down extends Operator {
   // the apply method returns
   override def apply (s: State): Option[State] =
   s match {
@@ -140,7 +138,6 @@ case object Down extends Operator {
     }
   }
 }
-
 type Plan = List[Operator]
 
 // given a state s and a plan p, attempt to execute p starting with s.
@@ -177,20 +174,22 @@ def prepare_trial_board(): State = {
   return start
 }
 
-def ManhattaHeuristics(cur:State):Int={
-   var sum=0
-   cur match{
-   case State(b,e)=> b match{
-   case Board(s,t)=> {
-   for (row<-1 to s){
-     for (col<-1 to s){
-       val Tile=t get (row,col);
-       Tile match{
-       case None=> {}
-       case Some(tile)=>{
-       val goalRow=scala.math.ceil(1.0*tile/s)
-       val goalCol=tile-(goalRow-1)*s
-       sum+=scala.math.abs(row-goalRow.toInt)
-       sum+=scala.math.abs(col-goalCol.toInt)}}}}}}}
-  sum}
+def toBoard(cur:State): (Int,Map[Pos,Tile]) ={
+    cur match{
+    case State(b,e)=> b match{
+     case Board(s,t)=> (s, t) }}}
+
+def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
+     var sum=0
+     for (pair<-tiles){
+         val row=pair._1._1
+         val col=pair._1._2
+         val tile=pair._2
+         val goalRow=scala.math.ceil(1.0*tile/s)
+         val goalCol=tile-(goalRow-1)*s
+         sum+=scala.math.abs(row-goalRow.toInt)
+         sum+=scala.math.abs(col-goalCol.toInt)
+         print(sum)}
+sum}
+
 
