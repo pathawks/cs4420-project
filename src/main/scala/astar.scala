@@ -17,9 +17,10 @@ import scala.collection.mutable.PriorityQueue
  * @returns list of steps required to find goal, or Nil if goal was not found
 t */
 def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int, costs:(T,S)=>Int):List[S] = {
-  // Our fringe will hold nodes and the list of steps to get to that node  // It will also keep track of if a node matches a goal state
-
-    // It is sorted by g(x) + f(x)  val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
+  // Our fringe will hold nodes and the list of steps to get to that node  
+  // It will also keep track of if a node matches a goal state
+  // It is sorted by g(x) + f(x)  
+  val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
     Ordering.by((_: (Int, T, Int, Int,List[S]))._1).reverse  )
   //var branches = 0
   var iterations = 0
