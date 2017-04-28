@@ -176,3 +176,21 @@ def prepare_trial_board(): State = {
   val start = new State(startBoard, (2, 2)) // start state for the 8-puzzle
   return start
 }
+
+def ManhattaHeuristics(cur:State):Int={
+   var sum=0
+   cur match{
+   case State(b,e)=> b match{
+   case Board(s,t)=> {
+   for (row<-1 to s){
+     for (col<-1 to s){
+       val Tile=t get (row,col);
+       Tile match{
+       case None=> {}
+       case Some(tile)=>{
+       val goalRow=scala.math.ceil(1.0*tile/s)
+       val goalCol=tile-(goalRow-1)*s
+       sum+=scala.math.abs(row-goalRow.toInt)
+       sum+=scala.math.abs(col-goalCol.toInt)}}}}}}}
+  sum}
+
