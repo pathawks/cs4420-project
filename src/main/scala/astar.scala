@@ -17,8 +17,7 @@ import scala.collection.mutable.PriorityQueue
  * @returns list of steps required to find goal, or Nil if goal was not found
 t */
 def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int, costs:(T,S)=>Int):List[S] = {
-  // Our fringe will hold nodes and the list of steps to get to that node
-  // It will also keep track of if a node matches a goal state
+  // Our fringe will hold nodes and the list of steps to get to that node  // It will also keep track of if a node matches a goal state
 
     // It is sorted by g(x) + f(x)
   val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
@@ -42,10 +41,10 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
     makeNodes(a).foreach {
       case (a, s) => {
         //branches += 1
-        generateNodes +=1
+        generatedNodes +=1
         val hScore = heuristic(a)
         val score = g + hScore
-        val cost = g + cost((a,s))
+        val cost = g + costs((a,s))
         val newSolution = s :: solution
         val node = (score, a, cost, d+1, newSolution)
         fringe += node
@@ -55,14 +54,14 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
       case true => end=System.currentTimeMillis();Nil                  //   No solution found; return Nil
       case _    => fringe.dequeue match { // Else dequeue a node
         case (_, a, g, d, solution) => {
-          if (a == goal)  
+          if (a == goal) { 
             // If this node matches the goal
             end=System.currentTimeMillis()
             costOfSolution=g 
             depth=d
-            solution //   we have found a solution
+            solution} //   we have found a solution
           else                            // Else
-            search(a, g, solution)        //   search its children
+          search(a, g, d, solution)        //   search its children
         }
       }
     }
@@ -75,7 +74,7 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
     "expanded nodes: %d\teffective branching factor: %.2f\tcost of solution: %d\trunning time: %d\n",
     iterations,
     eftBranchingFactor,
-    costOfsolution,
+    costOfSolution,
     end-start
   )
 
