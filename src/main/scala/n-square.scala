@@ -157,6 +157,11 @@ def execute(s: State, p: Plan): State = {
   }
 }
 
+def toBoard(cur:State): (Int,Map[Pos,Tile])={
+  cur match{
+  case State(b,e)=> b match{
+  case Board(s,t)=> (s,t) }}}
+
 def validMoves(s: State): List[(State, Operator)] = {
   val moves = List(Up, Down, Left, Right)
   moves.foldLeft(Nil:List[(State, Operator)])( (l, op) => op(s) match {
