@@ -1,3 +1,4 @@
+
 /*==================================================
     CS:4420 Artificial Intelligence
     Spring 2017
@@ -46,6 +47,7 @@ def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
     sum
 }
 
+// N-MaxSwap heuristic function 
 def NMaxSwap(s:Int, tiles: Map[Pos,Tile]):(Int,Array[Int],Array[Int])={
     var iter=0
     var buffer=0
