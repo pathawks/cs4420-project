@@ -4,8 +4,7 @@
     Code taken from HW1 for representing Boards
     Names: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-import util.control.Breaks._
-import scala.math._
+
 // A position on the puzzle boad is encoded just as a pair of integers
 // Each coordinate ranges from 1 to n, where n is the n of the puzzle
 // position (1,1) is the top-left position in the board.
@@ -129,8 +128,8 @@ case object Up extends Operator {
   }
 }
 
-// Down operatorcase
-object Down extends Operator {
+// Down operator
+case object Down extends Operator {
   // the apply method returns
   override def apply (s: State): Option[State] =
   s match {
@@ -141,6 +140,7 @@ object Down extends Operator {
     }
   }
 }
+
 type Plan = List[Operator]
 
 // given a state s and a plan p, attempt to execute p starting with s.
@@ -176,9 +176,3 @@ def prepare_trial_board(): State = {
   val start = new State(startBoard, (2, 2)) // start state for the 8-puzzle
   return start
 }
-
-// Convert a state to its size and board
-def toBoard(cur:State): (Int,Map[Pos,Tile]) ={
-    cur match{
-    case State(b,e)=> b match{
-    case Board(s,t)=> (s, t) }}}

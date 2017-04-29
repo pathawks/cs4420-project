@@ -5,6 +5,9 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 
+import util.control.Breaks._
+import scala.math._
+
 def dummy(t:Any) = {0}
 
 // Manhatta distance heuristc function
