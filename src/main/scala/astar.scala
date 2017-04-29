@@ -1,4 +1,5 @@
-  /*==================================================
+
+/*==================================================
     CS:4420 Artificial Intelligence
     Spring 2017
     Project
@@ -14,6 +15,7 @@ import scala.collection.mutable.PriorityQueue
  * @param makeNodes function that returns a list of all children for a given
  *        node, as well as the step to get from current node to that child
  * @param heuristic function that analyzes the desirability of the current state
+ * @param costs function that return the cost of moving a step from a state  
  * @returns list of steps required to find goal, or Nil if goal was not found
 t */
 def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int, costs:(T,S)=>Int):List[S] = {
