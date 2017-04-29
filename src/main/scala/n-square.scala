@@ -177,11 +177,13 @@ def prepare_trial_board(): State = {
   return start
 }
 
+// Convert a state to its size and board
 def toBoard(cur:State): (Int,Map[Pos,Tile]) ={
     cur match{
     case State(b,e)=> b match{
     case Board(s,t)=> (s, t) }}}
 
+// Manhatta distance heuristc function
 def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
      var sum=0
      for (pair<-tiles){
@@ -193,6 +195,7 @@ def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
      sum
 }
 
+// Linear-conflict heuristic function
 def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
     var sum= Manhatta(s,tiles)
     def pos(pair:((Int,Int),Int))={
