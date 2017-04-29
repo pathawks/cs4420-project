@@ -6,7 +6,7 @@ def polyGen(N:Int,depth:Int):(Double=>Double,List[Double])={
   def poly(x:Double):Double= {
     var sum=N*(-1.0)
     for (i<-1 to depth){
-      sum=sum+scala.math.pow(x,i);}
+      sum=sum+pow(x,i);}
     return sum}
   return (poly,coeff)} 
 
