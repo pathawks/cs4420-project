@@ -11,7 +11,7 @@ import scala.math._
 
 def dummy(t:Any) = {0}
 
-// Manhatta distance heuristc function
+// Manhatta distance heuristcs 
 def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
      var sum=0
      for (pair<-tiles){
@@ -23,7 +23,7 @@ def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
      sum
 }
 
-// Linear-conflict heuristic function
+// Linear-conflict heuristics 
 def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
     var sum= Manhatta(s,tiles)
     def pos(pair:((Int,Int),Int))={
@@ -47,7 +47,7 @@ def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
     sum
 }
 
-// N-MaxSwap heuristic function 
+// N-MaxSwap heuristics 
 def NMaxSwap(s:Int, tiles: Map[Pos,Tile]):(Int,Array[Int],Array[Int])={
     var iter=0
     var buffer=0
