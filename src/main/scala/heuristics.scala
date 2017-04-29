@@ -45,3 +45,26 @@ def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
     }
     sum
 }
+
+def NMaxSwap(s:Int, tiles: Map[Pos,Tile]):(Int,Array[Int],Array[Int])={
+    var iter=0
+    var buffer=0
+    var P= Array.tabulate(9)(n=>9)
+    var B= Array.tabulate(9)(n=>0)
+    def swap(a:Int, b:Int)={
+         if (a!=b) {
+          iter+=1
+          buffer= P(a); P(a)= P(b); P(b)=buffer
+          buffer= B(P(a)-1); B(P(a)-1)=B(P(b)-1); B(P(b)-1)=buffer}}
+    for (pair<-tiles){
+        val index=(pair._1._1-1)*3+pair._1._2-1
+        val n= pair._2
+        P(index)=n; B(n-1)=index }
+    B(8)=P.indexOf(9)
+    while(P(8)!=9){
+        swap(B(8), B(B(8)))}
+    val unsort=P.filter(n=>n!=P.apply(n-1))
+    for (e<-unsort){
+        swap(e-1,B(8)); swap(B(e-1),e-1)}
+    (iter, B, P)
+ }
