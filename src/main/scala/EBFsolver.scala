@@ -1,3 +1,5 @@
+import scala.math._
+
 def polyGen(N:Int,depth:Int):(Double=>Double,List[Double])={
   var coeff=List(N*(-1.0))
   coeff=coeff++List.fill(depth)(1.0)
@@ -13,7 +15,7 @@ def derivate(fnt:Double=>Double,coeff:List[Double]):(Double=>Double)={
   def poly(x:Double):Double= {
     var sum=0.0;
     for (i<-0 to newCoeff.length-1){
-      sum=sum+newCoeff(i)*scala.math.pow(x,i)}
+      sum=sum+newCoeff(i)*pow(x,i)}
     return sum}
   return poly} 
 
@@ -21,7 +23,7 @@ def newtonMethod(N:Int,depth:Int,tole:Double): Double={
   var x:Double=1.0
   var (a,b)=polyGen(N:Int,depth:Int):(Double=>Double,List[Double])
   var c=derivate(a,b)
-  while (scala.math.abs(a(x))>tole){
+  while (abs(a(x))>tole){
     x=x-a(x)/c(x)}
   return x}
 
