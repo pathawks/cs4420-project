@@ -68,5 +68,5 @@ def NMaxSwap(s:Int, tiles: Map[Pos,Tile]):(Int,Array[Int],Array[Int])={
     val unsort=P.filter(n=>n!=P.apply(n-1))
     for (e<-unsort){
         swap(e-1,B(8)); swap(B(e-1),e-1)}
-    (iter, B, P)
+    iter
  }
