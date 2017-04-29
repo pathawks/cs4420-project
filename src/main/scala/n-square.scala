@@ -204,6 +204,11 @@ def linearConflict(s:Int, tiles:Map[Pos,Tile]):Int={
         val (row,col,tile,goalRow,goalCol)=pos(pair)
         if (row==goalRow){
             for (sameRow<-tiles.filterKeys(k=>(k._1==row & k._2<col))){
+                val (row2,col2,tile2,goalRow2,goalCol2)=pos(sameRow)
+                if (goalRow2==row & (col2-col)*(goalCol2-goalCol)<0) sum+=2}
+        }
+        if (col==goalCol){
+            for (sameCol<-tiles.filterKeys(k=>(k._1<row & k._2==col))){
                 val (row2,col2,tile2,goalRow2,goalCol2)=pos(sameCol)
                 if (goalCol2==col & (row2-row)*(goalRow2-goalRow)<0) sum+=2}
         }
