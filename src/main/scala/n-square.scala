@@ -117,7 +117,8 @@ case object Right extends Operator {
 
 // Up operator
 case object Up extends Operator {
-  // the apply method returns  override def apply (s: State): Option[State] =
+  // the apply method returns  
+  override def apply (s: State): Option[State] =
   s match {
     case State(_, (1, _)) => None
     case State(b, (r, c)) => {
@@ -127,7 +128,8 @@ case object Up extends Operator {
   }
 }
 
-// Down operatorcase object Down extends Operator {
+// Down operatorcase 
+object Down extends Operator {
   // the apply method returns
   override def apply (s: State): Option[State] =
   s match {
@@ -188,3 +190,5 @@ def Manhatta(s:Int, tiles:Map[Pos,Tile]):Int={
          sum+=scala.math.abs(row-goalRow.toInt)
          sum+=scala.math.abs(col-goalCol.toInt)}
      sum}
+
+
