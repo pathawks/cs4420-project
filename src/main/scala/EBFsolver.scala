@@ -1,3 +1,11 @@
+
+/*==================================================
+    CS:4420 Artificial Intelligence
+    Spring 2017
+    Project
+    Name: Pat Hawks, Ryan Larson, Rui Yang
+  ==================================================*/
+
 import scala.math._
 
 def polyGen(N:Int,depth:Int):(Double=>Double,List[Double])={
