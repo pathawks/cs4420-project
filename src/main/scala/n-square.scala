@@ -24,7 +24,8 @@ case class Board( size: Int, tiles: Map[Pos,Tile] ) {
       case (Some(v1), Some(v2)) => tiles + (p1 -> v2) + (p2 -> v1)
       case (Some(v1), None    ) => (tiles - p1) + (p2 -> v1)
       case (None,     Some(v2)) => (tiles - p2) + (p1 -> v2)
-      case _                    => tiles
+
+        case _                    => tiles
     }
     new Board(size, t1)
   }
@@ -67,6 +68,12 @@ case class State(board: Board, emptyPos: Pos) {
     +-------+
     (2,2)
   */
+  def toBoard(cur:State): (Int,Map[Pos,Tile])={
+    cur match{
+    case State(b,e)=> b match{
+    case Board(s,t)=> (s,t) 
+  }}}
+    
   override def toString = board.toString + " " + emptyPos + "\n"
 }
 
