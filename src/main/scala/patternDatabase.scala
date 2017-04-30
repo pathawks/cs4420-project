@@ -1,11 +1,17 @@
 
+/*==================================================
+    CS:4420 Artificial Intelligence
+    Spring 2017
+    Project
+    Name: Pat Hawks, Ryan Larson, Rui Yang
+  ==================================================*/
+
 import java.io._
 import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
-// Fringe Pattern Database 
-var fpdb:Map[State,Int]=Map()// Corner Pattern Database 
-var cpdb:Map[State,Int]=Map()
+var fpdb:Map[State,Int]=Map() // Fringe Pattern Database 
+var cpdb:Map[State,Int]=Map() // Corner Pattern Database
 
 // Generate above Pattern Databases
 def getNAPDB(initial:State, makeNodes: State =>List[(State,Operator)],maxCost:Int):Unit = {
