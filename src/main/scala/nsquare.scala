@@ -4,7 +4,7 @@
     Code taken from HW1 for representing Boards
     Names: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-package nsquare
+package project
 
 object Nsquare {
   // A position on the puzzle boad is encoded just as a pair of integers

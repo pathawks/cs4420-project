@@ -6,8 +6,8 @@ UTILITIES script
   Authors:
     -Ryan Larson
   */
-package utilities
-import nsquare.Nsquare
+package project
+
 import scala.io.Source
 
 class Utility {

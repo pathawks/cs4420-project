@@ -5,7 +5,8 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 
-package EBFsolver
+package project
+
 import scala.math._
 
 class EBFsolver {

@@ -6,9 +6,8 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 
-package heuristics
+package project
 
-import nsquare.Nsquare
 import util.control.Breaks._
 import scala.math._
 

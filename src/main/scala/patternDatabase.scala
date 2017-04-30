@@ -1,11 +1,11 @@
-
 /*==================================================
     CS:4420 Artificial Intelligence
     Spring 2017
     Project
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-class patternDatabase
+class project
+
 import java.io._
 import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set

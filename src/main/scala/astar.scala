@@ -4,7 +4,8 @@
     Search Algorithms
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-package astar
+package project
+
 import scala.collection.mutable.PriorityQueue
 
 /**

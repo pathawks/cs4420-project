@@ -4,10 +4,7 @@
     Main method
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-import heuristics.heuristics
-import astar.Search
-import EBFsolver.EBFsolver
-import utilities.Utility
+package project
 
 object Project {
   /**
