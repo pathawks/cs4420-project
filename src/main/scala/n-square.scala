@@ -188,3 +188,5 @@ def prepare_trial_board(): State = {
   val start = new State(startBoard, (2, 2)) // start state for the 8-puzzle
   return start
 }
+
+def cost(_: State, _: Operator) = {1}
