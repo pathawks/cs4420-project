@@ -11,13 +11,10 @@ import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
 /**
- * A* search
+ * Generate all possible puzzles using depth-first iteration
  * @param initial state
- * @param goal state we are looking for
  * @param makeNodes function that returns a list of all children for a given
  *        node, as well as the step to get from current node to that child
- * @param heuristic function that analyzes the desirability of the current state
- * @returns list of steps required to find goal, or Nil if goal was not found
  */
 def generate[T, S] (initial:T, makeNodes:T=>List[(T, S)]):Unit = {
   // Our fringe will hold nodes and the list of steps to get to that node
@@ -27,6 +24,7 @@ def generate[T, S] (initial:T, makeNodes:T=>List[(T, S)]):Unit = {
     Ordering.by((_: (Int, T))._1).reverse
   )
 
+  // seen keeps track of all states we have already seen, so we do not create duplicates
   val seen = Set[T]()
 
   var numSeen = 0
@@ -35,8 +33,7 @@ def generate[T, S] (initial:T, makeNodes:T=>List[(T, S)]):Unit = {
   /**
    * Inner function that actually does the searching
    * @param a state
-   * @param solution steps required to get from initial to a
-   * @returns list of steps required to find goal, or Nil if goal was not found
+   * @param g cost of a state
    */
   def search(a:T, g:Int):Unit = {
     val pw = new PrintWriter(new File("3x3/" + g + "/" + numSeen + ".txt"))
@@ -58,10 +55,10 @@ def generate[T, S] (initial:T, makeNodes:T=>List[(T, S)]):Unit = {
       }
     }
     fringe.isEmpty match {                // If the fringe is empty
-      case true => ()                     //   No solution found; return Nil
+      case true => ()                     //   we have found all states
       case _    => fringe.dequeue match { // Else dequeue a node
         case (g, a) => {
-          search(a, g)                  //   search its children
+          search(a, g)                    //   search its children
         }
       }
     }
