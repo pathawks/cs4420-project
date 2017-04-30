@@ -8,6 +8,7 @@
 
 package project
 
+import project.Nsquare._
 
 import util.control.Breaks._
 import scala.math._
@@ -18,8 +19,8 @@ class heuristics {
   }
 
   // Manhatta distance heuristcs
-  def Manhatta(s: Nsquare.State): Int = {
-    val Nsquare.State(Nsquare.Board(size, tiles), _) = s
+  def Manhatta(s: State): Int = {
+    val State(Board(size, tiles), _) = s
     var sum = 0
     for (pair <- tiles) {
       val ((row, col), tile) = pair
@@ -33,8 +34,8 @@ class heuristics {
   }
 
   // Linear-conflict heuristics
-  def linearConflict(s: Nsquare.State): Int = {
-    val Nsquare.State(Nsquare.Board(size, tiles), _) = s
+  def linearConflict(s: State): Int = {
+    val State(Board(size, tiles), _) = s
     var sum = Manhatta(s)
 
     def pos(pair: ((Int, Int), Int)) = {
@@ -62,8 +63,8 @@ class heuristics {
   }
 
   // N-MaxSwap heuristics
-  def NMaxSwap(s: Nsquare.State): Int = {
-    val Nsquare.State(Nsquare.Board(_, tiles), _) = s
+  def NMaxSwap(s: State): Int = {
+    val State(Board(_, tiles), _) = s
     var iter = 0
     var buffer = 0
     var P = Array.tabulate(9)(n => 9)
