@@ -195,6 +195,6 @@ of the abstract class Operator.
     return start
   }
 
-  def cost(_: State, _: Operator) = {1};
+  def cost(s: State, o: Operator) = {1};
 
 }

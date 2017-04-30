@@ -74,7 +74,8 @@ class Search {
     val startTime = System.currentTimeMillis()
     val r = search(initial, 0, 0, Nil).reverse
     val endTime = System.currentTimeMillis()
-    val eftBranchingFactor = EBF(generatedNodes, depth)
+    // val eftBranchingFactor = EBF(generatedNodes, depth)
+    val eftBranchingFactor = 0.0
     if (r != Nil)
       printf(
         "expanded nodes: %d\teffective branching factor: %.2f\tcost of solution: %d\trunning time: %d\n",

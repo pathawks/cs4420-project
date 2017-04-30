@@ -7,7 +7,7 @@ UTILITIES script
     -Ryan Larson
   */
 package utilities
-import puzzled.puzzle
+import nsquare.Nsquare
 import scala.io.Source
 
 class Utility {
@@ -22,7 +22,7 @@ class Utility {
       tuple of empty tile
       )
     */
-    val puzz = new puzzle
+    val puzz = Nsquare
 
     var file_lines = Source.fromFile(fName).getLines.toList
     val n_size_board = file_lines.length
@@ -48,7 +48,7 @@ class Utility {
     val startBoard = new puzz.Board(n_size_board, tiles)
     val start = new puzz.State(startBoard, emptyTile) // start state for the 8-puzzle
 
-    return start
+//  return start
   }
 
 }

@@ -9,7 +9,7 @@ import astar.Search
 import EBFsolver.EBFsolver
 import utilities.Utility
 
-class Project {
+object Project {
   /**
    * Entry point for our program
    * Takes three command line arguments:
