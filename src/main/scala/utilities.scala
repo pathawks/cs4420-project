@@ -7,7 +7,7 @@ UTILITIES script
     -Ryan Larson
   */
 package project
-
+import project.Nsquare
 import scala.io.Source
 
 class Utility {
@@ -26,8 +26,7 @@ class Utility {
 
     var file_lines = Source.fromFile(fName).getLines.toList
     val n_size_board = file_lines.length
-
-    //var tiles = scala.collection.mutable.HashMap[(Int, Int), Int]()
+    
     var tiles:Map[puzz.Pos, puzz.Tile] = Map()
     val emptyTile: (Int, Int) = (0,0)
 
@@ -40,7 +39,6 @@ class Utility {
         row(j) match {
           case "_" => emptyTile -> (i+1, j+1)
           case _ => tiles += ((i+1, j+1) -> row(j).toInt)
-          //case _ => tiles(List((i+1, j+1) -> row(j).toInt))
         }
       }
     }
@@ -48,7 +46,7 @@ class Utility {
     val startBoard = new puzz.Board(n_size_board, tiles)
     val start = new puzz.State(startBoard, emptyTile) // start state for the 8-puzzle
 
-//  return start
+  return start
   }
 
 }
