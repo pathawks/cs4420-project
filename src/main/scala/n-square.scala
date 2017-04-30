@@ -122,7 +122,8 @@ case object Up extends Operator {
   s match {
     case State(_, (1, _)) => None
     case State(b, (r, c)) => {
-      val ep = (r - 1, c)
+
+        val ep = (r - 1, c)
       Some( State(b.swap((r, c), ep), ep) )
     }
   }
@@ -161,6 +162,16 @@ def toBoard(cur:State): (Int,Map[Pos,Tile])={
   cur match{
   case State(b,e)=> b match{
   case Board(s,t)=> (s,t) }}}
+
+def makeNodes(s:State):List[(State,Operator)]={
+  var list:List[(State,Operator)]=List()
+  for (op<-List(Up,Down,Left,Right)){
+    op(s) match {
+    case None=> {}
+    case Some(s1)=> list=(s1,op)::list}}
+  list
+}
+
 
 def validMoves(s: State): List[(State, Operator)] = {
   val moves = List(Up, Down, Left, Right)
