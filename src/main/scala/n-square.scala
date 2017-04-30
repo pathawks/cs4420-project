@@ -103,8 +103,7 @@ case object Left extends Operator {
       val ep = (r, c - 1)
       Some( State(b.swap((r, c), ep), ep) )
     }
-  }
-}
+  }}
 
 case object Right extends Operator {
   // the apply method returns
