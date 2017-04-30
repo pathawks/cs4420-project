@@ -1,4 +1,3 @@
-
 /*==================================================
     CS:4420 Artificial Intelligence
     Spring 2017
@@ -17,14 +16,13 @@ import scala.collection.mutable.PriorityQueue
  * @param heuristic function that analyzes the desirability of the current state
  * @param costs function that return the cost of moving a step from a state  
  * @returns list of steps required to find goal, or Nil if goal was not found
-t */
+ */
 def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int, costs:(T,S)=>Int):List[S] = {
-  // Our fringe will hold nodes and the list of steps to get to that node  
+  // Our fringe will hold nodes and the list of steps to get to that node
   // It will also keep track of if a node matches a goal state
-  // It is sorted by g(x) + f(x)  
+  // It is sorted by g(x) + f(x)
   val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
-    Ordering.by((_: (Int, T, Int, Int,List[S]))._1).reverse  )
-  //var branches = 0
+    Ordering.by((_: (Int, T, Int, Int,List[S]))._1).reverse)
   var iterations = 0
   var costOfSolution = 0
   var depth=0
@@ -33,7 +31,8 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
   var end:Long=0
   /**
    * Inner function that actually does the searching
-!   * @param a state   * @param solution steps required to get from initial to a
+   * @param a state
+   * @param solution steps required to get from initial to a
    * @returns list of steps required to find goal, or Nil if goal was not found
    */
   def search(a:T, g:Int, d:Int, solution:List[S]):List[S] = {
@@ -42,7 +41,6 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
     // Find all valid moves from a state, and add them to the fringe
     makeNodes(a).foreach {
       case (a, s) => {
-        //branches += 1
         generatedNodes +=1
         val hScore = heuristic(a)
         val score = g + hScore
@@ -56,14 +54,13 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
       case true => end=System.currentTimeMillis();Nil                  //   No solution found; return Nil
       case _    => fringe.dequeue match { // Else dequeue a node
         case (_, a, g, d, solution) => {
-          if (a == goal) { 
-            // If this node matches the goal
-            end=System.currentTimeMillis()
-            costOfSolution=g 
+          if (a == goal) {                // If this node matches the goal
+            costOfSolution=g
             depth=d
-            solution} //   we have found a solution
-          else                            // Else
-          search(a, g, d, solution)        //   search its children
+            solution                      //   we have found a solution
+          } else {                        // Else
+            search(a, g, d, solution)     //   search its children
+          }
         }
       }
     }
