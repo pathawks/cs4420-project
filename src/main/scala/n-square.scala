@@ -163,16 +163,13 @@ def toBoard(cur:State): (Int,Map[Pos,Tile])={
   case State(b,e)=> b match{
   case Board(s,t)=> (s,t) }}}
 
-def makeNodes(s:State):List[(State,Operator)]={
-  var list:List[(State,Operator)]=List()
-  for (op<-List(Up,Down,Left,Right)){
-    op(s) match {
-    case None=> {}
-    case Some(s1)=> list=(s1,op)::list}}
-  list
-}
-
-
+/**
+ * Find a List of all States that are one Operator away from a given State s
+ * This is used as our makeNodes function for A*
+ * @param s State to search
+ * @return List of States reachable from current state, and the Operator that
+ *         moves from s to that State
+ */
 def validMoves(s: State): List[(State, Operator)] = {
   val moves = List(Up, Down, Left, Right)
   moves.foldLeft(Nil:List[(State, Operator)])( (l, op) => op(s) match {
@@ -180,7 +177,6 @@ def validMoves(s: State): List[(State, Operator)] = {
     case None => l
   })
 }
-
 
 def prepare_trial_board(): State = {
   val startMap = Map(
