@@ -18,7 +18,7 @@ class heuristics {
   }
 
   // Manhatta distance heuristcs
-  def Manhatta(s: Int, tiles: Map[nsquare.Nsquare.Pos, nsquare.Nsquare.Tile]): Int = {
+  def Manhatta(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
     var sum = 0
     for (pair <- tiles) {
       val ((row, col), tile) = pair
@@ -32,7 +32,7 @@ class heuristics {
   }
 
   // Linear-conflict heuristics
-  def linearConflict(s: Int, tiles: Map[nsquare.Nsquare.Pos, nsquare.Nsquare.Tile]): Int = {
+  def linearConflict(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
     var sum = Manhatta(s, tiles)
 
     def pos(pair: ((Int, Int), Int)) = {
@@ -60,7 +60,7 @@ class heuristics {
   }
 
   // N-MaxSwap heuristics
-  def NMaxSwap(s: Int, tiles: Map[nsquare.Nsquare.Pos, nsquare.Nsquare.Tile]): Int = {
+  def NMaxSwap(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
     var iter = 0
     var buffer = 0
     var P = Array.tabulate(9)(n => 9)
