@@ -72,19 +72,3 @@ def NMaxSwap(s:Int, tiles: Map[Pos,Tile]):(Int,Array[Int],Array[Int])={
     iter
  }
 
-def pattern(s:State): State={
-    var ptiles:Map[Pos,Tile]=Map()
-    s match{
-      case State(b,e)=> b match{
-        case Board(size,t)=> { 
-          val fringe=List.tabulate(2*size-1)(n=>{if (n<size) n+1 else (n-2)*size+1 })
-          for (i<-1 to size){for (j<-1 to size){
-            t get (i,j) match {
-              case None=> {}
-              case Some(tile)=>  
-                if (fringe contains tile) ptiles=ptiles+((i,j)->tile)}}}
-        }
-      }
-    }
-    State(Board(size, ptiles), e)
-}
