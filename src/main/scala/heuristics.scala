@@ -8,22 +8,23 @@
 
 package project
 
+
 import util.control.Breaks._
 import scala.math._
 
 class heuristics {
-
   def dummy(t: Any) = {
     0
   }
 
   // Manhatta distance heuristcs
-  def Manhatta(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
+  def Manhatta(s: Nsquare.State): Int = {
+    val Nsquare.State(Nsquare.Board(size, tiles), _) = s
     var sum = 0
     for (pair <- tiles) {
       val ((row, col), tile) = pair
-      val goalRow = ceil(1.0 * tile / s)
-      val goalCol = tile - (goalRow - 1) * s
+      val goalRow = ceil(1.0 * tile / size)
+      val goalCol = tile - (goalRow - 1) * size
       sum += abs(row - goalRow.toInt)
       sum += abs(col - goalCol.toInt)
     }
@@ -32,13 +33,14 @@ class heuristics {
   }
 
   // Linear-conflict heuristics
-  def linearConflict(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
-    var sum = Manhatta(s, tiles)
+  def linearConflict(s: Nsquare.State): Int = {
+    val Nsquare.State(Nsquare.Board(size, tiles), _) = s
+    var sum = Manhatta(s)
 
     def pos(pair: ((Int, Int), Int)) = {
       val ((r, c), t) = pair;
-      var gr = ceil(1.0 * t / s)
-      (r, c, t, gr, t - (gr - 1) * s)
+      var gr = ceil(1.0 * t / size)
+      (r, c, t, gr, t - (gr - 1) * size)
     }
 
     for (pair <- tiles) {
@@ -60,7 +62,8 @@ class heuristics {
   }
 
   // N-MaxSwap heuristics
-  def NMaxSwap(s: Int, tiles: Map[Nsquare.Pos, Nsquare.Tile]): Int = {
+  def NMaxSwap(s: Nsquare.State): Int = {
+    val Nsquare.State(Nsquare.Board(_, tiles), _) = s
     var iter = 0
     var buffer = 0
     var P = Array.tabulate(9)(n => 9)
