@@ -14,8 +14,8 @@ import scala.collection.mutable.PriorityQueue
  * @param makeNodes function that returns a list of all children for a given
  *        node, as well as the step to get from current node to that child
  * @param heuristic function that analyzes the desirability of the current state
- * @param costs function that return the cost of moving a step from a state  
- * @returns list of steps required to find goal, or Nil if goal was not found
+ * @param costs function that return the cost of moving a step from a state
+ * @return list of steps required to find goal, or Nil if goal was not found
  */
 def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int, costs:(T,S)=>Int):List[S] = {
   // Our fringe will hold nodes and the list of steps to get to that node
@@ -27,11 +27,12 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
   var costOfSolution = 0
   var depth=0
   var generatedNodes = 0
+
   /**
    * Inner function that actually does the searching
    * @param a state
    * @param solution steps required to get from initial to a
-   * @returns list of steps required to find goal, or Nil if goal was not found
+   * @return list of steps required to find goal, or Nil if goal was not found
    */
   def search(a:T, g:Int, d:Int, solution:List[S]):List[S] = {
     iterations += 1
