@@ -27,8 +27,6 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
   var costOfSolution = 0
   var depth=0
   var generatedNodes = 0
-  var start:Long=0
-  var end:Long=0
   /**
    * Inner function that actually does the searching
    * @param a state
@@ -36,7 +34,6 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
    * @returns list of steps required to find goal, or Nil if goal was not found
    */
   def search(a:T, g:Int, d:Int, solution:List[S]):List[S] = {
-    if (a==initial) start=System.currentTimeMillis()
     iterations += 1
     // Find all valid moves from a state, and add them to the fringe
     makeNodes(a).foreach {
@@ -51,7 +48,7 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
       }
     }
     fringe.isEmpty match {                // If the fringe is empty
-      case true => end=System.currentTimeMillis();Nil                  //   No solution found; return Nil
+      case true => Nil                    //   No solution found
       case _    => fringe.dequeue match { // Else dequeue a node
         case (_, a, g, d, solution) => {
           if (a == goal) {                // If this node matches the goal
@@ -66,15 +63,17 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
     }
   }
 
-  val r = search(initial, 0,0, Nil).reverse
-  val eftBranchingFactor = EBF(generatedNodes,depth)   //(branches * 1.0) / iterations
+  val startTime = System.currentTimeMillis()
+  val r = search(initial, 0, 0, Nil).reverse
+  val endTime   = System.currentTimeMillis()
+  val eftBranchingFactor = EBF(generatedNodes, depth)
   if (r!=Nil)
   printf(
     "expanded nodes: %d\teffective branching factor: %.2f\tcost of solution: %d\trunning time: %d\n",
     iterations,
     eftBranchingFactor,
     costOfSolution,
-    end-start
+    endTime-startTime
   )
 
   r
