@@ -4,8 +4,12 @@
     Main method
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
+import heuristics.heuristics
+import astar.Search
+import EBFsolver.EBFsolver
+import utilities.Utility
 
-object Project {
+class Project {
   /**
    * Entry point for our program
    * Takes three command line arguments:
@@ -14,7 +18,7 @@ object Project {
    *   2 - Heuristic to use
    */
   def main(args: Array[String]) = {
-    val s = Utilities.read_board_to_map(args[0])
+    /*val s = Utilities.read_board_to_state("data/test-board.txt")
     val search = args[1] match {
       case "astar" => astar
       case "id"    => astar
@@ -26,8 +30,9 @@ object Project {
       case "NMaxSwap"       => NMaxSwap
       case "nonAdditive"    => nonAdditive
       case _                => throw "Unknown Search"
-    }
+    }*/
 
-    search(s, goalState(3), validMoves, heuristic, costs)
+    //search(s, goalState(3), validMoves, heuristic, costs)
+    println("Ran")
   }
 }
