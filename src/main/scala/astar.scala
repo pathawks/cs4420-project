@@ -18,7 +18,7 @@ import scala.collection.mutable.PriorityQueue
  * @param costs function that return the cost of moving a step from a state
  * @return list of steps required to find goal, or Nil if goal was not found
  */
-class Search {
+object Search {
   def astar[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): List[S] = {
     /**
       * Our fringe will hold nodes and the list of steps to get to that node

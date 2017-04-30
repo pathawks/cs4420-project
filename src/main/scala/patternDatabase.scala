@@ -4,8 +4,9 @@
     Project
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-class project
+package project
 
+import project.Nsquare._
 import java.io._
 import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set

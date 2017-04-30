@@ -13,7 +13,7 @@ import project.Nsquare._
 import util.control.Breaks._
 import scala.math._
 
-class heuristics {
+object heuristics {
   def dummy(t: Any) = {0}
 
   // manhattan distance heuristcs

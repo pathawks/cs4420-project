@@ -5,6 +5,7 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 package project
+import project.Nsquare._
 
 object Project {
   /**
@@ -15,21 +16,23 @@ object Project {
    *   2 - Heuristic to use
    */
   def main(args: Array[String]) = {
-    /*val s = Utilities.read_board_to_state("data/test-board.txt")
-    val search = args[1] match {
-      case "astar" => astar
-      case "id"    => astar
-      case _       => throw "Unknown search"
-    }
-    val heuristic = args[2] match {
-      case "Manhatta"       => Manhatta
-      case "linearConflict" => linearConflict
-      case "NMaxSwap"       => NMaxSwap
-      case "nonAdditive"    => nonAdditive
-      case _                => throw "Unknown Search"
-    }*/
+    var util = new Utility
 
-    //search(s, goalState(3), validMoves, heuristic, costs)
+    val s = util.read_board_to_state("data/test-board.txt")
+    val search = args(1) match {
+      case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => Search.astar(i, g, m, h, c)
+      case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> Search.astar(i, g, m, h, c)
+      //case _       => throw "Unknown search"
+    }
+    val heuristic = args(2) match {
+      case "Manhatta"       => (s: State) => heuristics.manhattan(s)
+      case "linearConflict" => (s: State) => heuristics.linearConflict(s)
+      case "NMaxSwap"       => (s: State) => heuristics.NMaxSwap(s)
+      //case "nonAdditive"    => (s) => heuristics.nonAdditive(s)
+      //case _                => throw "Unknown Search"
+    }
+
+    //search(s, Nsquare.goalState(3), Nsquare.validMoves(s), heuristic, costs)
     println("Ran")
   }
 }
