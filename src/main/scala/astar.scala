@@ -1,7 +1,7 @@
 /*==================================================
     CS:4420 Artificial Intelligence
     Spring 2017
-    Project
+    Search Algorithms
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 
