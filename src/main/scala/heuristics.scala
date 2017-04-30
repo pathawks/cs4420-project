@@ -61,7 +61,7 @@ class heuristics {
   }
 
   // N-MaxSwap heuristics
-  def NMaxSwap(s: Int, tiles: Map[nsquare.Nsquare.Pos, nsquare.Nsquare.Tile]): (Int, Array[Int], Array[Int]) = {
+  def NMaxSwap(s: Int, tiles: Map[nsquare.Nsquare.Pos, nsquare.Nsquare.Tile]): Int = {
     var iter = 0
     var buffer = 0
     var P = Array.tabulate(9)(n => 9)
