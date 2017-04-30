@@ -28,7 +28,7 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
    */
   val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
     Ordering.by((_: (Int, T, Int, Int,List[S]))._1).reverse)
-  var iterations = 0
+  var expandedNodes = 0
   var costOfSolution = 0
   var depth = 0
   var generatedNodes = 0
@@ -40,7 +40,7 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
    * @return list of steps required to find goal, or Nil if goal was not found
    */
   def search(a:T, g:Int, d:Int, solution:List[S]):List[S] = {
-    iterations += 1
+    expandedNodes += 1
     // Find all valid moves from a state, and add them to the fringe
     makeNodes(a).foreach {
       case (a, s) => {
@@ -76,7 +76,7 @@ def astar[T, S] (initial:T, goal:T, makeNodes:T=>List[(T, S)], heuristic:T=>Int,
   if (r!=Nil)
   printf(
     "expanded nodes: %d\teffective branching factor: %.2f\tcost of solution: %d\trunning time: %d\n",
-    iterations,
+    expandedNodes,
     eftBranchingFactor,
     costOfSolution,
     endTime-startTime
