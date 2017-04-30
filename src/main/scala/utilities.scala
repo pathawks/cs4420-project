@@ -11,9 +11,9 @@ package project
 import project.Nsquare._
 import scala.io.Source
 
-class Utility {
+object Utility {
 
-  def read_board_to_state(fName: String): Unit = {
+  def read_board_to_state(fName: String): State = {
     /*
     Function to take a .txt file depicting a n board, and output a mapping
     of the positions to their tiles.

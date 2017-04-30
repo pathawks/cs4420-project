@@ -5,7 +5,9 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 package project
+
 import project.Nsquare._
+import project.Utility._
 
 object Project {
   /**
@@ -16,9 +18,7 @@ object Project {
    *   2 - Heuristic to use
    */
   def main(args: Array[String]) = {
-    var util = new Utility
-
-    val s = util.read_board_to_state("data/test-board.txt")
+    val s = read_board_to_state("data/test-board.txt")
     val search = args(1) match {
       case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => Search.astar(i, g, m, h, c)
       case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> Search.astar(i, g, m, h, c)
