@@ -9,7 +9,6 @@
 // Each coordinate ranges from 1 to n, where n is the n of the puzzle
 // position (1,1) is the top-left position in the board.
 type Pos = (Int, Int)
-
 // a puzzle tile is encoded just as an integers
 type Tile = Int
 
@@ -19,25 +18,24 @@ case class Board( size: Int, tiles: Map[Pos,Tile] ) {
 
   // swap returns a new board idential to this except that
   // the values at positioin p1 and p2 are swapped
-  def swap(p1: Pos, p2: Pos) = {
-    val t1 = (tiles get p1, tiles get p2) match {
+  def swap(p1: Pos, p2: Pos) = {   
+      val t1 = (tiles get p1, tiles get p2) match {
       case (Some(v1), Some(v2)) => tiles + (p1 -> v2) + (p2 -> v1)
       case (Some(v1), None    ) => (tiles - p1) + (p2 -> v1)
       case (None,     Some(v2)) => (tiles - p2) + (p1 -> v2)
-
-        case _                    => tiles
-    }
-    new Board(size, t1)
+      case _                    => tiles
+    };
+      new Board(size, t1)
   }
 
   /* Boards are converted to strings that pring like this:
-  +-------+
+,  +-------+
   | 1 3 2 |
   | 4   7 |
   | 6 8 5 |
   +-------+
   */
-  override def toString = {
+  override def toString = {    
     var b = " +"
     for (i <- 1 to size)
       b = b + "--"
@@ -48,8 +46,7 @@ case class Board( size: Int, tiles: Map[Pos,Tile] ) {
       s = s + " |"
       for (j <- 1 to size)
         tiles get (i,j) match {
-          case None    => s = s + "  "
-          case Some(v) => s = s + " " + v
+          case None    => s = s + "  "          case Some(v) => s = s + " " + v
         }
       s = s + " |\n"
     }
@@ -68,11 +65,10 @@ case class State(board: Board, emptyPos: Pos) {
     +-------+
     (2,2)
   */
-  def toBoard(cur:State): (Int,Map[Pos,Tile])={
-    cur match{
-    case State(b,e)=> b match{
-    case Board(s,t)=> (s,t) 
-  }}}
+  def toBoard(): (Int,Map[Pos,Tile])={
+   board match{
+   case Board(s,t)=> (s,t)}
+  }
     
   override def toString = board.toString + " " + emptyPos + "\n"
 }
