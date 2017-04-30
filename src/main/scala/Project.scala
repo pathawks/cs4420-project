@@ -5,7 +5,7 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
 
-object HelloWorld {
+object Project {
   /**
    * Entry point for our program
    * Takes three command line arguments:
