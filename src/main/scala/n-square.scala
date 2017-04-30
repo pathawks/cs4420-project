@@ -158,11 +158,6 @@ def execute(s: State, p: Plan): State = {
   }
 }
 
-def toBoard(cur:State): (Int,Map[Pos,Tile])={
-  cur match{
-  case State(b,e)=> b match{
-  case Board(s,t)=> (s,t) }}}
-
 /**
  * Find a List of all States that are one Operator away from a given State s
  * This is used as our makeNodes function for A*
