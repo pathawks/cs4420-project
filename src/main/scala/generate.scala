@@ -4,7 +4,7 @@
     Project
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-
+/*
 import java.io._
 
 import scala.collection.mutable.PriorityQueue
@@ -67,3 +67,4 @@ def generate[T, S] (initial:T, makeNodes:T=>List[(T, S)]):Unit = {
   search(initial, 0)
   println("\n\n\nNumber seen: " + numSeen + "\nMax cost: " + max)
 }
+*/
