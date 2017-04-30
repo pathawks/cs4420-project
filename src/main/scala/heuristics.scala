@@ -14,12 +14,10 @@ import util.control.Breaks._
 import scala.math._
 
 class heuristics {
-  def dummy(t: Any) = {
-    0
-  }
+  def dummy(t: Any) = {0}
 
-  // Manhatta distance heuristcs
-  def Manhatta(s: State): Int = {
+  // manhattan distance heuristcs
+  def manhattan(s: State): Int = {
     val State(Board(size, tiles), _) = s
     var sum = 0
     for (pair <- tiles) {
@@ -36,7 +34,7 @@ class heuristics {
   // Linear-conflict heuristics
   def linearConflict(s: State): Int = {
     val State(Board(size, tiles), _) = s
-    var sum = Manhatta(s)
+    var sum = manhattan(s)
 
     def pos(pair: ((Int, Int), Int)) = {
       val ((r, c), t) = pair;
