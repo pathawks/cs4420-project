@@ -1,10 +1,28 @@
 
+/*==================================================
+
+    CS:4420 Artificial Intelligence
+    Spring 2017
+    Project
+    Name: Pat Hawks, Ryan Larson, Rui Yang
+
+  ==================================================*/
+
+package project
+
+import project.Nsquare._
+import java.io._
+import scala.collection.mutable.PriorityQueue
+import scala.collection.mutable.Set
+
+class disjointPatternDatabase {
+  
   var updb:Map[IndexedSeq[Any],Int]=Map()
   var dpdb:Map[IndexedSeq[Any],Int]=Map()
   var lpdb:Map[IndexedSeq[Any],Int]=Map()
   var rpdb:Map[IndexedSeq[Any],Int]=Map()
 
-   def patternDPDB(s:State, vertical: Boolean): (IndexedSeq[Any], IndexedSeq[Any])={
+  def patternDPDB(s:State, vertical: Boolean): (IndexedSeq[Any], IndexedSeq[Any])={
      var tiles:Map[Pos,Tile]= Map()
      var tiles2:Map[Pos,Tile]= Map()
      var upLeft:List[Int]= List()
@@ -26,7 +44,7 @@
               (State(Board(size,tiles), e).toBytes().deep, State(Board(size,tiles2), e).toBytes().deep)
    }}}}
 
-def getDPDB(initial:State, makeNodes: (State,List[Int],List[Int]) =>List[(State,Operator,Boolean,Boolean)],maxCost:(Int,Int,Int,Int), mode:Int):Unit = {
+ def getDPDB(initial:State, makeNodes: (State,List[Int],List[Int]) =>List[(State,Operator,Boolean,Boolean)],maxCost:(Int,Int,Int,Int), mode:Int):Unit = {
   def order(p:((Int,Int,Int,Int), State)):Int=p._1._1+ p._1._2+p._1._3+p._1._4
   val fringe = PriorityQueue.empty[((Int,Int,Int,Int), State)](
     Ordering.by(order).reverse)
@@ -91,9 +109,9 @@ def getDPDB(initial:State, makeNodes: (State,List[Int],List[Int]) =>List[(State,
   println("down"+dpdb.size)
   println("left"+lpdb.size)
   println("right"+rpdb.size)
- // println( “Fringe pattern database”)
+ // println( â€œFringe pattern databaseâ€)
  // for (i<- fpdb) {println(i._1) ;println(i._2) }
- // println( “Corner pattern database”)
+ // println( â€œCorner pattern databaseâ€)
  // for (i<- cpdb) {println(i._1) ;println(i._2) }
 }
 
@@ -114,4 +132,7 @@ def disjointPDB(s:State, mode:Int, move:Int):Int={
     if (heuristics < sum) heuristics= sum
   }
   heuristics
-}  
+ }  
+
+}
+
