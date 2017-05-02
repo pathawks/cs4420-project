@@ -65,12 +65,12 @@ object heuristics {
 
   // N-MaxSwap heuristics
   def NMaxSwap(s: State): Int = {
-    val State(Board(_, tiles), _) = s
+    val State(Board(size, _) = s
     var iter = 0
     var buffer = 0
-    var P = Array.tabulate(9)(n => 9)
-    var B = Array.tabulate(9)(n => 0)
-
+    var P = Array.tabulate(size*size)(n=>size*size)
+    var B = Array.tabulate(size*size)(n => 0)
+    
     def swap(a: Int, b: Int) = {
       if (a != b) {
         iter += 1
@@ -84,17 +84,17 @@ object heuristics {
     }
 
     for (pair <- tiles) {
-      val index = (pair._1._1 - 1) * 3 + pair._1._2 - 1
+      val index = (pair._1._1 - 1) * size + pair._1._2-1
       val n = pair._2
       P(index) = n; B(n - 1) = index
     }
-    B(8) = P.indexOf(9)
-    while (P(8) != 9) {
-      swap(B(8), B(B(8)))
+    B(size*size-1) = P.indexOf(size*size)
+    while (P(size*size-1) != size*size) {
+      swap(B(size*size-1), B(B(size*size-1)))
     }
     val unsort = P.filter(n => n != P.apply(n - 1))
     for (e <- unsort) {
-      swap(e - 1, B(8)); swap(B(e - 1), e - 1)
+      swap(e - 1, B(size*size-1)); swap(B(e - 1), e - 1)
     }
     iter
   }
