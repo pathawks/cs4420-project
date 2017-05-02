@@ -18,7 +18,15 @@ import project.Utility._
  *   2 - Heuristic to use
  */
 object Main extends App {
-  val s = read_board_to_state("data/test-board.txt")
+  val inFile = args(0)
+  try {
+    val s = read_board_to_state(inFile)
+  } catch {
+    case _ : Throwable => {
+      println("File '" + inFile + "' cannot be opened")
+      System.exit(-1)
+    }
+  }
   val search = args(1) match {
     case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => astar(i, g, m, h, c)
     case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
