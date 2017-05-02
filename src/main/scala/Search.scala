@@ -83,7 +83,7 @@ object Search {
       }
       case Some(r) => {
         printf(
-          "%d, %.2f, %d, %d\n",
+          "%5d, %.2f, %5d, %5d\n",
           expandedNodes,
           eftBranchingFactor,
           costOfSolution,
