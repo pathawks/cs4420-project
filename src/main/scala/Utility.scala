@@ -25,7 +25,7 @@ object Utility {
     */
 
     val file_lines = Source.fromFile(fName).getLines.toList
-    val n_size_board = file_lines.length
+    val n_size_board = file_lines(0).trim.split(" ").length
 
     var tiles:Map[Pos, Tile] = Map()
     var emptyTile: (Int, Int) = (0,0)
