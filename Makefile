@@ -1,10 +1,7 @@
-all: build jar
+all: build
 
 build:
-	scalac src/main/scala/*.scala
-
-jar:
-	jar cfm Project.jar manifest.mf  -C src/main/scala/project/ .
+	scalac src/main/scala/*.scala -d Project.jar
 
 clean:
 	rm -f src/main/scala/*.class

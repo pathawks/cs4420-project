@@ -4,9 +4,10 @@
     Main method
     Name: Pat Hawks, Ryan Larson, Rui Yang
   ==================================================*/
-package project
 
+import project.heuristics._
 import project.Nsquare._
+import project.Search._
 import project.Utility._
 
 /**
@@ -19,15 +20,15 @@ import project.Utility._
 object Main extends App {
   val s = read_board_to_state("data/test-board.txt")
   val search = args(1) match {
-    case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => Search.astar(i, g, m, h, c)
-    case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> Search.astar(i, g, m, h, c)
+    case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => astar(i, g, m, h, c)
+    case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
     //case _       => throw "Unknown search"
   }
   val heuristic = args(2) match {
-    case "Manhatta"       => (s: State) => heuristics.manhattan(s)
-    case "linearConflict" => (s: State) => heuristics.linearConflict(s)
-    case "NMaxSwap"       => (s: State) => heuristics.NMaxSwap(s)
-    //case "nonAdditive"    => (s) => heuristics.nonAdditive(s)
+    case "Manhatta"       => (s: State) => manhattan(s)
+    case "linearConflict" => (s: State) => linearConflict(s)
+    case "NMaxSwap"       => (s: State) => NMaxSwap(s)
+    //case "nonAdditive"    => (s) => nonAdditive(s)
     //case _                => throw "Unknown Search"
   }
 
