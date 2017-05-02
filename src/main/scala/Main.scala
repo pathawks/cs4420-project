@@ -23,7 +23,7 @@ object Main extends App {
   val s: State = try {
     read_board_to_state(inFile)
   } catch {
-    case _ : Throwable => {
+    case _ : java.io.FileNotFoundException => {
       println("File '" + inFile + "' cannot be opened")
       System.exit(-1)
       goalState(0)
@@ -35,6 +35,7 @@ object Main extends App {
     case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
     //case _       => throw "Unknown search"
   }
+
   val heuristic = args(2) match {
     case "Manhatta"       => (s: State) => manhattan(s)
     case "linearConflict" => (s: State) => linearConflict(s)
