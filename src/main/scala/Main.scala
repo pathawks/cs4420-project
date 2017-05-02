@@ -38,6 +38,7 @@ object Main extends App {
   }
 
   val heuristic : State=>Int = args(2) match {
+    case "dummy"                => dummy
     case "manhattan"            => manhattan
     case "linearConflict"       => linearConflict
     case "NMaxSwap"             => NMaxSwap
