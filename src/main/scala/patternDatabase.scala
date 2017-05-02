@@ -12,30 +12,33 @@ import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
 class PatternDatabase {
-  var fpdb: Map[State, Int] = Map() // Fringe Pattern Database
-  var cpdb: Map[State, Int] = Map() // Corner Pattern Database
+  var fpdb:Map[IndexedSeq[Any],Int]=Map()  // Fringe Pattern Database
+  var cpdb:Map[IndexedSeq[Any],Int]=Map()  // Corner Pattern Database
 
   // Generate above Pattern Databases
-  def getNAPDB(initial: State, makeNodes: State => List[(State, Operator)], maxCost: Int): Unit = {
+  def getNAPDB(initial: State, makeNodes: State => List[(State, Operator)], maxCost: Int, mode:Int): Unit = {
     val fringe = PriorityQueue.empty[(Int, State)](
       Ordering.by((_: (Int, State))._1).reverse)
     val seen = Set[State]()
 
-    def search(a: State, g: Int): Unit = {
-      val fp = pattern(a, true)
-      if (!(fpdb contains fp))
-        fpdb = fpdb + (fp -> g)
-      else {
-        if (fpdb(fp) > g)
+    def search(a: State, g: Int, mode:Int): Unit = {
+      if (mode==0 |mode==2){
+        val fp = pattern(a, true)
+        if (!(fpdb contains fp))
           fpdb = fpdb + (fp -> g)
+        else {
+          if (fpdb(fp) > g)
+            fpdb = fpdb + (fp -> g)
+        }
       }
-
-      val cp = pattern(a, false)
-      if (!(cpdb contains cp))
-        cpdb = cpdb + (cp -> g)
-      else {
-        if (cpdb(cp) > g)
+      if (mode==0 |mode==2){
+        val cp = pattern(a, false)
+        if (!(cpdb contains cp))
           cpdb = cpdb + (cp -> g)
+        else {
+          if (cpdb(cp) > g)
+            cpdb = cpdb + (cp -> g)
+        }
       }
 
       // Find all valid moves from a state, and add them to the fringe
@@ -70,7 +73,7 @@ class PatternDatabase {
   }
 
   // Generate either fringe or corner pattern for input state
-  def pattern(s: State, fringe: Boolean): State = {
+  def pattern(s: State, fringe: Boolean): IndexedSeq[Any] = {
     var ptiles: Map[Pos, Tile] = Map()
     var sub: List[Int] = List()
     s match {
@@ -78,7 +81,7 @@ class PatternDatabase {
         case Board(size, t) => {
           if (fringe) {
             sub = List.tabulate(2 * size - 1)(n => {
-              if (n < size) n + 1 else (n - 2) * size + 1
+              if (n < size) n + 1 else (n - size + 1) * size + 1
             })
           }
           else {
@@ -95,7 +98,7 @@ class PatternDatabase {
               }
             }
           }
-          State(Board(size, ptiles), e)
+          State(Board(size, ptiles), e).toBytes2(),deep
         }
       }
     }
@@ -105,15 +108,19 @@ class PatternDatabase {
   // Three modes 1:fringe 2.corner 3.max(fringe,corner)
   def nonAdditive(s: State, mode: Int): Int = {
     var heuristics = 0;
+    val (size,_)=s.toBoard()
+    if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) { 
+      getNAPDB(goalState(size),validMoves,30,mode) }
+    if (mode==2 & (fpdb.size==0 | cpdb.size==0)) {
+      getNAPDB(goalState(size), validMoves, 30, mode) }
     if (mode == 0 | mode == 2) {
       val p = pattern(s, true);
       heuristics += fpdb(p);
-      if (mode == 0) heuristics
     }
     if (mode == 1 | mode == 2) {
       val p2 = pattern(s, false);
       heuristics += cpdb(p2);
-      if (mode == 1) heuristics
+      if (heuristics < cpdb(p2)) heuristics= cpdb(p2)
     }
     heuristics
   }
