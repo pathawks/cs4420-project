@@ -75,12 +75,12 @@ class PatternDatabase {
       fringe.isEmpty match { // If the fringe queue is empty
         case true => () //   No solution found; return Nil
         case _ => fringe.dequeue match { // Else dequeue a node
-          case (g, a) => if (g <= maxCost) search(a, g) // search its children 
+          case (g, a) => if (g <= maxCost) search(a, g, mode) // search its children
         }
       }
     }
 
-    search(initial, 0)
+    search(initial, 0, mode)
 
     /*println( “Fringe pattern database”)
   for (i<- fpdb) {
@@ -136,13 +136,13 @@ class PatternDatabase {
   // Three modes 1:fringe 2.corner 3.max(fringe,corner)
   def nonAdditive(s: State, mode: Int): Int = {
     var heuristics = 0;
-    val (size,_)=s.toBoard()
+    val State(Board(size,tiles),_)=s
     // if fringe or corner database is empty, then generate corresponding one.
     if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) { 
       getNAPDB(goalState(size),validMoves,30,mode) }
     // to calculate max heuristics between fringe and corner pettern database, generate both of them.
     if (mode==2 & (fpdb.size==0 | cpdb.size==0)) {
-      getNAPDB(goalState(size), validMoves, 30, mode) }
+      getNAPDB(goalState(size),validMoves, 30, mode) }
     if (mode == 0 | mode == 2) {
       // get fringe pattern and its heuristic cost from the fpdb map
       val p = pattern(s, true);

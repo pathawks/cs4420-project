@@ -79,7 +79,17 @@ object Nsquare {
     +-------+
     (2,2)
    */
-    override def toString = board.toString + " " + emptyPos + "\n"
+    override def toString = board.toString() + " " + emptyPos + "\n"
+
+    /*
+    def toBoard(): (Int, Map[Pos, Tile]) = {
+      cur match {
+        case State(b, e) => b match {
+          case Board(s, t) => (s, t)
+        }
+      }
+    }
+    */
     // states are converted into bytes array of board without empty position, for non-addivtive pattern databases
     def toBytes() = board.toBytes() 
     // states are converted into bytes array of board followed by the empty position, for disjoint pattern databases
@@ -262,13 +272,6 @@ case object DownDPDB extends Operator {
     }
   }
 
-  def toBoard(cur: State): (Int, Map[Pos, Tile]) = {
-    cur match {
-      case State(b, e) => b match {
-        case Board(s, t) => (s, t)
-      }
-    }
-  }
 
   /**
     * Find a List of all States that are one Operator away from a given State s
