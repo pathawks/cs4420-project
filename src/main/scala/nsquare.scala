@@ -30,7 +30,7 @@ object Nsquare {
       }
       new Board(size, t1)
     }
-    
+   // convert the board contents into byte array   
    def toBytes():Array[Byte]= {   
      var s:Array[Byte]=Array()
       for (i <- 1 to size) {
@@ -42,7 +42,7 @@ object Nsquare {
      }
     s
    }
-    /* Boards are converted to strings that pring like this:
+  /* Boards are converted to strings that pring like this:
   +-------+
   | 1 3 2 |
   | 4   7 |
@@ -54,7 +54,6 @@ object Nsquare {
       for (i <- 1 to size)
         b = b + "--"
       b = b + "-+\n"
-
       var s = b
       for (i <- 1 to size) {
         s = s + " |"
@@ -64,8 +63,7 @@ object Nsquare {
             case Some(v) => s = s + " " + v
           }
         s = s + " |\n"
-      }
-      s + b
+      }      s + b
     }
   }
 
@@ -79,9 +77,11 @@ object Nsquare {
     | 6 8 5 |
     +-------+
     (2,2)
-  */
+   */
     override def toString = board.toString + " " + emptyPos + "\n"
+    // states are converted into bytes array of board without empty position, for non-addivtive pattern databases
     def toBytes() = board.toBytes() 
+    // states are converted into bytes array of board followed by the empty position, for disjoint pattern databases
     def toBytes2() = board.toBytes() ++ Array(emptyPos._1.toByte) ++ Array(emptyPos._2.toByte)
   }
 
@@ -97,12 +97,19 @@ object Nsquare {
     State(Board(n, m - lastPos), lastPos)
   }
 
-  /*
-Operators in for the n-puzzle problem are encoded as singleton subclasses (objects)
-of the abstract class Operator.
+ /*
+ Operators in for the n-puzzle problem are encoded as singleton subclasses (objects)
+ of the abstract class Operator.
 */
   abstract class Operator {
     def apply(s: State): Option[State]
+    /** moving tiles operation that used for generating disjoint pattern databases, 
+      * check if this moves a tile in specific partition.  
+      * @param s State to search
+      * @param list1 tiles in 'up' area of solution puzzle in horizatal partition
+      * @param list2 tiles in 'left' area of solution puzzle in vertical partition
+      * retrun a list of new states, operator, if the tile moved in up area, if the tile moved in left area
+      */
     def apply(s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)]
   }
 
@@ -128,8 +135,7 @@ of the abstract class Operator.
         case State(b, (r, c)) => {
           val ep = (r, c + 1)
           Some(State(b.swap((r, c), ep), ep))
-        }
-      }
+        }      }
     override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
 
@@ -140,15 +146,13 @@ of the abstract class Operator.
       s match {
         case State(_, (1, _)) => None
         case State(b, (r, c)) => {
-
           val ep = (r - 1, c)
           Some(State(b.swap((r, c), ep), ep))
         }
       }
     override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
-val (inup,inleft)=(list1 contains tile, list2 contains tile)
-      Some( State(b.swap((r, c), ep), ep),inup,inleft)
+
   // Down operator
   case object Down extends Operator {
     // the apply method returns
@@ -163,6 +167,7 @@ val (inup,inleft)=(list1 contains tile, list2 contains tile)
     override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
     
+  // left move operator used in disjoint pattern database generation
   case object LeftDPDB extends Operator {
     override def apply(s: State): Option[State]=None
     override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
@@ -181,6 +186,7 @@ val (inup,inleft)=(list1 contains tile, list2 contains tile)
       }
   }
     
+// right move operator used in disjoint pattern database generation    
 case object RightDPDB extends Operator {
   override def apply(s: State): Option[State]=None
   // the apply method returns
@@ -198,7 +204,7 @@ case object RightDPDB extends Operator {
   }}
 }
 
-// Up operator
+// up move operator used in disjoint pattern database generation
 case object UpDPDB extends Operator {
   // the apply method returns
   override def apply(s: State): Option[State]=None
@@ -218,7 +224,7 @@ case object UpDPDB extends Operator {
     }
   }
     
-// Down operator
+// down move operator used in disjoint pattern database generation
 case object DownDPDB extends Operator {
   // the apply method returns
   override def apply(s: State): Option[State]=None
@@ -236,7 +242,8 @@ case object DownDPDB extends Operator {
         }
       }
     }
-  }
+
+}
     
   type Plan = List[Operator]
 
@@ -264,7 +271,7 @@ case object DownDPDB extends Operator {
 
   /**
     * Find a List of all States that are one Operator away from a given State s
-    * This is used as our makeNodes function for A*
+    * This is used as our makeNodes function for A* and the generation of non-additive pattern databases 
     *
     * @param s State to search
     * @return List of States reachable from current state, and the Operator that
@@ -278,6 +285,15 @@ case object DownDPDB extends Operator {
     })
   }
     
+  /** 
+    * Find a list of valid new states, corresponding operator from a given state s
+    * This is used as our makeNodes function for generation of disjoint pattern databases 
+    *
+    * @param s State to search
+    * @param list1 tiles in 'up' area of solution puzzle in horizatal partition
+    * @param list2 tiles in 'left' area of solution puzzle in vertical partition
+    * retrun a list of new states, operator, if the tile moved in up area, if the tile moved in left area
+    */
   def validMovesDPDB(s: State, list1:List[Int],list2:List[Int]): List[(State,Operator,Boolean,Boolean)] = {
     val moves = List(UpDPDB, DownDPDB, LeftDPDB, RightDPDB)
     moves.foldLeft(Nil:List[(State, Operator, Boolean,Boolean)])( (l, op) => op(s,list1,list2) match {
