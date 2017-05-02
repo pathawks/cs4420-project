@@ -28,7 +28,12 @@ object Project {
       case "Manhatta"       => (s: State) => heuristics.manhattan(s)
       case "linearConflict" => (s: State) => heuristics.linearConflict(s)
       case "NMaxSwap"       => (s: State) => heuristics.NMaxSwap(s)
-      //case "nonAdditive"    => (s) => heuristics.nonAdditive(s)
+      case "nonAdditiveFringe"    => (s:State) => patternDatabase.nonAdditivePDB(s,0)
+      case "nonAdditiveCorner"    => (s:State) => patternDatabase.nonAdditivePDB(s,1)
+      case "nonAdditiveMax"    => (s:State) => patternDatabase.nonAdditivePDB(s,2)
+      case "disjointVertical"    => (s:State) => disjointPatternDatabase.disjointPDB(s,0)
+      case "disjointHorizontal"    => (s:State) => disjointPatternDatabase.disjointPDB(s,1)
+      case "disjointMax"    => (s:State) => disjointPatternDatabase.disjointPDB(s,2)
       //case _                => throw "Unknown Search"
     }
 
