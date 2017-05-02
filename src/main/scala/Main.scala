@@ -51,6 +51,8 @@ object Main extends App {
     //case _                => throw "Unknown Search"
   }
 
-  search_algo(s, goalState(3), validMoves, heuristic, cost)
+  val State(Board(size, _), _) = s
+
+  search_algo(s, goalState(size), validMoves, heuristic, cost)
 
 }
