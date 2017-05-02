@@ -19,7 +19,7 @@ import scala.collection.mutable.PriorityQueue
  * @return list of steps required to find goal, or Nil if goal was not found
  */
 object Search {
-  def astar[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): List[S] = {
+  def astar[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): Option[List[S]] = {
     /**
       * Our fringe will hold nodes and the list of steps to get to that node
       * We are keeping track of:
@@ -42,30 +42,30 @@ object Search {
       * @param solution steps required to get from initial to a
       * @return list of steps required to find goal, or Nil if goal was not found
       */
-    def search(a: T, g: Int, d: Int, solution: List[S]): List[S] = {
-      expandedNodes += 1
-      // Find all valid moves from a state, and add them to the fringe
-      makeNodes(a).foreach {
-        case (a, s) => {
-          generatedNodes += 1
-          val hScore = heuristic(a)
-          val score = g + hScore
-          val cost = g + costs(a, s)
-          val newSolution = s :: solution
-          val node = (score, a, cost, d + 1, newSolution)
-          fringe += node
+    def search(a: T, g: Int, d: Int, solution: List[S]): Option[List[S]] = {
+      if (a == goal) {
+        costOfSolution = g
+        depth = d
+        Some(solution)
+      } else {
+        expandedNodes += 1
+        // Find all valid moves from a state, and add them to the fringe
+        makeNodes(a).foreach {
+          case (a, s) => {
+            generatedNodes += 1
+            val hScore = heuristic(a)
+            val score = g + hScore
+            val cost = g + costs(a, s)
+            val newSolution = s :: solution
+            val node = (score, a, cost, d + 1, newSolution)
+            fringe += node
+          }
         }
-      }
-      fringe.isEmpty match { // If the fringe is empty
-        case true => Nil //   No solution found
-        case _ => fringe.dequeue match { // Else dequeue a node
-          case (_, a, g, d, solution) => {
-            if (a == goal) { // If this node matches the goal
-              costOfSolution = g
-              depth = d
-              solution //   we have found a solution
-            } else { // Else
-              search(a, g, d, solution) //   search its children
+        fringe.isEmpty match {             // If the fringe is empty
+          case true => None                //   No solution found
+          case _ => fringe.dequeue match { // Else dequeue a node
+            case (_, a, g, d, solution) => {
+              search(a, g, d, solution)    //   search its children
             }
           }
         }
@@ -73,19 +73,24 @@ object Search {
     }
 
     val startTime = System.currentTimeMillis()
-    val r = search(initial, 0, 0, Nil).reverse
+    val result = search(initial, 0, 0, Nil)
     val endTime = System.currentTimeMillis()
     // val eftBranchingFactor = EBF(generatedNodes, depth)
     val eftBranchingFactor = 0.0
-    if (r != Nil)
-      printf(
-        "%d, %.2f, %d, %d\n",
-        expandedNodes,
-        eftBranchingFactor,
-        costOfSolution,
-        endTime - startTime
-      )
-
-    r
+    result match {
+      case None    => {
+        printf("-, -, -, -\n"); None
+      }
+      case Some(r) => {
+        printf(
+          "%d, %.2f, %d, %d\n",
+          expandedNodes,
+          eftBranchingFactor,
+          costOfSolution,
+          endTime - startTime
+        )
+        Some(r.reverse)
+      }
+    }
   }
 }
