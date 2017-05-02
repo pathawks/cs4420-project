@@ -30,7 +30,18 @@ object Nsquare {
       }
       new Board(size, t1)
     }
-
+    
+   def toBytes():Array[Byte]= {   
+     var s:Array[Byte]=Array()
+      for (i <- 1 to size) {
+        for (j <- 1 to size){
+          tiles get (i,j) match {
+            case None    => s ++= Array(' '.toByte)       
+            case Some(v) => s ++= Array(v.toByte)}
+       }
+     }
+    s
+   }
     /* Boards are converted to strings that pring like this:
   +-------+
   | 1 3 2 |
@@ -70,6 +81,8 @@ object Nsquare {
     (2,2)
   */
     override def toString = board.toString + " " + emptyPos + "\n"
+    def toBytes() = board.toBytes() 
+    def toBytes2() = board.toBytes() ++ Array(emptyPos._1.toByte) ++ Array(emptyPos._2.toByte)
   }
 
   // given n > 0, goalState generates a state with a board whose
@@ -90,6 +103,7 @@ of the abstract class Operator.
 */
   abstract class Operator {
     def apply(s: State): Option[State]
+    def apply(s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)]
   }
 
   // Left operator
@@ -103,6 +117,7 @@ of the abstract class Operator.
           Some(State(b.swap((r, c), ep), ep))
         }
       }
+    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
 
   case object Right extends Operator {
@@ -115,6 +130,7 @@ of the abstract class Operator.
           Some(State(b.swap((r, c), ep), ep))
         }
       }
+    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
 
   // Up operator
@@ -129,6 +145,7 @@ of the abstract class Operator.
           Some(State(b.swap((r, c), ep), ep))
         }
       }
+    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
 
   // Down operator
@@ -142,8 +159,104 @@ of the abstract class Operator.
           Some(State(b.swap((r, c), ep), ep))
         }
       }
+    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
+    
+  case object LeftDPDB extends Operator {
+    override def apply(s: State): Option[State]=None
+    override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+      s match {
+        case State(_, (_, 1)) => None
+        case State(b, (r, c)) => {
+          val ep = (r, c - 1)
+          b match {
+            case Board(size,tiles)=> {
+              val tile= tiles(ep)
+              if ((list1 contains tile) & (list2 contains tile)){
+                Some( State(b.swap((r, c), ep), ep) ,true,true)}
+              else if ((list1 contains tile) & (!(list2 contains tile))){
+                Some( State(b.swap((r, c), ep), ep) ,true,false)}
+              else if (!(list1 contains tile) & (list2 contains tile)){
+                Some( State(b.swap((r, c), ep), ep),false,true)}
+              else { Some( State(b.swap((r, c), ep), ep),false,false)}
+            }
+          }
+        }
+      }
+  }
+    
+case object RightDPDB extends Operator {
+  override def apply(s: State): Option[State]=None
+  // the apply method returns
+  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+    s match {
+      case State(_, (_, c)) if c == s.board.size => None
+      case State(b, (r, c)) => {
+        val ep = (r, c + 1)
+        b match {
+          case Board(size,tiles)=> {
+            val tile= tiles(ep)
+            if ((list1 contains tile) & (list2 contains tile)) {
+              Some( State(b.swap((r, c), ep), ep) ,true,true)}
+            else if ((list1 contains tile) & (!(list2 contains tile))) {
+              Some( State(b.swap((r, c), ep), ep) ,true,false)}
+            else if (!(list1 contains tile) & (list2 contains tile)) {
+              Some( State(b.swap((r, c), ep), ep),false,true)}
+            else { Some( State(b.swap((r, c), ep), ep),false,false)}
+    }}
+  }}
+}
 
+// Up operator
+case object UpDPDB extends Operator {
+  // the apply method returns
+  override def apply(s: State): Option[State]=None
+  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+    s match {
+      case State(_, (1, _)) => None
+      case State(b, (r, c)) => {
+        val ep = (r - 1, c)
+        b match {
+          case Board(size,tiles)=> {
+            val tile= tiles(ep)
+            if ((list1 contains tile) & (list2 contains tile)){
+              Some( State(b.swap((r, c), ep), ep) ,true,true)}
+            else if ((list1 contains tile) & (!(list2 contains tile))){
+              Some( State(b.swap((r, c), ep), ep) ,true,false)}
+            else if (!(list1 contains tile) & (list2 contains tile)){
+              Some( State(b.swap((r, c), ep), ep),false,true)}
+            else {Some( State(b.swap((r, c), ep), ep),false,false)}
+          }
+        }
+      }
+    }
+  }
+    
+// Down operator
+case object DownDPDB extends Operator {
+  // the apply method returns
+  override def apply(s: State): Option[State]=None
+  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+    s match {
+      case State(_, (r, _)) if r == s.board.size => None
+      case State(b, (r, c)) => {
+        val ep = (r + 1, c)
+        b match {
+          case Board(size,tiles)=> {
+            val tile= tiles(ep)
+            if ((list1 contains tile) & (list2 contains tile)){
+              Some( State(b.swap((r, c), ep), ep) ,true,true)}
+            else if ((list1 contains tile) & (!(list2 contains tile))){
+              Some( State(b.swap((r, c), ep), ep) ,true,false)}
+            else if (!(list1 contains tile) & (list2 contains tile)){
+              Some( State(b.swap((r, c), ep), ep),false,true)}
+            else {Some( State(b.swap((r, c), ep), ep),false,false)}
+          }
+        }
+      }
+    }
+  }
+    
   type Plan = List[Operator]
 
   // given a state s and a plan p, attempt to execute p starting with s.
@@ -180,6 +293,14 @@ of the abstract class Operator.
     val moves = List(Up, Down, Left, Right)
     moves.foldLeft(Nil: List[(State, Operator)])((l, op) => op(s) match {
       case Some(s1) => (s1, op) :: l
+      case None => l
+    })
+  }
+    
+  def validMovesDPDB(s: State, list1:List[Int],list2:List[Int]): List[(State,Operator,Boolean,Boolean)] = {
+    val moves = List(UpDPDB, DownDPDB, LeftDPDB, RightDPDB)
+    moves.foldLeft(Nil:List[(State, Operator, Boolean,Boolean)])( (l, op) => op(s,list1,list2) match {
+      case Some((s1,inup, inleft)) => (s1, op,inup,inleft) :: l
       case None => l
     })
   }
