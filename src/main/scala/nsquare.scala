@@ -147,7 +147,8 @@ of the abstract class Operator.
       }
     override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
   }
-
+val (inup,inleft)=(list1 contains tile, list2 contains tile)
+      Some( State(b.swap((r, c), ep), ep),inup,inleft)
   // Down operator
   case object Down extends Operator {
     // the apply method returns
@@ -172,13 +173,8 @@ of the abstract class Operator.
           b match {
             case Board(size,tiles)=> {
               val tile= tiles(ep)
-              if ((list1 contains tile) & (list2 contains tile)){
-                Some( State(b.swap((r, c), ep), ep) ,true,true)}
-              else if ((list1 contains tile) & (!(list2 contains tile))){
-                Some( State(b.swap((r, c), ep), ep) ,true,false)}
-              else if (!(list1 contains tile) & (list2 contains tile)){
-                Some( State(b.swap((r, c), ep), ep),false,true)}
-              else { Some( State(b.swap((r, c), ep), ep),false,false)}
+              val (inup,inleft)=(list1 contains tile, list2 contains tile)
+              Some( State(b.swap((r, c), ep), ep),inup,inleft)
             }
           }
         }
@@ -196,13 +192,8 @@ case object RightDPDB extends Operator {
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
-            if ((list1 contains tile) & (list2 contains tile)) {
-              Some( State(b.swap((r, c), ep), ep) ,true,true)}
-            else if ((list1 contains tile) & (!(list2 contains tile))) {
-              Some( State(b.swap((r, c), ep), ep) ,true,false)}
-            else if (!(list1 contains tile) & (list2 contains tile)) {
-              Some( State(b.swap((r, c), ep), ep),false,true)}
-            else { Some( State(b.swap((r, c), ep), ep),false,false)}
+            val (inup,inleft)=(list1 contains tile, list2 contains tile)
+            Some( State(b.swap((r, c), ep), ep),inup,inleft)
     }}
   }}
 }
@@ -219,13 +210,8 @@ case object UpDPDB extends Operator {
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
-            if ((list1 contains tile) & (list2 contains tile)){
-              Some( State(b.swap((r, c), ep), ep) ,true,true)}
-            else if ((list1 contains tile) & (!(list2 contains tile))){
-              Some( State(b.swap((r, c), ep), ep) ,true,false)}
-            else if (!(list1 contains tile) & (list2 contains tile)){
-              Some( State(b.swap((r, c), ep), ep),false,true)}
-            else {Some( State(b.swap((r, c), ep), ep),false,false)}
+            val (inup,inleft)=(list1 contains tile, list2 contains tile)
+            Some( State(b.swap((r, c), ep), ep),inup,inleft)
           }
         }
       }
@@ -244,13 +230,8 @@ case object DownDPDB extends Operator {
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
-            if ((list1 contains tile) & (list2 contains tile)){
-              Some( State(b.swap((r, c), ep), ep) ,true,true)}
-            else if ((list1 contains tile) & (!(list2 contains tile))){
-              Some( State(b.swap((r, c), ep), ep) ,true,false)}
-            else if (!(list1 contains tile) & (list2 contains tile)){
-              Some( State(b.swap((r, c), ep), ep),false,true)}
-            else {Some( State(b.swap((r, c), ep), ep),false,false)}
+            val (inup,inleft)=(list1 contains tile, list2 contains tile)
+            Some( State(b.swap((r, c), ep), ep),inup,inleft)
           }
         }
       }
