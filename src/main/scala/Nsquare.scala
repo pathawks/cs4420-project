@@ -10,14 +10,14 @@ object Nsquare {
   // A position on the puzzle boad is encoded just as a pair of integers
   // Each coordinate ranges from 1 to n, where n is the n of the puzzle
   // position (1,1) is the top-left position in the board.
-  type Pos = (Int, Int)
+  type Pos = (Byte, Byte)
 
   // a puzzle tile is encoded just as an integers
-  type Tile = Int
+  type Tile = Byte
 
   // A board is encoded as a case class where the the cells are stored
   // in an immutable map from position to tiles
-  case class Board(size: Int, tiles: Map[Pos, Tile]) {
+  case class Board(size: Byte, tiles: Map[Pos, Tile]) {
 
     // swap returns a new board idential to this except that
     // the values at positioin p1 and p2 are swapped
@@ -35,7 +35,7 @@ object Nsquare {
      var s:Array[Byte]=Array()
       for (i <- 1 to size) {
         for (j <- 1 to size){
-          tiles get (i,j) match {
+          tiles get (i.toByte, j.toByte) match {
             case None    => s ++= Array(' '.toByte)
             case Some(v) => s ++= Array(v.toByte)}
        }
@@ -58,9 +58,9 @@ object Nsquare {
       for (i <- 1 to size) {
         s = s + " |"
         for (j <- 1 to size)
-          tiles get(i, j) match {
+          tiles get(i.toByte, j.toByte) match {
             case None => s = s + "  "
-            case Some(v) => s = s + " " + v
+            case Some(v) => s = s + " " + v.toInt
           }
         s = s + " |\n"
       }
@@ -81,15 +81,6 @@ object Nsquare {
    */
     override def toString = board.toString() + " " + emptyPos + "\n"
 
-    /*
-    def toBoard(): (Int, Map[Pos, Tile]) = {
-      cur match {
-        case State(b, e) => b match {
-          case Board(s, t) => (s, t)
-        }
-      }
-    }
-    */
     // states are converted into bytes array of board without empty position, for non-addivtive pattern databases
     def toBytes() = board.toBytes()
     // states are converted into bytes array of board followed by the empty position, for disjoint pattern databases
@@ -98,13 +89,14 @@ object Nsquare {
 
   // given n > 0, goalState generates a state with a board whose
   // cells are ordered increasingly left-to-right and top to bottom
-  def goalState(n: Int) = {
+  def goalState(size: Int) = {
+    val n = size.toByte
     var m: Map[Pos, Tile] = Map()
     for (i <- 1 to n; j <- 1 to n) {
       // println((i,j))
-      m = m + ((i, j) -> (j + n * (i - 1)))
+      m = m + ((i.toByte, j.toByte) -> (j + n * (i - 1)).toByte)
     }
-    val lastPos = (n, n)
+    val lastPos: Pos = (n, n)
     State(Board(n, m - lastPos), lastPos)
   }
 
@@ -121,7 +113,7 @@ object Nsquare {
       * @param list2 tiles in 'left' area of solution puzzle in vertical partition
       * retrun a list of new states, operator, if the tile moved in up area, if the tile moved in left area
       */
-    def apply(s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)]
+    def apply(s: State, list1:List[Tile],list2:List[Tile]): Option[(State,Boolean,Boolean)]
   }
 
   // Left operator
@@ -131,11 +123,11 @@ object Nsquare {
       s match {
         case State(_, (_, 1)) => None
         case State(b, (r, c)) => {
-          val ep = (r, c - 1)
+          val ep = (r, (c - 1).toByte)
           Some(State(b.swap((r, c), ep), ep))
         }
       }
-    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
+    override def apply (s: State, list1:List[Tile],list2:List[Tile]): Option[(State,Boolean,Boolean)] =  None
   }
 
   case object Right extends Operator {
@@ -144,10 +136,10 @@ object Nsquare {
       s match {
         case State(_, (_, c)) if c == s.board.size => None
         case State(b, (r, c)) => {
-          val ep = (r, c + 1)
+          val ep = (r, (c + 1).toByte)
           Some(State(b.swap((r, c), ep), ep))
         }      }
-    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
+    override def apply (s: State, list1:List[Tile],list2:List[Tile]): Option[(State,Boolean,Boolean)] =  None
   }
 
   // Up operator
@@ -157,11 +149,11 @@ object Nsquare {
       s match {
         case State(_, (1, _)) => None
         case State(b, (r, c)) => {
-          val ep = (r - 1, c)
+          val ep = ((r - 1).toByte, c)
           Some(State(b.swap((r, c), ep), ep))
         }
       }
-    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
+    override def apply (s: State, list1:List[Tile],list2:List[Tile]): Option[(State,Boolean,Boolean)] =  None
   }
 
   // Down operator
@@ -171,21 +163,21 @@ object Nsquare {
       s match {
         case State(_, (r, _)) if r == s.board.size => None
         case State(b, (r, c)) => {
-          val ep = (r + 1, c)
+          val ep = ((r + 1).toByte, c)
           Some(State(b.swap((r, c), ep), ep))
         }
       }
-    override def apply (s: State, list1:List[Int],list2:List[Int]): Option[(State,Boolean,Boolean)] =  None
+    override def apply (s: State, list1:List[Tile],list2:List[Tile]): Option[(State,Boolean,Boolean)] =  None
   }
 
   // left move operator used in disjoint pattern database generation
   case object LeftDPDB extends Operator {
     override def apply(s: State): Option[State]=None
-    override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+    override def apply (s: State, list1:List[Tile], list2:List[Tile]): Option[(State,Boolean,Boolean)] =
       s match {
         case State(_, (_, 1)) => None
         case State(b, (r, c)) => {
-          val ep = (r, c - 1)
+          val ep = (r, (c - 1).toByte)
           b match {
             case Board(size,tiles)=> {
               val tile= tiles(ep)
@@ -201,11 +193,11 @@ object Nsquare {
 case object RightDPDB extends Operator {
   override def apply(s: State): Option[State]=None
   // the apply method returns
-  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+  override def apply (s: State, list1:List[Tile], list2:List[Tile]): Option[(State,Boolean,Boolean)] =
     s match {
       case State(_, (_, c)) if c == s.board.size => None
       case State(b, (r, c)) => {
-        val ep = (r, c + 1)
+        val ep = (r, (c + 1).toByte)
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
@@ -219,11 +211,11 @@ case object RightDPDB extends Operator {
 case object UpDPDB extends Operator {
   // the apply method returns
   override def apply(s: State): Option[State]=None
-  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+  override def apply (s: State, list1:List[Tile], list2:List[Tile]): Option[(State,Boolean,Boolean)] =
     s match {
       case State(_, (1, _)) => None
       case State(b, (r, c)) => {
-        val ep = (r - 1, c)
+        val ep = ((r - 1).toByte, c)
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
@@ -239,11 +231,11 @@ case object UpDPDB extends Operator {
 case object DownDPDB extends Operator {
   // the apply method returns
   override def apply(s: State): Option[State]=None
-  override def apply (s: State, list1:List[Int], list2:List[Int]): Option[(State,Boolean,Boolean)] =
+  override def apply (s: State, list1:List[Tile], list2:List[Tile]): Option[(State,Boolean,Boolean)] =
     s match {
       case State(_, (r, _)) if r == s.board.size => None
       case State(b, (r, c)) => {
-        val ep = (r + 1, c)
+        val ep = ((r + 1).toByte, c)
         b match {
           case Board(size,tiles)=> {
             val tile= tiles(ep)
@@ -298,7 +290,7 @@ case object DownDPDB extends Operator {
     * @param list2 tiles in 'left' area of solution puzzle in vertical partition
     * retrun a list of new states, operator, if the tile moved in up area, if the tile moved in left area
     */
-  def validMovesDPDB(s: State, list1:List[Int],list2:List[Int]): List[(State,Operator,Boolean,Boolean)] = {
+  def validMovesDPDB(s: State, list1:List[Tile],list2:List[Tile]): List[(State,Operator,Boolean,Boolean)] = {
     val moves = List(UpDPDB, DownDPDB, LeftDPDB, RightDPDB)
     moves.foldLeft(Nil:List[(State, Operator, Boolean,Boolean)])( (l, op) => op(s,list1,list2) match {
       case Some((s1,inup, inleft)) => (s1, op,inup,inleft) :: l
@@ -307,13 +299,13 @@ case object DownDPDB extends Operator {
   }
 
   def prepare_trial_board(): State = {
-    val startMap = Map(
-      (1, 1) -> 1, (1, 2) -> 2, (1, 3) -> 3,
-      (2, 1) -> 4, (2, 3) -> 7,
-      (3, 1) -> 6, (3, 2) -> 8, (3, 3) -> 5
+    val startMap: Map[Pos, Tile] = Map(
+      (1.toByte, 1.toByte) -> 1.toByte, (1.toByte, 2.toByte) -> 2.toByte, (1.toByte, 3.toByte) -> 3.toByte,
+      (2.toByte, 1.toByte) -> 4.toByte, (2.toByte, 3.toByte) -> 7.toByte,
+      (3.toByte, 1.toByte) -> 6.toByte, (3.toByte, 2.toByte) -> 8.toByte, (3.toByte, 3.toByte) -> 5.toByte
     )
-    val startBoard = new Board(3, startMap)
-    val start = new State(startBoard, (2, 2)) // start state for the 8-puzzle
+    val startBoard = new Board(3.toByte, startMap)
+    val start = new State(startBoard, (2.toByte, 2.toByte)) // start state for the 8-puzzle
     return start
   }
 
