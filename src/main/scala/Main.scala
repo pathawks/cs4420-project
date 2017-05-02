@@ -31,23 +31,23 @@ object Main extends App {
     }
   }
 
-  val search_algo = args(1) match {
-    case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => astar(i, g, m, h, c)
-    case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
+  val search_algo :(State, State, State=>List[(State, Operator)], State=>Int, (State, Operator)=>Int)=>List[Operator]  = args(1) match {
+    case "astar" => astar
+    case "id"    => astar
     //case _       => throw "Unknown search"
   }
 
-  val heuristic = args(2) match {
-    case "manhattan"            => (s: State) => manhattan(s)
-    case "linearConflict"       => (s: State) => linearConflict(s)
-    case "NMaxSwap"             => (s: State) => NMaxSwap(s)
-    case "nonAdditiveFringe"    => (s: State) => nonAdditive(s, 0)
-    case "nonAdditiveCorner"    => (s: State) => nonAdditive(s, 1)
-    case "nonAdditiveMax"       => (s: State) => nonAdditive(s, 2)
+  val heuristic : State=>Int = args(2) match {
+    case "manhattan"            => manhattan
+    case "linearConflict"       => linearConflict
+    case "NMaxSwap"             => NMaxSwap
+    case "nonAdditiveFringe"    => nonAdditive(_, 0)
+    case "nonAdditiveCorner"    => nonAdditive(_, 1)
+    case "nonAdditiveMax"       => nonAdditive(_, 2)
       // disjointPDB(s:State, mode:Int, move:Int)
-    case "disjointPDBVertical"  => (s: State) => disjointPDB(s, 0, 20)
-    case "disjointPDBHorizontal"=> (s: State) => disjointPDB(s, 1, 20)
-    case "disjointPDBMax"       => (s: State) => disjointPDB(s, 2, 20)
+    case "disjointPDBVertical"  => disjointPDB(_, 0, 20)
+    case "disjointPDBHorizontal"=> disjointPDB(_, 1, 20)
+    case "disjointPDBMax"       => disjointPDB(_, 2, 20)
     //case _                => throw "Unknown Search"
   }
 
