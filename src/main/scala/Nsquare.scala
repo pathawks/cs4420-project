@@ -63,7 +63,8 @@ object Nsquare {
             case Some(v) => s = s + " " + v
           }
         s = s + " |\n"
-      }      s + b
+      }
+      s + b
     }
   }
 

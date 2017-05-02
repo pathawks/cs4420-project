@@ -7,7 +7,7 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
 
   ==================================================*/
-
+/*
 package project
 
 import project.Nsquare._
@@ -170,4 +170,4 @@ class disjointPatternDatabase {
   }  
 
 }
-
+*/

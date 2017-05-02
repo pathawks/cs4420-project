@@ -65,7 +65,7 @@ object heuristics {
 
   // N-MaxSwap heuristics
   def NMaxSwap(s: State): Int = {
-    val State(Board(size, _) = s
+    val State(Board(size, tiles), _) = s
     var iter = 0
     var buffer = 0
     var P = Array.tabulate(size*size)(n=>size*size)
