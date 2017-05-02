@@ -11,8 +11,7 @@ do
         pushd $moves
         for board in $(ls *.txt);
         do
-            output=$(echo "astar, linearConflict, 3, 3, 2.01")
-            (printf "%s,%9d, %s\n" ${size%%/} $(echo $board | sed "s/\.txt//") $output) >> ../../results.csv
+            scala ../../../Project.jar $board astar manhattan >> ../../results.csv
         done
         popd
     done

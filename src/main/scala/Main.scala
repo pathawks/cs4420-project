@@ -53,6 +53,7 @@ object Main extends App {
 
   val State(Board(size, _), _) = s
 
+  print(size + "x" + size + ", " + inFile + ", ")
   search_algo(s, goalState(size), validMoves, heuristic, cost)
 
 }

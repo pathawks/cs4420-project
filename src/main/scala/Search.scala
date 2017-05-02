@@ -79,7 +79,7 @@ object Search {
     val eftBranchingFactor = 0.0
     if (r != Nil)
       printf(
-        "expanded nodes: %d\teffective branching factor: %.2f\tcost of solution: %d\trunning time: %d\n",
+        "%d, %.2f, %d, %d\n",
         expandedNodes,
         eftBranchingFactor,
         costOfSolution,
