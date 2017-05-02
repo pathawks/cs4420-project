@@ -21,8 +21,8 @@ import scala.collection.mutable.Set
  */
 
 object PatternDatabase {
-  var fpdb:Map[IndexedSeq[Any],Int]=Map()  // Fringe Pattern Database
-  var cpdb:Map[IndexedSeq[Any],Int]=Map()  // Corner Pattern Database
+  var fpdb:Map[State,Int]=Map()  // Fringe Pattern Database
+  var cpdb:Map[State,Int]=Map()  // Corner Pattern Database
 
   // Generate above Pattern Databases
   def getNAPDB(initial: State, makeNodes: State => List[(State, Operator)], maxCost: Int, mode:Int): Unit = {
@@ -97,7 +97,7 @@ object PatternDatabase {
   //   5                           6   7   8
   //   9
   //   13        Empty                   Empty
-  def pattern(s: State, fringe: Boolean): IndexedSeq[Any] = {
+  def pattern(s: State, fringe: Boolean): State = {
     var ptiles: Map[Pos, Tile] = Map()
     var sub: List[Int] = List()
     s match {
@@ -126,7 +126,7 @@ object PatternDatabase {
             }
           }
           // return the byte represenation of this pattern 
-          State(Board(size, ptiles), e).toBytes2().deep
+          State(Board(size, ptiles), e)
         }
       }
     }
