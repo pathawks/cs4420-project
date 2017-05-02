@@ -8,6 +8,7 @@
 import project.heuristics._
 import project.Nsquare._
 import project.PatternDatabase._
+import project.disjointPatternDatabase._
 import project.Search._
 import project.Utility._
 
@@ -30,22 +31,26 @@ object Main extends App {
     }
   }
 
-  val search = args(1) match {
+  val search_algo = args(1) match {
     case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => astar(i, g, m, h, c)
     case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
     //case _       => throw "Unknown search"
   }
 
   val heuristic = args(2) match {
-    case "Manhatta"       => (s: State) => manhattan(s)
-    case "linearConflict" => (s: State) => linearConflict(s)
-    case "NMaxSwap"       => (s: State) => NMaxSwap(s)
+    case "Manhatta"             => (s: State) => manhattan(s)
+    case "linearConflict"       => (s: State) => linearConflict(s)
+    case "NMaxSwap"             => (s: State) => NMaxSwap(s)
     case "nonAdditiveFringe"    => (s: State) => nonAdditive(s, 0)
     case "nonAdditiveCorner"    => (s: State) => nonAdditive(s, 1)
-    case "nonAdditiveMax"    => (s: State) => nonAdditive(s, 2)
+    case "nonAdditiveMax"       => (s: State) => nonAdditive(s, 2)
+      // disjointPDB(s:State, mode:Int, move:Int)
+    case "disjointPDBVertical"  => (s: State) => disjointPDB(s, 0, 20)
+    case "disjointPDBHorizontal"=> (s: State) => disjointPDB(s, 1, 20)
+    case "disjointPDBMax"       => (s: State) => disjointPDB(s, 2, 20)
     //case _                => throw "Unknown Search"
   }
 
-  search(s, goalState(3), validMoves, heuristic, cost)
-  // println("RAN!")
+  search_algo(s, goalState(3), validMoves, heuristic, cost)
+
 }
