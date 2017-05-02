@@ -14,7 +14,7 @@ import scala.collection.mutable.Set
 /**
  * Non-additive Pattern Database Heuristics
  * @param initial state
-/ * @param makeNodes function that returns a list of all children for a given
+ * @param makeNodes function that returns a list of all children for a given
  *        node, as well as the step to get from current node to that child
  * @param maxCost maximium number of moves from initial state to obtain pattern databases
  * @param mode subtypes of heuristics 0:fringe 1.corner 2.max(fringe,corner)
