@@ -7,6 +7,7 @@
 
 import project.heuristics._
 import project.Nsquare._
+import project.PatternDatabase._
 import project.Search._
 import project.Utility._
 
@@ -38,9 +39,12 @@ object Main extends App {
     case "Manhatta"       => (s: State) => manhattan(s)
     case "linearConflict" => (s: State) => linearConflict(s)
     case "NMaxSwap"       => (s: State) => NMaxSwap(s)
-    //case "nonAdditive"    => (s) => nonAdditive(s)
+    case "nonAdditiveFringe"    => (s: State) => nonAdditive(s, 0)
+    case "nonAdditiveCorner"    => (s: State) => nonAdditive(s, 1)
+    case "nonAdditiveMax"    => (s: State) => nonAdditive(s, 2)
     //case _                => throw "Unknown Search"
   }
 
-  search(s, goalState(3), validMoves, heuristic, cost)
+  //search(s, goalState(3), validMoves, heuristic, cost)
+  println("RAN!")
 }

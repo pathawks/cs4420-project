@@ -20,7 +20,7 @@ import scala.collection.mutable.Set
  * @param mode subtypes of heuristics 0:fringe 1.corner 2.max(fringe,corner)
  */
 
-class PatternDatabase {
+object PatternDatabase {
   var fpdb:Map[IndexedSeq[Any],Int]=Map()  // Fringe Pattern Database
   var cpdb:Map[IndexedSeq[Any],Int]=Map()  // Corner Pattern Database
 
