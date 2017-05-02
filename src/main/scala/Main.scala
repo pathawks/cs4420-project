@@ -19,14 +19,16 @@ import project.Utility._
  */
 object Main extends App {
   val inFile = args(0)
-  try {
-    val s = read_board_to_state(inFile)
+  val s: State = try {
+    read_board_to_state(inFile)
   } catch {
     case _ : Throwable => {
       println("File '" + inFile + "' cannot be opened")
       System.exit(-1)
+      goalState(0)
     }
   }
+
   val search = args(1) match {
     case "astar" => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int) => astar(i, g, m, h, c)
     case "id"    => (i: State, g: State, m: State=>List[(State, Operator)], h: State=>Int, c:(State, Operator)=>Int)=> astar(i, g, m, h, c)
@@ -40,6 +42,5 @@ object Main extends App {
     //case _                => throw "Unknown Search"
   }
 
-  //search(s, Nsquare.goalState(3), Nsquare.validMoves(s), heuristic, costs)
-  println("Ran")
+  search(s, goalState(3), validMoves, heuristic, cost)
 }
