@@ -7,7 +7,7 @@
     Name: Pat Hawks, Ryan Larson, Rui Yang
 
   ==================================================*/
-/*
+
 package project
 
 import project.Nsquare._
@@ -15,7 +15,7 @@ import java.io._
 import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
-class disjointPatternDatabase {
+object disjointPatternDatabase {
   
   var updb:Map[IndexedSeq[Any],Int]=Map()
   var dpdb:Map[IndexedSeq[Any],Int]=Map()
@@ -57,7 +57,7 @@ class disjointPatternDatabase {
     val fringe = PriorityQueue.empty[((Int,Int,Int,Int), State)](
       Ordering.by(order).reverse)
     val seen = Set[State]()
-    val (s,_)=initial.toBoard()
+    val State(Board(s, tiles),_) = initial
     var up:List[Int]=List()
     var left:List[Int]=List()
     if (mode==0|mode==2){
@@ -148,7 +148,8 @@ class disjointPatternDatabase {
 
   def disjointPDB(s:State, mode:Int, move:Int):Int={
     var heuristics=0; 
-    val (size,_)=s.toBoard()
+    //val (size,_)=s.toBoard()
+    val State(Board(size, tiles),_)=s
     if ((mode==0 & (lpdb.size==0|rpdb.size==0)) | (mode==1 & (updb.size==0|dpdb.size==0))) {
       println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
@@ -170,4 +171,4 @@ class disjointPatternDatabase {
   }  
 
 }
-*/
+
