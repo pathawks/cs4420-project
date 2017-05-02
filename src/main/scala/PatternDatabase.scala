@@ -39,7 +39,7 @@ object PatternDatabase {
           fpdb = fpdb + (fp -> g)
         else {
           // if this state has less number of moves than previous states having the same fringe pattern,
-          // update the cost into fringe database map 
+          // update the cost into fringe database map
           if (fpdb(fp) > g)
             fpdb = fpdb + (fp -> g)
         }
@@ -58,8 +58,8 @@ object PatternDatabase {
         }
       }
 
-      // Find all valid moves from a state, and add them to the state fringe queue, 
-      // if its cost is less than maximium assigned cost. 
+      // Find all valid moves from a state, and add them to the state fringe queue,
+      // if its cost is less than maximium assigned cost.
       if (g < maxCost) {
         makeNodes(a).foreach {
           case (a, _) => {
@@ -93,7 +93,7 @@ object PatternDatabase {
   // Generate either fringe or corner pattern for input state;
   // a pattern is a state with only partial tiles' position recorded, for 15-puzzle:
   //   fringe pattern          corner pattern
-  //   1   2   3   4           1   2   3   4 
+  //   1   2   3   4           1   2   3   4
   //   5                           6   7   8
   //   9
   //   13        Empty                   Empty
@@ -103,13 +103,13 @@ object PatternDatabase {
     s match {
       case State(b, e) => b match {
         case Board(size, t) => {
-          // obtain tiles to retain in fringe pattern  
+          // obtain tiles to retain in fringe pattern
           if (fringe) {
             sub = List.tabulate(2 * size - 1)(n => {
               if (n < size) n + 1 else (n - size + 1) * size + 1
             })
           }
-          // obtain tiles to retain in corner pattern 
+          // obtain tiles to retain in corner pattern
           else {
             sub = List.tabulate(2 * size - 1)(n => {
               if (n < size) n + 1 else n + 2
@@ -118,14 +118,15 @@ object PatternDatabase {
           // obtain the positions in input state of tiles among previous selected ones
           for (i <- 1 to size) {
             for (j <- 1 to size) {
-              t get(i, j) match {
+              val position: Pos = (i.toByte, j.toByte)
+              t get position match {
                 case None => {}
                 case Some(tile) => if (sub contains tile)
-                  ptiles = ptiles + ((i, j) -> tile)
+                  ptiles = ptiles + (position -> tile)
               }
             }
           }
-          // return the byte represenation of this pattern 
+          // return the byte represenation of this pattern
           State(Board(size, ptiles), e)
         }
       }
@@ -138,7 +139,7 @@ object PatternDatabase {
     var heuristics = 0;
     val State(Board(size,tiles),_)=s
     // if fringe or corner database is empty, then generate corresponding one.
-    if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) { 
+    if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) {
       getNAPDB(goalState(size),validMoves,30,mode) }
     // to calculate max heuristics between fringe and corner pettern database, generate both of them.
     if (mode==2 & (fpdb.size==0 | cpdb.size==0)) {

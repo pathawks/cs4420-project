@@ -16,52 +16,55 @@ import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
 object disjointPatternDatabase {
-  
-  var updb:Map[IndexedSeq[Any],Int]=Map()
-  var dpdb:Map[IndexedSeq[Any],Int]=Map()
-  var lpdb:Map[IndexedSeq[Any],Int]=Map()
-  var rpdb:Map[IndexedSeq[Any],Int]=Map()
+
+  var updb:Map[IndexedSeq[Any],Byte]=Map()
+  var dpdb:Map[IndexedSeq[Any],Byte]=Map()
+  var lpdb:Map[IndexedSeq[Any],Byte]=Map()
+  var rpdb:Map[IndexedSeq[Any],Byte]=Map()
 
   def patternDPDB(s:State, vertical: Boolean): (IndexedSeq[Any], IndexedSeq[Any])={
     var tiles:Map[Pos,Tile]= Map()
-    var tiles2:Map[Pos,Tile]= Map()  
-    var upLeft:List[Int]= List()
+    var tiles2:Map[Pos,Tile]= Map()
+    var upLeft:List[Tile]= List()
       s match{
         case State(b,e)=> b match{
           case Board(size,t)=> {
-            if (vertical){ 
+            if (vertical){
               if (size==3) {upLeft= List(1,4,7,8) }
               else { upLeft=List(1,2,5,6,9,10,13,14)} }
-            else { 
+            else {
               if (size==3) {upLeft=List(1,2,3,4) }
               else {upLeft=List(1,2,3,4,5,6,7,8)}}
-            for (i<-1 to size){ 
+            for (i<-1 to size){
               for (j<-1 to size){
-                t get (i,j) match {
+                val position: Pos = (i.toByte, j.toByte)
+                t get position match {
                   case None=> {}
-                  case Some(tile)=>  
-                    if (upLeft contains tile)  tiles=tiles+((i,j)->tile)
-                    else { tiles2=tiles2+((i,j)->tile) } 
+                  case Some(tile)=>
+                    if (upLeft contains tile)
+                      tiles += (position->tile)
+                    else
+                      tiles2 += (position->tile)
                 }
               }
-            } 
+            }
             (State(Board(size,tiles), e).toBytes().deep, State(Board(size,tiles2), e).toBytes().deep)
         }
       }
     }
   }
 
-  def getDPDB(initial:State, makeNodes: (State,List[Int],List[Int]) =>List[(State,Operator,Boolean,Boolean)],maxCost:(Int,Int,Int,Int), mode:Int):Unit = {
-    
+  def getDPDB(initial:State, makeNodes: (State,List[Tile],List[Tile]) =>List[(State,Operator,Boolean,Boolean)],maxCost:(Int,Int,Int,Int), mode:Int):Unit = {
+
     def order(p:((Int,Int,Int,Int), State)):Int=p._1._1+ p._1._2+p._1._3+p._1._4
     val fringe = PriorityQueue.empty[((Int,Int,Int,Int), State)](
       Ordering.by(order).reverse)
     val seen = Set[State]()
     val State(Board(s, tiles),_) = initial
-    var up:List[Int]=List()
-    var left:List[Int]=List()
+    var up:List[Tile]=List()
+    var left:List[Tile]=List()
     if (mode==0|mode==2){
-      if (s==3) 
+      if (s==3)
         left=List(1,4,7,8)
       else {
         left= List(1,2,5,6,9,10,13,14)
@@ -70,43 +73,43 @@ object disjointPatternDatabase {
     if (mode==1|mode==2){
       if (s==3) {
         up=List(1,2,3,4)}
-      else { 
+      else {
         up= List(1,2,3,4,5,6,7,8)
       }
     }
-      
-  def search(a:State, g:(Int,Int,Int,Int),mode:Int):Unit = { 
+
+  def search(a:State, g:(Int,Int,Int,Int),mode:Int):Unit = {
     if (mode==0 |mode==2){
       val (left,right)=patternDPDB(a, true)
-      if (!( lpdb contains left))  
-        lpdb= lpdb +(left->g._3)
-      else { 
-        if (lpdb(left)>g._1) 
-          lpdb= lpdb +(left->g._3)
+      if (!( lpdb contains left))
+        lpdb= lpdb +(left->g._3.toByte)
+      else {
+        if (lpdb(left)>g._1)
+          lpdb= lpdb +(left->g._3.toByte)
       }
-      if (!( rpdb contains right))  
-        rpdb= rpdb +(right->g._4)
-      else { 
-        if (rpdb(right)>g._2) 
-          rpdb= rpdb +(right->g._4)
+      if (!( rpdb contains right))
+        rpdb= rpdb +(right->g._4.toByte)
+      else {
+        if (rpdb(right)>g._2)
+          rpdb= rpdb +(right->g._4.toByte)
       }
     }
 
     if (mode==1 | mode==2){
       val (up,down)=patternDPDB(a, false)
-      if (!( updb contains up))  
-        updb= updb +(up->g._1)
-      else { 
-        if (updb(up)>g._1) 
-          updb= updb +(up->g._1)}
+      if (!( updb contains up))
+        updb= updb +(up->g._1.toByte)
+      else {
+        if (updb(up)>g._1)
+          updb= updb +(up->g._1.toByte)}
       if (!( dpdb contains down))
-        dpdb= dpdb +(down->g._2)
-      else { 
-        if (dpdb(down)>g._2) 
-          dpdb= dpdb +(down->g._2)
+        dpdb= dpdb +(down->g._2.toByte)
+      else {
+        if (dpdb(down)>g._2)
+          dpdb= dpdb +(down->g._2.toByte)
       }
     }
-    
+
     // Find all valid moves from a state, and add them to the fringe
     if (g._1<maxCost._1 | g._2<maxCost._2 | g._3<maxCost._3 | g._4<maxCost._4){
       makeNodes(a,up,left).foreach {
@@ -128,12 +131,12 @@ object disjointPatternDatabase {
         }
       }
     }
-      
+
     fringe.isEmpty match {                // If the fringe is empty
       case true => ()                     //   No solution found; return Nil
       case _    => fringe.dequeue match {  // Else dequeue a node
         case (g, a) => {
-          if (g._1<=maxCost._1 & g._2<=maxCost._2 & g._3<=maxCost._3 & g._4<=maxCost._4) 
+          if (g._1<=maxCost._1 & g._2<=maxCost._2 & g._3<=maxCost._3 & g._4<=maxCost._4)
             search(a, g,mode) //   search its children
         }
       }
@@ -147,14 +150,14 @@ object disjointPatternDatabase {
   }
 
   def disjointPDB(s:State, mode:Int, move:Int):Int={
-    var heuristics=0; 
+    var heuristics=0;
     //val (size,_)=s.toBoard()
     val State(Board(size, tiles),_)=s
     if ((mode==0 & (lpdb.size==0|rpdb.size==0)) | (mode==1 & (updb.size==0|dpdb.size==0))) {
       println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
     }
-    if (mode==2 & (lpdb.size==0 | rpdb.size==0| updb.size==0| dpdb.size==0)) { 
+    if (mode==2 & (lpdb.size==0 | rpdb.size==0| updb.size==0| dpdb.size==0)) {
       println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
     }
@@ -168,7 +171,7 @@ object disjointPatternDatabase {
       if (heuristics < sum) heuristics= sum
     }
     heuristics
-  }  
+  }
 
 }
 

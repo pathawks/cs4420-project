@@ -36,7 +36,7 @@ object heuristics {
     val State(Board(size, tiles), _) = s
     var sum = manhattan(s)
 
-    def goal(pair: ((Int, Int), Int)) = {
+    def goal(pair: ((Tile, Tile), Byte)) = {
       val ((r, c), t) = pair;
       var gr = ceil(1.0 * t / size)
       (gr, t - (gr - 1) * size)
@@ -70,7 +70,7 @@ object heuristics {
     var buffer = 0
     var P = Array.tabulate(size*size)(n=>size*size)
     var B = Array.tabulate(size*size)(n => 0)
-    
+
     def swap(a: Int, b: Int) = {
       if (a != b) {
         iter += 1
