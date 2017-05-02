@@ -46,6 +46,6 @@ object Main extends App {
     //case _                => throw "Unknown Search"
   }
 
-  //search(s, goalState(3), validMoves, heuristic, cost)
-  println("RAN!")
+  search(s, goalState(3), validMoves, heuristic, cost)
+  // println("RAN!")
 }

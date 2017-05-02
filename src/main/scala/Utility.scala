@@ -24,21 +24,27 @@ object Utility {
       )
     */
 
-    var file_lines = Source.fromFile(fName).getLines.toList
+    val file_lines = Source.fromFile(fName).getLines.toList
     val n_size_board = file_lines.length
 
     var tiles:Map[Pos, Tile] = Map()
-    val emptyTile: (Int, Int) = (0,0)
+    var emptyTile: (Int, Int) = (0,0)
 
-    for (i <- 0 to n_size_board-1) {
+    var i = 0;
+    for (row <- file_lines) {
+      i += 1;
+      var j = 0;
       // The list is made up of strings
-      var row = file_lines(i).split(" ")
+      val cols = row.trim.split(" ")
       // And for each 'column'
-      for (j <-0 to n_size_board-1) {
+      for (col <- cols) {
+        j += 1;
+        val pos = (i, j)
         // Conditionally update
-        row(j) match {
-          case "_" => emptyTile -> (i+1, j+1)
-          case _ => tiles += ((i+1, j+1) -> row(j).toInt)
+        col match {
+          case "" => ()
+          case "_" => emptyTile = pos
+          case _ => tiles += (pos -> col.toInt)
         }
       }
     }
@@ -46,7 +52,7 @@ object Utility {
     val startBoard = Board(n_size_board, tiles)
     val start = State(startBoard, emptyTile) // start state for the 8-puzzle
 
-  return start
+    return start
   }
 
 }
