@@ -1,4 +1,3 @@
-
 /*==================================================
 
     CS:4420 Artificial Intelligence
@@ -17,12 +16,12 @@ import scala.collection.mutable.Set
 
 object disjointPatternDatabase {
 
-  var updb:Map[IndexedSeq[Any],Byte]=Map()
-  var dpdb:Map[IndexedSeq[Any],Byte]=Map()
-  var lpdb:Map[IndexedSeq[Any],Byte]=Map()
-  var rpdb:Map[IndexedSeq[Any],Byte]=Map()
+  var updb:Map[State,Int]=Map()
+  var dpdb:Map[State,Int]=Map()
+  var lpdb:Map[State,Int]=Map()
+  var rpdb:Map[State,Int]=Map()
 
-  def patternDPDB(s:State, vertical: Boolean): (IndexedSeq[Any], IndexedSeq[Any])={
+  def patternDPDB(s:State, vertical: Boolean): (State,State)={
     var tiles:Map[Pos,Tile]= Map()
     var tiles2:Map[Pos,Tile]= Map()
     var upLeft:List[Tile]= List()
@@ -48,7 +47,7 @@ object disjointPatternDatabase {
                 }
               }
             }
-            (State(Board(size,tiles), e).toBytes().deep, State(Board(size,tiles2), e).toBytes().deep)
+            (State(Board(size,tiles), e), State(Board(size,tiles2), e))
         }
       }
     }
