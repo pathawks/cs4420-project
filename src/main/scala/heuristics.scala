@@ -86,7 +86,7 @@ object heuristics {
     }
 
     for (pair <- tiles) {
-      val index = (pair._1._1 - 1) * size + pair._1._2-1
+      val index = (pair._1._1 - 1) * length + pair._1._2-1
       val n = pair._2
       P(index) = n; B(n - 1) = index
     }
