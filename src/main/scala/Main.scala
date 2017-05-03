@@ -46,9 +46,9 @@ object Main extends App {
     case "nonAdditiveCorner"    => nonAdditive(_, 1)
     case "nonAdditiveMax"       => nonAdditive(_, 2)
       // disjointPDB(s:State, mode:Int, move:Int)
-    case "disjointPDBVertical"  => disjointPDB(_, 0, 20)
-    case "disjointPDBHorizontal"=> disjointPDB(_, 1, 20)
-    case "disjointPDBMax"       => disjointPDB(_, 2, 20)
+    case "disjointPDBVertical"  => disjointPDB(_, 0)
+    case "disjointPDBHorizontal"=> disjointPDB(_, 1)
+    case "disjointPDBMax"       => disjointPDB(_, 2)
     //case _                => throw "Unknown Search"
   }
 
