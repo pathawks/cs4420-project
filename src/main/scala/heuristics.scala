@@ -24,8 +24,7 @@ object heuristics {
       val ((row, col), tile) = pair
       val goalRow = ceil(1.0 * tile / size)
       val goalCol = tile - (goalRow - 1) * size
-      sum += abs(row - goalRow.toInt)
-      sum += abs(col - goalCol.toInt)
+      sum += abs(row - goalRow.toInt) + abs(col - goalCol.toInt)
     }
 
     sum
@@ -66,11 +65,13 @@ object heuristics {
 
   // N-MaxSwap heuristics
   def NMaxSwap(s: State): Int = {
-    val State(Board(size, tiles), _) = s
+    val State(Board(length, tiles), _) = s
     var iter = 0
     var buffer = 0
-    var P = Array.tabulate(size*size)(n=>size*size)
-    var B = Array.tabulate(size*size)(n => 0)
+    val totalSize = length * length
+    var P = Array.tabulate(totalSize)(n=>totalSize)
+    var B = Array.tabulate(totalSize)(n => 0)
+    val solution = Array.tabulate(totalSize)(_ + 1)
 
     def swap(a: Int, b: Int) = {
       if (a != b) {
@@ -89,16 +90,16 @@ object heuristics {
       val n = pair._2
       P(index) = n; B(n - 1) = index
     }
-    B(size*size-1) = P.indexOf(size*size)
-    while (P(size*size-1) != size*size) {
-      swap(B(size*size-1), B(B(size*size-1)))
+    B(totalSize-1) = P.indexOf(totalSize)
+    while (P(totalSize-1) != totalSize) {
+      swap(B(totalSize-1), B(B(totalSize-1)))
     }
     val unsort = P.filter(n => n != P.apply(n - 1))
-      breakable{ 
+      breakable{
        for (e <- unsort) {
-         if (P.deep==Array(1,2,3,4,5,6,7,8,9).deep) break
-         swap(e - 1, B(size*size-1)); swap(B(e - 1), e - 1)
-       } 
+         if (solution.sameElements(P)) break
+         swap(e - 1, B(totalSize-1)); swap(B(e - 1), e - 1)
+       }
     }
     iter
   }
