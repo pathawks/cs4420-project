@@ -93,7 +93,8 @@ object PatternDatabase {
   // Generate either fringe or corner pattern for input state;
   // a pattern is a state with only partial tiles' position recorded, for 15-puzzle:
   //   fringe pattern          corner pattern
-  //   1   2   3   4           1   2   3   4
+
+    //   1   2   3   4           1   2   3   4
   //   5                           6   7   8
   //   9
   //   13        Empty                   Empty
@@ -139,11 +140,12 @@ object PatternDatabase {
     var heuristics = 0;
     val State(Board(size,tiles),_)=s
     // if fringe or corner database is empty, then generate corresponding one.
+    val max= if (size==3) 30 else {20}
     if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) {
-      getNAPDB(goalState(size),validMoves,30,mode) }
+      getNAPDB(goalState(size),validMoves,max,mode) }
     // to calculate max heuristics between fringe and corner pettern database, generate both of them.
     if (mode==2 & (fpdb.size==0 | cpdb.size==0)) {
-      getNAPDB(goalState(size),validMoves, 30, mode) }
+      getNAPDB(goalState(size),validMoves, max, mode) }
     if (mode == 0 | mode == 2) {
       // get fringe pattern and its heuristic cost from the fpdb map
       val p = pattern(s, true);
