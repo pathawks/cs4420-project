@@ -82,8 +82,7 @@ object disjointPatternDatabase {
       val (left,right)=patternDPDB(a, true)
       if (!( lpdb contains left))
         lpdb= lpdb +(left->g._3.toByte)
-      else {
-        if (lpdb(left)>g._1)
+      else {        if (lpdb(left)>g._1)
           lpdb= lpdb +(left->g._3.toByte)
       }
       if (!( rpdb contains right))
@@ -93,7 +92,6 @@ object disjointPatternDatabase {
           rpdb= rpdb +(right->g._4.toByte)
       }
     }
-
     if (mode==1 | mode==2){
       val (up,down)=patternDPDB(a, false)
       if (!( updb contains up))
@@ -104,8 +102,7 @@ object disjointPatternDatabase {
       if (!( dpdb contains down))
         dpdb= dpdb +(down->g._2.toByte)
       else {
-        if (dpdb(down)>g._2)
-          dpdb= dpdb +(down->g._2.toByte)
+        if (dpdb(down)>g._2)          dpdb= dpdb +(down->g._2.toByte)
       }
     }
 
@@ -148,10 +145,11 @@ object disjointPatternDatabase {
   //println("right"+rpdb.size)
   }
 
-  def disjointPDB(s:State, mode:Int, move:Int):Int={
+  def disjointPDB(s:State, mode:Int):Int={
     var heuristics=0;
     //val (size,_)=s.toBoard()
     val State(Board(size, tiles),_)=s
+    var move= if (size==3) 30 else {20}
     if ((mode==0 & (lpdb.size==0|rpdb.size==0)) | (mode==1 & (updb.size==0|dpdb.size==0))) {
       println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
