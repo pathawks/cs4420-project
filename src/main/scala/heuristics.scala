@@ -32,7 +32,8 @@ object heuristics {
   }
 
   // Linear-conflict heuristics
-  def linearConflict(s: State): Int = {
+
+    def linearConflict(s: State): Int = {
     val State(Board(size, tiles), _) = s
     var sum = manhattan(s)
 
@@ -93,8 +94,11 @@ object heuristics {
       swap(B(size*size-1), B(B(size*size-1)))
     }
     val unsort = P.filter(n => n != P.apply(n - 1))
-    for (e <- unsort) {
-      swap(e - 1, B(size*size-1)); swap(B(e - 1), e - 1)
+      breakable{ 
+       for (e <- unsort) {
+         if (P.deep==Array(1,2,3,4,5,6,7,8,9).deep) break
+         swap(e - 1, B(size*size-1)); swap(B(e - 1), e - 1)
+       } 
     }
     iter
   }
