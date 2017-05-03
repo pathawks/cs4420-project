@@ -56,8 +56,8 @@ object Search {
           case (a, s) => {
             generatedNodes += 1
             val hScore = heuristic(a)
-            val score = g + hScore
             val cost = g + costs(a, s)
+            val score = cost + hScore
             val newSolution = s :: solution
             val node = (score, a, cost, d + 1, newSolution)
             fringe += node
