@@ -9,7 +9,7 @@ package project
 
 import scala.math._
 
-class EBFsolver {
+object EBFsolver {
   def polyGen(N: Int, depth: Int): (Double => Double, List[Double]) = {
     var coeff = List(N * (-1.0))
     coeff = coeff ++ List.fill(depth)(1.0)

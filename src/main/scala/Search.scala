@@ -6,6 +6,8 @@
   ==================================================*/
 package project
 
+import EBFsolver.EBF
+
 import scala.collection.mutable.PriorityQueue
 
 /**
@@ -75,8 +77,7 @@ object Search {
     val startTime = System.currentTimeMillis()
     val result = search(initial, 0, 0, Nil)
     val endTime = System.currentTimeMillis()
-    // val eftBranchingFactor = EBF(generatedNodes, depth)
-    val eftBranchingFactor = 0.0
+    val eftBranchingFactor = EBF(generatedNodes, depth)
     result match {
       case None    => {
         printf("-, -, -, -\n"); None
