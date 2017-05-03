@@ -82,13 +82,13 @@ object disjointPatternDatabase {
       val (left,right)=patternDPDB(a, true)
       if (!( lpdb contains left))
         lpdb= lpdb +(left->g._3.toByte)
-      else {        if (lpdb(left)>g._1)
+      else {       if (lpdb(left)>g._3)
           lpdb= lpdb +(left->g._3.toByte)
       }
       if (!( rpdb contains right))
         rpdb= rpdb +(right->g._4.toByte)
       else {
-        if (rpdb(right)>g._2)
+        if (rpdb(right)>g._4)
           rpdb= rpdb +(right->g._4.toByte)
       }
     }
