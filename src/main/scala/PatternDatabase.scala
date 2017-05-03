@@ -154,7 +154,6 @@ object PatternDatabase {
     if (mode == 1 | mode == 2) {
       // get corner pattern and its heuristic cost from the cpdb map
       val p2 = pattern(s, false);
-      heuristics += cpdb(p2);
       if (heuristics < cpdb(p2)) heuristics= cpdb(p2)
     }
     heuristics
