@@ -55,8 +55,7 @@ object PatternDatabase {
           // update the cost into corner database map
           if (cpdb(cp) > g)
             cpdb = cpdb + (cp -> g)
-        }
-      }
+        }      }
 
       // Find all valid moves from a state, and add them to the state fringe queue,
       // if its cost is less than maximium assigned cost.
@@ -93,8 +92,7 @@ object PatternDatabase {
   // Generate either fringe or corner pattern for input state;
   // a pattern is a state with only partial tiles' position recorded, for 15-puzzle:
   //   fringe pattern          corner pattern
-
-    //   1   2   3   4           1   2   3   4
+  //   1   2   3   4           1   2   3   4
   //   5                           6   7   8
   //   9
   //   13        Empty                   Empty
