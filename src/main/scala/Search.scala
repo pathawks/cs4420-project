@@ -110,7 +110,9 @@ object Search {
     var costOfSolution = 0
     var depth = 0
     var generatedNodes = 0
-    var idaLimit = 1
+    var idaLimit = heuristic(initial)
+    val defaultMin = 32767
+    var min = defaultMin
 
     /**
       * Inner function that actually does the searching
@@ -137,6 +139,8 @@ object Search {
                 val newSolution = s :: solution
                 val node = (score, a, cost, d + 1, newSolution)
                 fringe += node
+            } else if (score <= min) {
+              min = score
             }
           }
         }
@@ -155,6 +159,8 @@ object Search {
     var result: Option[List[S]] = None
     while (result == None && idaLimit < 30) {
       result = search(initial, 0, 0, Nil)
+      idaLimit = min
+      min = defaultMin
     }
     val endTime = System.currentTimeMillis()
     val eftBranchingFactor = EBF(generatedNodes, depth)
