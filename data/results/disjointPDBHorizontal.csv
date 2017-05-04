@@ -1,894 +1,448 @@
-3x3,     1.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    1, 3.00,     1,  4893
-3x3,     2.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    1, 3.00,     1,  4814
-3x3,     3.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.19,     2,  4723
-3x3,     4.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 1.79,     2,  4770
+3x3,     1.txt, astar, disjointPDBHorizontal,     1, 3.00,     1,  4893
+3x3,     2.txt, astar, disjointPDBHorizontal,     1, 3.00,     1,  4814
+3x3,     3.txt, astar, disjointPDBHorizontal,     2, 2.19,     2,  4723
+3x3,     4.txt, astar, disjointPDBHorizontal,     2, 1.79,     2,  4770
 3x3,     5.txt, astar, disjointPDBHorizontal,     0, 1.00,     0,     3
-3x3,     6.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.19,     2,  4683
-3x3,     7.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 1.79,     2,  4686
-3x3,    10.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.58,     3,  4877
-3x3,    11.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4713
-3x3,    12.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4806
-3x3,    13.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4724
-3x3,    14.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4742
-3x3,    15.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4744
-3x3,     8.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3,  4689
-3x3,     9.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.58,     3,  4710
-3x3,    16.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4766
-3x3,    17.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4836
-3x3,    18.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4694
-3x3,    19.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4772
-3x3,    20.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  5016
-3x3,    21.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4862
-3x3,    22.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.40,     4,  4687
-3x3,    23.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.40,     4,  4738
-3x3,    24.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4783
-3x3,    25.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4778
-3x3,    26.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4744
-3x3,    27.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4733
-3x3,    28.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4821
-3x3,    29.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4809
-3x3,    30.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4758
-3x3,    31.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.49,     4,  4830
-3x3,    32.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4713
-3x3,    33.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4779
-3x3,    34.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.34,     5,  4761
-3x3,    35.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4737
-3x3,    36.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4743
-3x3,    37.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4724
-3x3,    38.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4796
-3x3,    39.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4744
-3x3,    40.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4761
-3x3,    41.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4722
-3x3,    42.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4683
-3x3,    43.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4771
-3x3,    44.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4776
-3x3,    45.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4797
-3x3,    46.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4740
-3x3,    47.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.34,     5,  4763
-3x3,    48.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4811
-3x3,    49.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4728
-3x3,    50.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4769
-3x3,    51.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    5, 1.39,     5,  4805
-3x3,    66.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4800
-3x3,    67.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.42,     6,  4835
-3x3,    68.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.42,     6,  4717
-3x3,    69.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4794
-3x3,    70.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4705
-3x3,    71.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4757
-3x3,    72.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.53,     6,  4767
-3x3,    73.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4790
-3x3,    74.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.27,     6,  4788
-3x3,    75.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4697
-3x3,    76.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.34,     6,  5014
-3x3,    77.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.34,     6,  4663
-3x3,    78.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4768
-3x3,    79.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4737
-3x3,    80.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4752
-3x3,    81.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4735
-3x3,    82.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4787
-3x3,    83.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.34,     6,  4923
-3x3,    84.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4764
-3x3,    85.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.42,     6,  4774
-3x3,    86.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4757
-3x3,    87.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4786
-3x3,    88.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.27,     6,  4801
-3x3,    89.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    6, 1.31,     6,  4806
-3x3,    90.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.42,     6,  4725
-3x3,   137.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4786
-3x3,   138.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4719
-3x3,   139.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4677
-3x3,   140.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4859
-3x3,   141.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4716
-3x3,   142.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4809
-3x3,   143.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4749
-3x3,   144.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4850
-3x3,   145.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4738
-3x3,   146.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.34,     7,  4732
-3x3,   147.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.34,     7,  4734
-3x3,   148.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4812
-3x3,   149.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4761
-3x3,   150.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.49,     7,  4877
-3x3,   151.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.34,     7,  4721
-3x3,   152.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.49,     7,  4896
-3x3,    91.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4731
-3x3,    92.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.34,     7,  4704
-3x3,    93.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4738
-3x3,    94.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4763
-3x3,    95.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.44,     7,  4806
-3x3,    96.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4817
-3x3,    97.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4872
-3x3,    98.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.27,     7,  4694
-3x3,    99.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    7, 1.29,     7,  4735
-3x3,   244.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.44,     8,  4764
-3x3,   245.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4855
-3x3,   246.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4832
-3x3,   247.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4743
-3x3,   248.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4793
-3x3,   249.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4775
-3x3,   250.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4824
-3x3,   251.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4794
-3x3,   252.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4795
-3x3,   253.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4829
-3x3,   254.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.28,     8,  4704
-3x3,   255.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4776
-3x3,   256.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4765
-3x3,   257.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4761
-3x3,   258.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.28,     8,  4714
-3x3,   259.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4691
-3x3,   260.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.22,     8,  4792
-3x3,   261.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4776
-3x3,   262.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4853
-3x3,   263.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.28,     8,  4771
-3x3,   264.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4686
-3x3,   265.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4914
-3x3,   266.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.28,     8,  4760
-3x3,   267.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    8, 1.24,     8,  4749
-3x3,   268.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.28,     8,  4801
-3x3,   396.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4756
-3x3,   397.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4747
-3x3,   398.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4761
-3x3,   399.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4763
-3x3,   400.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.25,     9,  4814
-3x3,   401.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4750
-3x3,   402.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4787
-3x3,   403.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.20,     9,  4700
-3x3,   404.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4757
-3x3,   405.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4678
-3x3,   406.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4671
-3x3,   407.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.20,     9,  4850
-3x3,   408.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.25,     9,  4741
-3x3,   409.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4735
-3x3,   410.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.23,     9,  4805
-3x3,   411.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4758
-3x3,   412.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4750
-3x3,   413.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4710
-3x3,   414.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.25,     9,  4736
-3x3,   415.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4910
-3x3,   416.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4737
-3x3,   417.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4722
-3x3,   418.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4678
-3x3,   419.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    9, 1.22,     9,  4726
-3x3,   420.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.33,     9,  4706
-3x3,   682.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.18,    10,  4745
-3x3,   683.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   40, 1.41,    10,  4710
-3x3,   684.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.20,    10,  4846
-3x3,   685.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4739
-3x3,   686.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4750
-3x3,   687.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.18,    10,  4750
-3x3,   688.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.18,    10,  4879
-3x3,   689.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4831
-3x3,   690.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.16,    10,  4717
-3x3,   691.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4796
-3x3,   692.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4744
-3x3,   693.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4827
-3x3,   694.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4716
-3x3,   695.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.22,    10,  4750
-3x3,   696.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.20,    10,  4699
-3x3,   697.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.23,    10,  4737
-3x3,   698.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.28,    10,  4705
-3x3,   699.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.20,    10,  4805
-3x3,   700.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.23,    10,  4725
-3x3,   701.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4799
-3x3,   702.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.22,    10,  4770
-3x3,   703.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.26,    10,  4732
-3x3,   704.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.19,    10,  4747
-3x3,   705.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   26, 1.36,    10,  4780
-3x3,   706.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   10, 1.18,    10,  4855
-3x3,   975.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4816
-3x3,   976.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   58, 1.42,    11,  4723
-3x3,   977.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.16,    11,  4692
-3x3,   978.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4761
-3x3,   979.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4755
-3x3,   980.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.16,    11,  4779
-3x3,   981.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4763
-3x3,   982.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4730
-3x3,   983.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4722
-3x3,   984.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4737
-3x3,   985.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.16,    11,  4817
-3x3,   986.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4858
-3x3,   987.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.18,    11,  4873
-3x3,   988.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4783
-3x3,   989.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.20,    11,  5081
-3x3,   990.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   45, 1.38,    11,  4755
-3x3,   991.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   33, 1.33,    11,  4747
-3x3,   992.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.27,    11,  4768
-3x3,   993.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4744
-3x3,   994.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.27,    11,  4785
-3x3,   995.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.19,    11,  4802
-3x3,   996.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.18,    11,  4788
-3x3,   997.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.16,    11,  4740
-3x3,   998.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   11, 1.17,    11,  4880
-3x3,   999.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.26,    11,  4807
-3x3,  1826.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.14,    12,  4803
-3x3,  1827.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.15,    12,  4761
-3x3,  1828.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.21,    12,  4781
-3x3,  1829.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.16,    12,  4749
-3x3,  1830.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.15,    12,  4743
-3x3,  1831.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.18,    12,  4762
-3x3,  1832.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.18,    12,  4721
-3x3,  1833.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   62, 1.37,    12,  4759
-3x3,  1834.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.16,    12,  4715
-3x3,  1835.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   36, 1.30,    12,  4805
-3x3,  1836.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.18,    12,  4786
-3x3,  1837.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.21,    12,  4778
-3x3,  1838.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.16,    12,  4813
-3x3,  1839.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.18,    12,  4765
-3x3,  1840.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.14,    12,  4718
-3x3,  1841.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.22,    12,  5129
-3x3,  1842.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   69, 1.39,    12,  4868
-3x3,  1843.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.15,    12,  4747
-3x3,  1844.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.15,    12,  4746
-3x3,  1845.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.16,    12,  4732
-3x3,  1846.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.18,    12,  4767
-3x3,  1847.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.19,    12,  4753
-3x3,  1848.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   12, 1.13,    12,  4801
-3x3,  1849.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.25,    12,  4785
-3x3,  1850.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   26, 1.26,    12,  4776
-3x3,  2850.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.15,    13,  4719
-3x3,  2851.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.23,    13,  4660
-3x3,  2852.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4766
-3x3,  2853.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.14,    13,  4948
-3x3,  2854.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   55, 1.32,    13,  4807
-3x3,  2855.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4733
-3x3,  2856.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.15,    13,  4798
-3x3,  2857.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.19,    13,  4733
-3x3,  2858.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.15,    13,  4768
-3x3,  2859.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.15,    13,  4764
-3x3,  2860.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.14,    13,  4819
-3x3,  2861.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.17,    13,  4688
-3x3,  2862.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   76, 1.36,    13,  4740
-3x3,  2863.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.14,    13,  4792
-3x3,  2864.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.14,    13,  4770
-3x3,  2865.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4746
-3x3,  2866.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4702
-3x3,  2867.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4799
-3x3,  2868.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.15,    13,  4720
-3x3,  2869.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.13,    13,  4803
-3x3,  2870.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4846
-3x3,  2871.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.16,    13,  4727
-3x3,  2872.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   24, 1.22,    13,  4736
-3x3,  2873.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4736
-3x3,  2874.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   13, 1.15,    13,  4813
-3x3,  4743.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.19,    14,  4843
-3x3,  4744.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4947
-3x3,  4745.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.15,    14,  4809
-3x3,  4746.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   26, 1.21,    14,  4720
-3x3,  4747.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4733
-3x3,  4748.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.20,    14,  4724
-3x3,  4749.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.15,    14,  4749
-3x3,  4750.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.13,    14,  4731
-3x3,  4751.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.14,    14,  4957
-3x3,  4752.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4738
-3x3,  4753.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4807
-3x3,  4754.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.14,    14,  4719
-3x3,  4755.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.15,    14,  4759
-3x3,  4756.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4732
-3x3,  4757.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  115, 1.37,    14,  4720
-3x3,  4758.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.14,    14,  4842
-3x3,  4759.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.18,    14,  4815
-3x3,  4760.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.19,    14,  4903
-3x3,  4761.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4742
-3x3,  4762.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  104, 1.36,    14,  4802
-3x3,  4763.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4895
-3x3,  4764.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.15,    14,  4759
-3x3,  4765.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.14,    14,  4729
-3x3,  4766.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4845
-3x3,  4767.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   14, 1.13,    14,  4716
-3x3,  7255.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.12,    15,  4712
-3x3,  7256.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   33, 1.21,    15,  4748
-3x3,  7257.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.14,    15,  4818
-3x3,  7258.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.16,    15,  4728
-3x3,  7259.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.15,    15,  4841
-3x3,  7260.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   34, 1.21,    15,  4756
-3x3,  7261.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.14,    15,  4691
-3x3,  7262.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.13,    15,  4653
-3x3,  7263.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.13,    15,  4704
-3x3,  7264.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.20,    15,  4724
-3x3,  7265.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   71, 1.29,    15,  4745
-3x3,  7266.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.18,    15,  4760
-3x3,  7267.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.13,    15,  4810
-3x3,  7268.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   36, 1.23,    15,  4820
-3x3,  7269.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.20,    15,  4803
-3x3,  7270.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.13,    15,  4683
-3x3,  7271.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   28, 1.20,    15,  4764
-3x3,  7272.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   33, 1.22,    15,  4735
-3x3,  7273.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.13,    15,  4797
-3x3,  7274.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   15, 1.12,    15,  4779
-3x3,  7275.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   35, 1.22,    15,  4879
-3x3,  7276.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.20,    15,  4726
-3x3,  7277.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  138, 1.36,    15,  4773
-3x3,  7278.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.15,    15,  4784
-3x3,  7279.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   45, 1.23,    15,  4753
-3x3,  9975.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  312, 1.42,    16,  4747
-3x3,  9976.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.12,    16,  4808
-3x3,  9977.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.12,    16,  4708
-3x3,  9978.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   26, 1.17,    16,  4700
-3x3,  9979.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   40, 1.20,    16,  4805
-3x3,  9980.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.13,    16,  4762
-3x3,  9981.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   37, 1.21,    16,  4723
-3x3,  9982.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   16, 1.12,    16,  4826
-3x3,  9983.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  341, 1.43,    16,  4840
-3x3,  9984.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   86, 1.28,    16,  4773
-3x3,  9985.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   32, 1.19,    16,  4810
-3x3,  9986.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   46, 1.23,    16,  4819
-3x3,  9987.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   47, 1.23,    16,  4774
-3x3,  9988.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   50, 1.23,    16,  4717
-3x3,  9989.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.18,    16,  4766
-3x3,  9990.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.13,    16,  4807
-3x3,  9991.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.16,    16,  4729
-3x3,  9992.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  165, 1.35,    16,  4720
-3x3,  9993.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  545, 1.47,    16,  4868
-3x3,  9994.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   45, 1.22,    16,  4779
-3x3,  9995.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   63, 1.25,    16,  4693
-3x3,  9996.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.13,    16,  4689
-3x3,  9997.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.13,    16,  4801
-3x3,  9998.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   28, 1.17,    16,  4754
-3x3,  9999.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   27, 1.17,    16,  4851
-3x3, 17378.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   61, 1.23,    17,  4626
-3x3, 17379.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   30, 1.16,    17,  4748
-3x3, 17380.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.11,    17,  4750
-3x3, 17381.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.13,    17,  4683
-3x3, 17382.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.11,    17,  5003
-3x3, 17383.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   43, 1.20,    17,  4871
-3x3, 17384.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   44, 1.20,    17,  5133
-3x3, 17385.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   17, 1.11,    17,  4867
-3x3, 17386.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.13,    17,  8538
-3x3, 17387.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.13,    17,  5282
-3x3, 17388.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 1235, 1.52,    17, 11794
-3x3, 17389.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.12,    17, 12907
-3x3, 17390.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   98, 1.27,    17,  7628
-3x3, 17391.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.14,    17,  5128
-3x3, 17392.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   79, 1.25,    17,  5212
-3x3, 17393.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.12,    17,  6850
-3x3, 17394.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  298, 1.38,    17,  5076
-3x3, 17395.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   56, 1.22,    17,  5056
-3x3, 17396.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.11,    17,  5119
-3x3, 17397.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.15,    17,  5302
-3x3, 17398.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   27, 1.16,    17,  5748
-3x3, 17399.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.12,    17, 12171
-3x3, 17400.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   30, 1.16,    17,  5916
-3x3, 17401.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   50, 1.21,    17,  8757
-3x3, 17402.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   31, 1.17,    17,  7751
-3x3, 26907.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.10,    18, 12086
-3x3, 26908.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   29, 1.15,    18, 12242
-3x3, 26909.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   54, 1.20,    18, 12249
-3x3, 26910.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   52, 1.20,    18, 12747
-3x3, 26911.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.10,    18,  5686
-3x3, 26912.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   36, 1.17,    18,  5099
-3x3, 26913.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   51, 1.19,    18,  5098
-3x3, 26914.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   97, 1.25,    18,  5026
-3x3, 26915.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  189, 1.31,    18,  5029
-3x3, 26916.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   48, 1.19,    18,  5235
-3x3, 26917.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  100, 1.25,    18,  5376
-3x3, 26918.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 3043, 1.57,    18,  6787
-3x3, 26919.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.12,    18,  9997
-3x3, 26920.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   28, 1.14,    18,  5717
-3x3, 26921.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   49, 1.19,    18,  8577
-3x3, 26922.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   36, 1.17,    18,  9463
-3x3, 26923.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   42, 1.18,    18, 12669
-3x3, 26924.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.13,    18, 12750
-3x3, 26925.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   26, 1.13,    18, 12458
-3x3, 26926.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.12,    18, 12578
-3x3, 26927.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  144, 1.29,    18,  5283
-3x3, 26928.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   18, 1.10,    18,  7167
-3x3, 26929.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.11,    18, 10969
-3x3, 26930.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   32, 1.15,    18,  5135
-3x3, 26931.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   38, 1.17,    18,  5049
-3x3, 37785.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.11,    19,  5190
-3x3, 37786.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.12,    19,  5071
-3x3, 37787.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.11,    19,  5162
-3x3, 37788.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  351, 1.34,    19,  5674
-3x3, 37789.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.10,    19,  8573
-3x3, 37790.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  571, 1.37,    19,  5106
-3x3, 37791.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  339, 1.34,    19,  5159
-3x3, 37792.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   79, 1.21,    19,  5159
-3x3, 37793.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.09,    19,  5120
-3x3, 37794.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   32, 1.14,    19,  5110
-3x3, 37795.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   84, 1.22,    19,  5045
-3x3, 37796.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   85, 1.22,    19,  5122
-3x3, 37797.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  186, 1.28,    19,  5043
-3x3, 37798.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.10,    19,  5046
-3x3, 37799.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 2516, 1.51,    19,  5089
-3x3, 37800.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   42, 1.17,    19,  5090
-3x3, 37801.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   87, 1.23,    19, 11688
-3x3, 37802.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   19, 1.10,    19, 12483
-3x3, 37803.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   39, 1.16,    19,  5254
-3x3, 37804.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  163, 1.28,    19,  5170
-3x3, 37805.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  634, 1.39,    19,  5151
-3x3, 37806.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  206, 1.29,    19,  5155
-3x3, 37807.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   24, 1.12,    19,  8387
-3x3, 37808.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  156, 1.27,    19, 11797
-3x3, 37809.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 4346, 1.56,    19,  5248
-3x3, 54773.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  437, 1.33,    20,  5218
-3x3, 54774.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.10,    20,  4889
-3x3, 54775.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.10,    20,  4825
-3x3, 54777.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 1253, 1.42,    20,  4805
-3x3, 54778.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   45, 1.16,    20,  4818
-3x3, 54779.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   48, 1.16,    20,  4853
-3x3, 54780.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   41, 1.15,    20,  4737
-3x3, 54782.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   32, 1.13,    20,  4766
-3x3, 54783.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   33, 1.13,    20,  4734
-3x3, 54784.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   40, 1.14,    20,  4764
-3x3, 54785.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.10,    20,  4829
-3x3, 54787.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   23, 1.11,    20,  4699
-3x3, 54788.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   20, 1.09,    20,  4786
-3x3, 54789.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  110, 1.23,    20,  4699
-3x3, 54790.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   93, 1.21,    20,  4753
-3x3, 54791.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   25, 1.11,    20,  4721
-3x3, 54792.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   40, 1.15,    20,  4698
-3x3, 54794.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   21, 1.10,    20,  4800
-3x3, 54795.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   33, 1.13,    20,  4859
-3x3, 54796.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  241, 1.29,    20,  4771
-3x3, 54797.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  167, 1.26,    20,  4750
-3x3, 54798.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  101, 1.22,    20,  4797
-3x3, 54799.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-  547, 1.35,    20,  4789
-3x3, 54801.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
- 2201, 1.46,    20,  4895
-3x3, 54802.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-   22, 1.10,    20,  4698
-4x4,     1.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    1, 3.00,     1, 165411
-4x4,     2.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    1, 3.00,     1, 161304
-4x4,     3.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.19,     2, 167679
-4x4,     4.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.00,     2, 169841
+3x3,     6.txt, astar, disjointPDBHorizontal,     2, 2.19,     2,  4683
+3x3,     7.txt, astar, disjointPDBHorizontal,     2, 1.79,     2,  4686
+3x3,    10.txt, astar, disjointPDBHorizontal,     3, 1.58,     3,  4877
+3x3,    11.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4713
+3x3,    12.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4806
+3x3,    13.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4724
+3x3,    14.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4742
+3x3,    15.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4744
+3x3,     8.txt, astar, disjointPDBHorizontal,     3, 1.74,     3,  4689
+3x3,     9.txt, astar, disjointPDBHorizontal,     3, 1.58,     3,  4710
+3x3,    16.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4766
+3x3,    17.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4836
+3x3,    18.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4694
+3x3,    19.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4772
+3x3,    20.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  5016
+3x3,    21.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4862
+3x3,    22.txt, astar, disjointPDBHorizontal,     4, 1.40,     4,  4687
+3x3,    23.txt, astar, disjointPDBHorizontal,     4, 1.40,     4,  4738
+3x3,    24.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4783
+3x3,    25.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4778
+3x3,    26.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4744
+3x3,    27.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4733
+3x3,    28.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4821
+3x3,    29.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4809
+3x3,    30.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4758
+3x3,    31.txt, astar, disjointPDBHorizontal,     4, 1.49,     4,  4830
+3x3,    32.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4713
+3x3,    33.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4779
+3x3,    34.txt, astar, disjointPDBHorizontal,     5, 1.34,     5,  4761
+3x3,    35.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4737
+3x3,    36.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4743
+3x3,    37.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4724
+3x3,    38.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4796
+3x3,    39.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4744
+3x3,    40.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4761
+3x3,    41.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4722
+3x3,    42.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4683
+3x3,    43.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4771
+3x3,    44.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4776
+3x3,    45.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4797
+3x3,    46.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4740
+3x3,    47.txt, astar, disjointPDBHorizontal,     5, 1.34,     5,  4763
+3x3,    48.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4811
+3x3,    49.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4728
+3x3,    50.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4769
+3x3,    51.txt, astar, disjointPDBHorizontal,     5, 1.39,     5,  4805
+3x3,    66.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4800
+3x3,    67.txt, astar, disjointPDBHorizontal,     8, 1.42,     6,  4835
+3x3,    68.txt, astar, disjointPDBHorizontal,     8, 1.42,     6,  4717
+3x3,    69.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4794
+3x3,    70.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4705
+3x3,    71.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4757
+3x3,    72.txt, astar, disjointPDBHorizontal,    11, 1.53,     6,  4767
+3x3,    73.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4790
+3x3,    74.txt, astar, disjointPDBHorizontal,     6, 1.27,     6,  4788
+3x3,    75.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4697
+3x3,    76.txt, astar, disjointPDBHorizontal,     6, 1.34,     6,  5014
+3x3,    77.txt, astar, disjointPDBHorizontal,     6, 1.34,     6,  4663
+3x3,    78.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4768
+3x3,    79.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4737
+3x3,    80.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4752
+3x3,    81.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4735
+3x3,    82.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4787
+3x3,    83.txt, astar, disjointPDBHorizontal,     6, 1.34,     6,  4923
+3x3,    84.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4764
+3x3,    85.txt, astar, disjointPDBHorizontal,     8, 1.42,     6,  4774
+3x3,    86.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4757
+3x3,    87.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4786
+3x3,    88.txt, astar, disjointPDBHorizontal,     6, 1.27,     6,  4801
+3x3,    89.txt, astar, disjointPDBHorizontal,     6, 1.31,     6,  4806
+3x3,    90.txt, astar, disjointPDBHorizontal,     8, 1.42,     6,  4725
+3x3,   137.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4786
+3x3,   138.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4719
+3x3,   139.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4677
+3x3,   140.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4859
+3x3,   141.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4716
+3x3,   142.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4809
+3x3,   143.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4749
+3x3,   144.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4850
+3x3,   145.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4738
+3x3,   146.txt, astar, disjointPDBHorizontal,     9, 1.34,     7,  4732
+3x3,   147.txt, astar, disjointPDBHorizontal,     9, 1.34,     7,  4734
+3x3,   148.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4812
+3x3,   149.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4761
+3x3,   150.txt, astar, disjointPDBHorizontal,    17, 1.49,     7,  4877
+3x3,   151.txt, astar, disjointPDBHorizontal,     9, 1.34,     7,  4721
+3x3,   152.txt, astar, disjointPDBHorizontal,    17, 1.49,     7,  4896
+3x3,    91.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4731
+3x3,    92.txt, astar, disjointPDBHorizontal,     9, 1.34,     7,  4704
+3x3,    93.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4738
+3x3,    94.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4763
+3x3,    95.txt, astar, disjointPDBHorizontal,    13, 1.44,     7,  4806
+3x3,    96.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4817
+3x3,    97.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4872
+3x3,    98.txt, astar, disjointPDBHorizontal,     7, 1.27,     7,  4694
+3x3,    99.txt, astar, disjointPDBHorizontal,     7, 1.29,     7,  4735
+3x3,   244.txt, astar, disjointPDBHorizontal,    22, 1.44,     8,  4764
+3x3,   245.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4855
+3x3,   246.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4832
+3x3,   247.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4743
+3x3,   248.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4793
+3x3,   249.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4775
+3x3,   250.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4824
+3x3,   251.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4794
+3x3,   252.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4795
+3x3,   253.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4829
+3x3,   254.txt, astar, disjointPDBHorizontal,    10, 1.28,     8,  4704
+3x3,   255.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4776
+3x3,   256.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4765
+3x3,   257.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4761
+3x3,   258.txt, astar, disjointPDBHorizontal,    10, 1.28,     8,  4714
+3x3,   259.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4691
+3x3,   260.txt, astar, disjointPDBHorizontal,     8, 1.22,     8,  4792
+3x3,   261.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4776
+3x3,   262.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4853
+3x3,   263.txt, astar, disjointPDBHorizontal,    10, 1.28,     8,  4771
+3x3,   264.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4686
+3x3,   265.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4914
+3x3,   266.txt, astar, disjointPDBHorizontal,    10, 1.28,     8,  4760
+3x3,   267.txt, astar, disjointPDBHorizontal,     8, 1.24,     8,  4749
+3x3,   268.txt, astar, disjointPDBHorizontal,    10, 1.28,     8,  4801
+3x3,   396.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4756
+3x3,   397.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4747
+3x3,   398.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4761
+3x3,   399.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4763
+3x3,   400.txt, astar, disjointPDBHorizontal,    11, 1.25,     9,  4814
+3x3,   401.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4750
+3x3,   402.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4787
+3x3,   403.txt, astar, disjointPDBHorizontal,     9, 1.20,     9,  4700
+3x3,   404.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4757
+3x3,   405.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4678
+3x3,   406.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4671
+3x3,   407.txt, astar, disjointPDBHorizontal,     9, 1.20,     9,  4850
+3x3,   408.txt, astar, disjointPDBHorizontal,    11, 1.25,     9,  4741
+3x3,   409.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4735
+3x3,   410.txt, astar, disjointPDBHorizontal,    10, 1.23,     9,  4805
+3x3,   411.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4758
+3x3,   412.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4750
+3x3,   413.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4710
+3x3,   414.txt, astar, disjointPDBHorizontal,    11, 1.25,     9,  4736
+3x3,   415.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4910
+3x3,   416.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4737
+3x3,   417.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4722
+3x3,   418.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4678
+3x3,   419.txt, astar, disjointPDBHorizontal,     9, 1.22,     9,  4726
+3x3,   420.txt, astar, disjointPDBHorizontal,    17, 1.33,     9,  4706
+3x3,   682.txt, astar, disjointPDBHorizontal,    10, 1.18,    10,  4745
+3x3,   683.txt, astar, disjointPDBHorizontal,    40, 1.41,    10,  4710
+3x3,   684.txt, astar, disjointPDBHorizontal,    11, 1.20,    10,  4846
+3x3,   685.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4739
+3x3,   686.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4750
+3x3,   687.txt, astar, disjointPDBHorizontal,    10, 1.18,    10,  4750
+3x3,   688.txt, astar, disjointPDBHorizontal,    10, 1.18,    10,  4879
+3x3,   689.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4831
+3x3,   690.txt, astar, disjointPDBHorizontal,    10, 1.16,    10,  4717
+3x3,   691.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4796
+3x3,   692.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4744
+3x3,   693.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4827
+3x3,   694.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4716
+3x3,   695.txt, astar, disjointPDBHorizontal,    12, 1.22,    10,  4750
+3x3,   696.txt, astar, disjointPDBHorizontal,    10, 1.20,    10,  4699
+3x3,   697.txt, astar, disjointPDBHorizontal,    13, 1.23,    10,  4737
+3x3,   698.txt, astar, disjointPDBHorizontal,    18, 1.28,    10,  4705
+3x3,   699.txt, astar, disjointPDBHorizontal,    10, 1.20,    10,  4805
+3x3,   700.txt, astar, disjointPDBHorizontal,    12, 1.23,    10,  4725
+3x3,   701.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4799
+3x3,   702.txt, astar, disjointPDBHorizontal,    12, 1.22,    10,  4770
+3x3,   703.txt, astar, disjointPDBHorizontal,    15, 1.26,    10,  4732
+3x3,   704.txt, astar, disjointPDBHorizontal,    10, 1.19,    10,  4747
+3x3,   705.txt, astar, disjointPDBHorizontal,    26, 1.36,    10,  4780
+3x3,   706.txt, astar, disjointPDBHorizontal,    10, 1.18,    10,  4855
+3x3,   975.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4816
+3x3,   976.txt, astar, disjointPDBHorizontal,    58, 1.42,    11,  4723
+3x3,   977.txt, astar, disjointPDBHorizontal,    11, 1.16,    11,  4692
+3x3,   978.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4761
+3x3,   979.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4755
+3x3,   980.txt, astar, disjointPDBHorizontal,    11, 1.16,    11,  4779
+3x3,   981.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4763
+3x3,   982.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4730
+3x3,   983.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4722
+3x3,   984.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4737
+3x3,   985.txt, astar, disjointPDBHorizontal,    11, 1.16,    11,  4817
+3x3,   986.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4858
+3x3,   987.txt, astar, disjointPDBHorizontal,    11, 1.18,    11,  4873
+3x3,   988.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4783
+3x3,   989.txt, astar, disjointPDBHorizontal,    13, 1.20,    11,  5081
+3x3,   990.txt, astar, disjointPDBHorizontal,    45, 1.38,    11,  4755
+3x3,   991.txt, astar, disjointPDBHorizontal,    33, 1.33,    11,  4747
+3x3,   992.txt, astar, disjointPDBHorizontal,    20, 1.27,    11,  4768
+3x3,   993.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4744
+3x3,   994.txt, astar, disjointPDBHorizontal,    20, 1.27,    11,  4785
+3x3,   995.txt, astar, disjointPDBHorizontal,    13, 1.19,    11,  4802
+3x3,   996.txt, astar, disjointPDBHorizontal,    12, 1.18,    11,  4788
+3x3,   997.txt, astar, disjointPDBHorizontal,    11, 1.16,    11,  4740
+3x3,   998.txt, astar, disjointPDBHorizontal,    11, 1.17,    11,  4880
+3x3,   999.txt, astar, disjointPDBHorizontal,    19, 1.26,    11,  4807
+3x3,  1826.txt, astar, disjointPDBHorizontal,    12, 1.14,    12,  4803
+3x3,  1827.txt, astar, disjointPDBHorizontal,    12, 1.15,    12,  4761
+3x3,  1828.txt, astar, disjointPDBHorizontal,    18, 1.21,    12,  4781
+3x3,  1829.txt, astar, disjointPDBHorizontal,    12, 1.16,    12,  4749
+3x3,  1830.txt, astar, disjointPDBHorizontal,    12, 1.15,    12,  4743
+3x3,  1831.txt, astar, disjointPDBHorizontal,    14, 1.18,    12,  4762
+3x3,  1832.txt, astar, disjointPDBHorizontal,    14, 1.18,    12,  4721
+3x3,  1833.txt, astar, disjointPDBHorizontal,    62, 1.37,    12,  4759
+3x3,  1834.txt, astar, disjointPDBHorizontal,    13, 1.16,    12,  4715
+3x3,  1835.txt, astar, disjointPDBHorizontal,    36, 1.30,    12,  4805
+3x3,  1836.txt, astar, disjointPDBHorizontal,    14, 1.18,    12,  4786
+3x3,  1837.txt, astar, disjointPDBHorizontal,    19, 1.21,    12,  4778
+3x3,  1838.txt, astar, disjointPDBHorizontal,    12, 1.16,    12,  4813
+3x3,  1839.txt, astar, disjointPDBHorizontal,    15, 1.18,    12,  4765
+3x3,  1840.txt, astar, disjointPDBHorizontal,    12, 1.14,    12,  4718
+3x3,  1841.txt, astar, disjointPDBHorizontal,    19, 1.22,    12,  5129
+3x3,  1842.txt, astar, disjointPDBHorizontal,    69, 1.39,    12,  4868
+3x3,  1843.txt, astar, disjointPDBHorizontal,    12, 1.15,    12,  4747
+3x3,  1844.txt, astar, disjointPDBHorizontal,    12, 1.15,    12,  4746
+3x3,  1845.txt, astar, disjointPDBHorizontal,    12, 1.16,    12,  4732
+3x3,  1846.txt, astar, disjointPDBHorizontal,    14, 1.18,    12,  4767
+3x3,  1847.txt, astar, disjointPDBHorizontal,    16, 1.19,    12,  4753
+3x3,  1848.txt, astar, disjointPDBHorizontal,    12, 1.13,    12,  4801
+3x3,  1849.txt, astar, disjointPDBHorizontal,    23, 1.25,    12,  4785
+3x3,  1850.txt, astar, disjointPDBHorizontal,    26, 1.26,    12,  4776
+3x3,  2850.txt, astar, disjointPDBHorizontal,    14, 1.15,    13,  4719
+3x3,  2851.txt, astar, disjointPDBHorizontal,    25, 1.23,    13,  4660
+3x3,  2852.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4766
+3x3,  2853.txt, astar, disjointPDBHorizontal,    13, 1.14,    13,  4948
+3x3,  2854.txt, astar, disjointPDBHorizontal,    55, 1.32,    13,  4807
+3x3,  2855.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4733
+3x3,  2856.txt, astar, disjointPDBHorizontal,    14, 1.15,    13,  4798
+3x3,  2857.txt, astar, disjointPDBHorizontal,    19, 1.19,    13,  4733
+3x3,  2858.txt, astar, disjointPDBHorizontal,    14, 1.15,    13,  4768
+3x3,  2859.txt, astar, disjointPDBHorizontal,    14, 1.15,    13,  4764
+3x3,  2860.txt, astar, disjointPDBHorizontal,    13, 1.14,    13,  4819
+3x3,  2861.txt, astar, disjointPDBHorizontal,    16, 1.17,    13,  4688
+3x3,  2862.txt, astar, disjointPDBHorizontal,    76, 1.36,    13,  4740
+3x3,  2863.txt, astar, disjointPDBHorizontal,    13, 1.14,    13,  4792
+3x3,  2864.txt, astar, disjointPDBHorizontal,    13, 1.14,    13,  4770
+3x3,  2865.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4746
+3x3,  2866.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4702
+3x3,  2867.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4799
+3x3,  2868.txt, astar, disjointPDBHorizontal,    14, 1.15,    13,  4720
+3x3,  2869.txt, astar, disjointPDBHorizontal,    13, 1.13,    13,  4803
+3x3,  2870.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4846
+3x3,  2871.txt, astar, disjointPDBHorizontal,    15, 1.16,    13,  4727
+3x3,  2872.txt, astar, disjointPDBHorizontal,    24, 1.22,    13,  4736
+3x3,  2873.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4736
+3x3,  2874.txt, astar, disjointPDBHorizontal,    13, 1.15,    13,  4813
+3x3,  4743.txt, astar, disjointPDBHorizontal,    23, 1.19,    14,  4843
+3x3,  4744.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4947
+3x3,  4745.txt, astar, disjointPDBHorizontal,    16, 1.15,    14,  4809
+3x3,  4746.txt, astar, disjointPDBHorizontal,    26, 1.21,    14,  4720
+3x3,  4747.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4733
+3x3,  4748.txt, astar, disjointPDBHorizontal,    25, 1.20,    14,  4724
+3x3,  4749.txt, astar, disjointPDBHorizontal,    16, 1.15,    14,  4749
+3x3,  4750.txt, astar, disjointPDBHorizontal,    15, 1.13,    14,  4731
+3x3,  4751.txt, astar, disjointPDBHorizontal,    15, 1.14,    14,  4957
+3x3,  4752.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4738
+3x3,  4753.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4807
+3x3,  4754.txt, astar, disjointPDBHorizontal,    15, 1.14,    14,  4719
+3x3,  4755.txt, astar, disjointPDBHorizontal,    16, 1.15,    14,  4759
+3x3,  4756.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4732
+3x3,  4757.txt, astar, disjointPDBHorizontal,   115, 1.37,    14,  4720
+3x3,  4758.txt, astar, disjointPDBHorizontal,    15, 1.14,    14,  4842
+3x3,  4759.txt, astar, disjointPDBHorizontal,    21, 1.18,    14,  4815
+3x3,  4760.txt, astar, disjointPDBHorizontal,    23, 1.19,    14,  4903
+3x3,  4761.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4742
+3x3,  4762.txt, astar, disjointPDBHorizontal,   104, 1.36,    14,  4802
+3x3,  4763.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4895
+3x3,  4764.txt, astar, disjointPDBHorizontal,    17, 1.15,    14,  4759
+3x3,  4765.txt, astar, disjointPDBHorizontal,    15, 1.14,    14,  4729
+3x3,  4766.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4845
+3x3,  4767.txt, astar, disjointPDBHorizontal,    14, 1.13,    14,  4716
+3x3,  7255.txt, astar, disjointPDBHorizontal,    15, 1.12,    15,  4712
+3x3,  7256.txt, astar, disjointPDBHorizontal,    33, 1.21,    15,  4748
+3x3,  7257.txt, astar, disjointPDBHorizontal,    17, 1.14,    15,  4818
+3x3,  7258.txt, astar, disjointPDBHorizontal,    20, 1.16,    15,  4728
+3x3,  7259.txt, astar, disjointPDBHorizontal,    19, 1.15,    15,  4841
+3x3,  7260.txt, astar, disjointPDBHorizontal,    34, 1.21,    15,  4756
+3x3,  7261.txt, astar, disjointPDBHorizontal,    18, 1.14,    15,  4691
+3x3,  7262.txt, astar, disjointPDBHorizontal,    17, 1.13,    15,  4653
+3x3,  7263.txt, astar, disjointPDBHorizontal,    15, 1.13,    15,  4704
+3x3,  7264.txt, astar, disjointPDBHorizontal,    29, 1.20,    15,  4724
+3x3,  7265.txt, astar, disjointPDBHorizontal,    71, 1.29,    15,  4745
+3x3,  7266.txt, astar, disjointPDBHorizontal,    25, 1.18,    15,  4760
+3x3,  7267.txt, astar, disjointPDBHorizontal,    15, 1.13,    15,  4810
+3x3,  7268.txt, astar, disjointPDBHorizontal,    36, 1.23,    15,  4820
+3x3,  7269.txt, astar, disjointPDBHorizontal,    29, 1.20,    15,  4803
+3x3,  7270.txt, astar, disjointPDBHorizontal,    16, 1.13,    15,  4683
+3x3,  7271.txt, astar, disjointPDBHorizontal,    28, 1.20,    15,  4764
+3x3,  7272.txt, astar, disjointPDBHorizontal,    33, 1.22,    15,  4735
+3x3,  7273.txt, astar, disjointPDBHorizontal,    16, 1.13,    15,  4797
+3x3,  7274.txt, astar, disjointPDBHorizontal,    15, 1.12,    15,  4779
+3x3,  7275.txt, astar, disjointPDBHorizontal,    35, 1.22,    15,  4879
+3x3,  7276.txt, astar, disjointPDBHorizontal,    29, 1.20,    15,  4726
+3x3,  7277.txt, astar, disjointPDBHorizontal,   138, 1.36,    15,  4773
+3x3,  7278.txt, astar, disjointPDBHorizontal,    20, 1.15,    15,  4784
+3x3,  7279.txt, astar, disjointPDBHorizontal,    45, 1.23,    15,  4753
+3x3,  9975.txt, astar, disjointPDBHorizontal,   312, 1.42,    16,  4747
+3x3,  9976.txt, astar, disjointPDBHorizontal,    16, 1.12,    16,  4808
+3x3,  9977.txt, astar, disjointPDBHorizontal,    17, 1.12,    16,  4708
+3x3,  9978.txt, astar, disjointPDBHorizontal,    26, 1.17,    16,  4700
+3x3,  9979.txt, astar, disjointPDBHorizontal,    40, 1.20,    16,  4805
+3x3,  9980.txt, astar, disjointPDBHorizontal,    18, 1.13,    16,  4762
+3x3,  9981.txt, astar, disjointPDBHorizontal,    37, 1.21,    16,  4723
+3x3,  9982.txt, astar, disjointPDBHorizontal,    16, 1.12,    16,  4826
+3x3,  9983.txt, astar, disjointPDBHorizontal,   341, 1.43,    16,  4840
+3x3,  9984.txt, astar, disjointPDBHorizontal,    86, 1.28,    16,  4773
+3x3,  9985.txt, astar, disjointPDBHorizontal,    32, 1.19,    16,  4810
+3x3,  9986.txt, astar, disjointPDBHorizontal,    46, 1.23,    16,  4819
+3x3,  9987.txt, astar, disjointPDBHorizontal,    47, 1.23,    16,  4774
+3x3,  9988.txt, astar, disjointPDBHorizontal,    50, 1.23,    16,  4717
+3x3,  9989.txt, astar, disjointPDBHorizontal,    29, 1.18,    16,  4766
+3x3,  9990.txt, astar, disjointPDBHorizontal,    18, 1.13,    16,  4807
+3x3,  9991.txt, astar, disjointPDBHorizontal,    23, 1.16,    16,  4729
+3x3,  9992.txt, astar, disjointPDBHorizontal,   165, 1.35,    16,  4720
+3x3,  9993.txt, astar, disjointPDBHorizontal,   545, 1.47,    16,  4868
+3x3,  9994.txt, astar, disjointPDBHorizontal,    45, 1.22,    16,  4779
+3x3,  9995.txt, astar, disjointPDBHorizontal,    63, 1.25,    16,  4693
+3x3,  9996.txt, astar, disjointPDBHorizontal,    18, 1.13,    16,  4689
+3x3,  9997.txt, astar, disjointPDBHorizontal,    18, 1.13,    16,  4801
+3x3,  9998.txt, astar, disjointPDBHorizontal,    28, 1.17,    16,  4754
+3x3,  9999.txt, astar, disjointPDBHorizontal,    27, 1.17,    16,  4851
+3x3, 17378.txt, astar, disjointPDBHorizontal,    61, 1.23,    17,  4626
+3x3, 17379.txt, astar, disjointPDBHorizontal,    30, 1.16,    17,  4748
+3x3, 17380.txt, astar, disjointPDBHorizontal,    17, 1.11,    17,  4750
+3x3, 17381.txt, astar, disjointPDBHorizontal,    21, 1.13,    17,  4683
+3x3, 17382.txt, astar, disjointPDBHorizontal,    17, 1.11,    17,  5003
+3x3, 17383.txt, astar, disjointPDBHorizontal,    43, 1.20,    17,  4871
+3x3, 17384.txt, astar, disjointPDBHorizontal,    44, 1.20,    17,  5133
+3x3, 17385.txt, astar, disjointPDBHorizontal,    17, 1.11,    17,  4867
+3x3, 17386.txt, astar, disjointPDBHorizontal,    22, 1.13,    17,  8538
+3x3, 17387.txt, astar, disjointPDBHorizontal,    20, 1.13,    17,  5282
+3x3, 17388.txt, astar, disjointPDBHorizontal,  1235, 1.52,    17, 11794
+3x3, 17389.txt, astar, disjointPDBHorizontal,    20, 1.12,    17, 12907
+3x3, 17390.txt, astar, disjointPDBHorizontal,    98, 1.27,    17,  7628
+3x3, 17391.txt, astar, disjointPDBHorizontal,    25, 1.14,    17,  5128
+3x3, 17392.txt, astar, disjointPDBHorizontal,    79, 1.25,    17,  5212
+3x3, 17393.txt, astar, disjointPDBHorizontal,    19, 1.12,    17,  6850
+3x3, 17394.txt, astar, disjointPDBHorizontal,   298, 1.38,    17,  5076
+3x3, 17395.txt, astar, disjointPDBHorizontal,    56, 1.22,    17,  5056
+3x3, 17396.txt, astar, disjointPDBHorizontal,    18, 1.11,    17,  5119
+3x3, 17397.txt, astar, disjointPDBHorizontal,    29, 1.15,    17,  5302
+3x3, 17398.txt, astar, disjointPDBHorizontal,    27, 1.16,    17,  5748
+3x3, 17399.txt, astar, disjointPDBHorizontal,    18, 1.12,    17, 12171
+3x3, 17400.txt, astar, disjointPDBHorizontal,    30, 1.16,    17,  5916
+3x3, 17401.txt, astar, disjointPDBHorizontal,    50, 1.21,    17,  8757
+3x3, 17402.txt, astar, disjointPDBHorizontal,    31, 1.17,    17,  7751
+3x3, 26907.txt, astar, disjointPDBHorizontal,    18, 1.10,    18, 12086
+3x3, 26908.txt, astar, disjointPDBHorizontal,    29, 1.15,    18, 12242
+3x3, 26909.txt, astar, disjointPDBHorizontal,    54, 1.20,    18, 12249
+3x3, 26910.txt, astar, disjointPDBHorizontal,    52, 1.20,    18, 12747
+3x3, 26911.txt, astar, disjointPDBHorizontal,    18, 1.10,    18,  5686
+3x3, 26912.txt, astar, disjointPDBHorizontal,    36, 1.17,    18,  5099
+3x3, 26913.txt, astar, disjointPDBHorizontal,    51, 1.19,    18,  5098
+3x3, 26914.txt, astar, disjointPDBHorizontal,    97, 1.25,    18,  5026
+3x3, 26915.txt, astar, disjointPDBHorizontal,   189, 1.31,    18,  5029
+3x3, 26916.txt, astar, disjointPDBHorizontal,    48, 1.19,    18,  5235
+3x3, 26917.txt, astar, disjointPDBHorizontal,   100, 1.25,    18,  5376
+3x3, 26918.txt, astar, disjointPDBHorizontal,  3043, 1.57,    18,  6787
+3x3, 26919.txt, astar, disjointPDBHorizontal,    23, 1.12,    18,  9997
+3x3, 26920.txt, astar, disjointPDBHorizontal,    28, 1.14,    18,  5717
+3x3, 26921.txt, astar, disjointPDBHorizontal,    49, 1.19,    18,  8577
+3x3, 26922.txt, astar, disjointPDBHorizontal,    36, 1.17,    18,  9463
+3x3, 26923.txt, astar, disjointPDBHorizontal,    42, 1.18,    18, 12669
+3x3, 26924.txt, astar, disjointPDBHorizontal,    25, 1.13,    18, 12750
+3x3, 26925.txt, astar, disjointPDBHorizontal,    26, 1.13,    18, 12458
+3x3, 26926.txt, astar, disjointPDBHorizontal,    22, 1.12,    18, 12578
+3x3, 26927.txt, astar, disjointPDBHorizontal,   144, 1.29,    18,  5283
+3x3, 26928.txt, astar, disjointPDBHorizontal,    18, 1.10,    18,  7167
+3x3, 26929.txt, astar, disjointPDBHorizontal,    20, 1.11,    18, 10969
+3x3, 26930.txt, astar, disjointPDBHorizontal,    32, 1.15,    18,  5135
+3x3, 26931.txt, astar, disjointPDBHorizontal,    38, 1.17,    18,  5049
+3x3, 37785.txt, astar, disjointPDBHorizontal,    21, 1.11,    19,  5190
+3x3, 37786.txt, astar, disjointPDBHorizontal,    25, 1.12,    19,  5071
+3x3, 37787.txt, astar, disjointPDBHorizontal,    21, 1.11,    19,  5162
+3x3, 37788.txt, astar, disjointPDBHorizontal,   351, 1.34,    19,  5674
+3x3, 37789.txt, astar, disjointPDBHorizontal,    21, 1.10,    19,  8573
+3x3, 37790.txt, astar, disjointPDBHorizontal,   571, 1.37,    19,  5106
+3x3, 37791.txt, astar, disjointPDBHorizontal,   339, 1.34,    19,  5159
+3x3, 37792.txt, astar, disjointPDBHorizontal,    79, 1.21,    19,  5159
+3x3, 37793.txt, astar, disjointPDBHorizontal,    19, 1.09,    19,  5120
+3x3, 37794.txt, astar, disjointPDBHorizontal,    32, 1.14,    19,  5110
+3x3, 37795.txt, astar, disjointPDBHorizontal,    84, 1.22,    19,  5045
+3x3, 37796.txt, astar, disjointPDBHorizontal,    85, 1.22,    19,  5122
+3x3, 37797.txt, astar, disjointPDBHorizontal,   186, 1.28,    19,  5043
+3x3, 37798.txt, astar, disjointPDBHorizontal,    19, 1.10,    19,  5046
+3x3, 37799.txt, astar, disjointPDBHorizontal,  2516, 1.51,    19,  5089
+3x3, 37800.txt, astar, disjointPDBHorizontal,    42, 1.17,    19,  5090
+3x3, 37801.txt, astar, disjointPDBHorizontal,    87, 1.23,    19, 11688
+3x3, 37802.txt, astar, disjointPDBHorizontal,    19, 1.10,    19, 12483
+3x3, 37803.txt, astar, disjointPDBHorizontal,    39, 1.16,    19,  5254
+3x3, 37804.txt, astar, disjointPDBHorizontal,   163, 1.28,    19,  5170
+3x3, 37805.txt, astar, disjointPDBHorizontal,   634, 1.39,    19,  5151
+3x3, 37806.txt, astar, disjointPDBHorizontal,   206, 1.29,    19,  5155
+3x3, 37807.txt, astar, disjointPDBHorizontal,    24, 1.12,    19,  8387
+3x3, 37808.txt, astar, disjointPDBHorizontal,   156, 1.27,    19, 11797
+3x3, 37809.txt, astar, disjointPDBHorizontal,  4346, 1.56,    19,  5248
+3x3, 54773.txt, astar, disjointPDBHorizontal,   437, 1.33,    20,  5218
+3x3, 54774.txt, astar, disjointPDBHorizontal,    22, 1.10,    20,  4889
+3x3, 54775.txt, astar, disjointPDBHorizontal,    23, 1.10,    20,  4825
+3x3, 54777.txt, astar, disjointPDBHorizontal,  1253, 1.42,    20,  4805
+3x3, 54778.txt, astar, disjointPDBHorizontal,    45, 1.16,    20,  4818
+3x3, 54779.txt, astar, disjointPDBHorizontal,    48, 1.16,    20,  4853
+3x3, 54780.txt, astar, disjointPDBHorizontal,    41, 1.15,    20,  4737
+3x3, 54782.txt, astar, disjointPDBHorizontal,    32, 1.13,    20,  4766
+3x3, 54783.txt, astar, disjointPDBHorizontal,    33, 1.13,    20,  4734
+3x3, 54784.txt, astar, disjointPDBHorizontal,    40, 1.14,    20,  4764
+3x3, 54785.txt, astar, disjointPDBHorizontal,    22, 1.10,    20,  4829
+3x3, 54787.txt, astar, disjointPDBHorizontal,    23, 1.11,    20,  4699
+3x3, 54788.txt, astar, disjointPDBHorizontal,    20, 1.09,    20,  4786
+3x3, 54789.txt, astar, disjointPDBHorizontal,   110, 1.23,    20,  4699
+3x3, 54790.txt, astar, disjointPDBHorizontal,    93, 1.21,    20,  4753
+3x3, 54791.txt, astar, disjointPDBHorizontal,    25, 1.11,    20,  4721
+3x3, 54792.txt, astar, disjointPDBHorizontal,    40, 1.15,    20,  4698
+3x3, 54794.txt, astar, disjointPDBHorizontal,    21, 1.10,    20,  4800
+3x3, 54795.txt, astar, disjointPDBHorizontal,    33, 1.13,    20,  4859
+3x3, 54796.txt, astar, disjointPDBHorizontal,   241, 1.29,    20,  4771
+3x3, 54797.txt, astar, disjointPDBHorizontal,   167, 1.26,    20,  4750
+3x3, 54798.txt, astar, disjointPDBHorizontal,   101, 1.22,    20,  4797
+3x3, 54799.txt, astar, disjointPDBHorizontal,   547, 1.35,    20,  4789
+3x3, 54801.txt, astar, disjointPDBHorizontal,  2201, 1.46,    20,  4895
+3x3, 54802.txt, astar, disjointPDBHorizontal,    22, 1.10,    20,  4698
+4x4,     1.txt, astar, disjointPDBHorizontal,     1, 3.00,     1, 165411
+4x4,     2.txt, astar, disjointPDBHorizontal,     1, 3.00,     1, 161304
+4x4,     3.txt, astar, disjointPDBHorizontal,     2, 2.19,     2, 167679
+4x4,     4.txt, astar, disjointPDBHorizontal,     2, 2.00,     2, 169841
 4x4,     5.txt, astar, disjointPDBHorizontal,     0, 1.00,     0,     4
-4x4,     6.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.19,     2, 174470
-4x4,     7.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    2, 2.00,     2, 168103
-4x4,    10.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.58,     3, 175581
-4x4,    11.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.81,     3, 165389
-4x4,    12.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3, 160061
-4x4,    13.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.58,     3, 172571
-4x4,    14.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3, 162843
-4x4,    15.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3, 158753
-4x4,    16.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.81,     3, 162001
-4x4,    17.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.81,     3, 171343
-4x4,     8.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.81,     3, 165469
-4x4,     9.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    3, 1.74,     3, 168078
-4x4,    18.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.61,     4, 159366
-4x4,    19.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.61,     4, 171013
-4x4,    20.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.53,     4, 169556
-4x4,    21.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.45,     4, 163621
-4x4,    22.txt, astar, disjointPDBHorizontal, Constuct disjoint pattern database
-    4, 1.57,     4, 173603
+4x4,     6.txt, astar, disjointPDBHorizontal,     2, 2.19,     2, 174470
+4x4,     7.txt, astar, disjointPDBHorizontal,     2, 2.00,     2, 168103
+4x4,    10.txt, astar, disjointPDBHorizontal,     3, 1.58,     3, 175581
+4x4,    11.txt, astar, disjointPDBHorizontal,     3, 1.81,     3, 165389
+4x4,    12.txt, astar, disjointPDBHorizontal,     3, 1.74,     3, 160061
+4x4,    13.txt, astar, disjointPDBHorizontal,     3, 1.58,     3, 172571
+4x4,    14.txt, astar, disjointPDBHorizontal,     3, 1.74,     3, 162843
+4x4,    15.txt, astar, disjointPDBHorizontal,     3, 1.74,     3, 158753
+4x4,    16.txt, astar, disjointPDBHorizontal,     3, 1.81,     3, 162001
+4x4,    17.txt, astar, disjointPDBHorizontal,     3, 1.81,     3, 171343
+4x4,     8.txt, astar, disjointPDBHorizontal,     3, 1.81,     3, 165469
+4x4,     9.txt, astar, disjointPDBHorizontal,     3, 1.74,     3, 168078
+4x4,    18.txt, astar, disjointPDBHorizontal,     4, 1.61,     4, 159366
+4x4,    19.txt, astar, disjointPDBHorizontal,     4, 1.61,     4, 171013
+4x4,    20.txt, astar, disjointPDBHorizontal,     4, 1.53,     4, 169556
+4x4,    21.txt, astar, disjointPDBHorizontal,     4, 1.45,     4, 163621
+4x4,    22.txt, astar, disjointPDBHorizontal,     4, 1.57,     4, 173603
