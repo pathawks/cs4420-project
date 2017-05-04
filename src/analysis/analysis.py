@@ -1,0 +1,42 @@
+# Libraries
+import pandas as pd
+
+try:
+    if (plotting == True):
+        from matplotlib import pyplot as mplt
+
+        import seaborn as sns
+        sns.set_palette('muted')
+        sns.set_style('ticks')
+        sns.set_context('notebook')
+except:
+    print ("Set 'plotting' = True to import plots")
+
+# Global Variables
+metrics = ['cost', 'expanded', 'branchingFactor', 'time']
+column_names = ['size', 'boardID', 'algo', 'heur',  'expanded', 'branching', 'cost', 'time']
+
+
+# Directories
+results_dir = '../../data/results/'
+plots_dir = '../../docs/analysis/'
+
+# files
+djPDB_h_f = results_dir + 'disjointPDBHorizontal.csv'
+djPDB_v_f = results_dir + 'disjointPDBVertical.csv'
+djPDB_m_f = results_dir + 'disjointPDBMax.csv'
+
+linC_f = results_dir + 'linearConflict.csv'
+manhat_f = results_dir + 'manhattan.csv'
+nmax_f = results_dir + 'NMaxSwap.csv'
+
+nAdd_m_f = results_dir + 'nonAdditiveMax.csv'
+nAdd_f_f = results_dir + 'nonAdditiveFringe.csv'
+
+astar_f = results_dir + 'combined-astar.csv'
+
+files = [
+    djPDB_h_f, djPDB_v_f, djPDB_m_f,
+    linC_f, manhat_f, nmax_f,
+    nAdd_m_f, nAdd_f_f
+    ]
