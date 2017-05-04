@@ -151,11 +151,9 @@ object disjointPatternDatabase {
     val State(Board(size, tiles),_)=s
     var move= if (size==3) 30 else {20}
     if ((mode==0 & (lpdb.size==0|rpdb.size==0)) | (mode==1 & (updb.size==0|dpdb.size==0))) {
-      println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
     }
     if (mode==2 & (lpdb.size==0 | rpdb.size==0| updb.size==0| dpdb.size==0)) {
-      println("Constuct disjoint pattern database")
       getDPDB(goalState(size),validMovesDPDB,(move,move,move,move),mode)
     }
     if (mode==0 | mode==2){
