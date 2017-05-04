@@ -94,4 +94,85 @@ object Search {
       }
     }
   }
+
+  def ida[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): Option[List[S]] = {
+    /**
+      * Our fringe will hold nodes and the list of steps to get to that node
+      * We are keeping track of:
+      *   - the score of a given state (g(x) + h(x))
+      *   - the state itself
+      *   - the actual cost to reach this state from the root node
+      *   - the path to reach this node from the root node
+      */
+    val fringe = PriorityQueue.empty[(Int, T, Int, Int, List[S])](
+      Ordering.by((_: (Int, T, Int, Int, List[S]))._1).reverse)
+    var expandedNodes = 0
+    var costOfSolution = 0
+    var depth = 0
+    var generatedNodes = 0
+    var idaLimit = 1
+
+    /**
+      * Inner function that actually does the searching
+      *
+      * @param a        state
+      * @param solution steps required to get from initial to a
+      * @return list of steps required to find goal, or Nil if goal was not found
+      */
+    def search(a: T, g: Int, d: Int, solution: List[S]): Option[List[S]] = {
+      if (a == goal) {
+        costOfSolution = g
+        depth = d
+        Some(solution)
+      } else {
+        expandedNodes += 1
+        // Find all valid moves from a state, and add them to the fringe
+        makeNodes(a).foreach {
+          case (a, s) => {
+            generatedNodes += 1
+            val hScore = heuristic(a)
+            val cost = g + costs(a, s)
+            val score = cost + hScore
+            if (score <= idaLimit) {
+                val newSolution = s :: solution
+                val node = (score, a, cost, d + 1, newSolution)
+                fringe += node
+            }
+          }
+        }
+        fringe.isEmpty match {             // If the fringe is empty
+          case true => None                //   No solution found
+          case _ => fringe.dequeue match { // Else dequeue a node
+            case (_, a, g, d, solution) => {
+              search(a, g, d, solution)    //   search its children
+            }
+          }
+        }
+      }
+    }
+
+    val startTime = System.currentTimeMillis()
+    var result: Option[List[S]] = None
+    while (result == None && idaLimit < 30) {
+      result = search(initial, 0, 0, Nil)
+    }
+    val endTime = System.currentTimeMillis()
+    val eftBranchingFactor = EBF(generatedNodes, depth)
+    result match {
+      case None    => {
+        printf("-, -, -, -\n"); None
+      }
+      case Some(r) => {
+        printf(
+          "%5d, %.2f, %5d, %5d\n",
+          expandedNodes,
+          eftBranchingFactor,
+          costOfSolution,
+          endTime - startTime
+        )
+        Some(r.reverse)
+      }
+    }
+  }
+}
 }
