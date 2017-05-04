@@ -1,3 +1,7 @@
+# Cell width
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
+
 # Libraries
 import pandas as pd
 import numpy as np
