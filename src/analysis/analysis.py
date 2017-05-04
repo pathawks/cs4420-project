@@ -8,6 +8,7 @@ import numpy as np
 
 print ("""To plot, execute the following:
 from matplotlib import pyplot as mplt
+from pandas.tools.plotting import parallel_coordinates
 from scipy import stats
 
 import seaborn as sns
