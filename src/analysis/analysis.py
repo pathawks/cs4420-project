@@ -1,21 +1,23 @@
 # Libraries
 import pandas as pd
+import numpy as np
 
-try:
-    if (plotting == True):
-        from matplotlib import pyplot as mplt
+print ("""To plot, execute the following:
+from matplotlib import pyplot as mplt
+from scipy import stats
 
-        import seaborn as sns
-        sns.set_palette('muted')
-        sns.set_style('ticks')
-        sns.set_context('notebook')
-except:
-    print ("Set 'plotting' = True to import plots")
+import seaborn as sns
+sns.set_palette('muted')
+sns.set_style('ticks')
+sns.set_context('notebook')""")
 
 # Global Variables
-metrics = ['cost', 'expanded', 'branchingFactor', 'time']
+metrics = ['cost', 'expanded', 'branching', 'time']
 column_names = ['size', 'boardID', 'algo', 'heur',  'expanded', 'branching', 'cost', 'time']
-
+dtypes = {
+    'cost': int,
+    'expanded': int
+}
 
 # Directories
 results_dir = '../../data/results/'
