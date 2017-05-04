@@ -33,7 +33,7 @@ object Main extends App {
 
   val search_algo :(State, State, State=>List[(State, Operator)], State=>Int, (State, Operator)=>Int)=>Option[List[Operator]]  = args(1) match {
     case "astar" => astar
-    case "id"    => astar
+    case "ida"   => ida
     //case _       => throw "Unknown search"
   }
 
