@@ -446,4 +446,23 @@
 4x4,    20.txt, astar, nonAdditiveFringe,    26, 2.59,     4, 116337
 4x4,    21.txt, astar, nonAdditiveFringe,     4, 1.45,     4, 116166
 4x4,    22.txt, astar, nonAdditiveFringe,     8, 1.89,     4, 115131
-4x4,    23.txt, astar, nonAdditiveFringe, 
+4x4,    23.txt, astar, nonAdditiveFringe,    18, 2.33,     4, 117914
+4x4,    24.txt, astar, nonAdditiveFringe,    15, 2.21,     4, 120195
+4x4,    25.txt, astar, nonAdditiveFringe,    10, 2.08,     4, 117516
+4x4,    26.txt, astar, nonAdditiveFringe,    14, 2.24,     4, 118369
+4x4,    27.txt, astar, nonAdditiveFringe,    30, 2.74,     4, 114629
+4x4,    28.txt, astar, nonAdditiveFringe,     9, 1.94,     4, 116798
+4x4,    29.txt, astar, nonAdditiveFringe,    23, 2.51,     4, 115349
+4x4,    30.txt, astar, nonAdditiveFringe,     6, 1.76,     4, 116354
+4x4,    31.txt, astar, nonAdditiveFringe,    23, 2.53,     4, 113492
+4x4,    32.txt, astar, nonAdditiveFringe,    11, 2.11,     4, 118795
+4x4,    33.txt, astar, nonAdditiveFringe,     9, 1.94,     4, 112833
+4x4,    34.txt, astar, nonAdditiveFringe,    22, 2.51,     4, 113758
+4x4,    35.txt, astar, nonAdditiveFringe,     7, 1.84,     4, 112428
+4x4,    36.txt, astar, nonAdditiveFringe,     4, 1.45,     4, 116974
+4x4,    37.txt, astar, nonAdditiveFringe,    46, 3.05,     4, 113236
+4x4,    38.txt, astar, nonAdditiveFringe,     8, 1.89,     4, 115094
+4x4,    39.txt, astar, nonAdditiveFringe,    19, 2.39,     4, 115559
+4x4,    40.txt, astar, nonAdditiveFringe,    27, 2.61,     4, 116015
+4x4,    41.txt, astar, nonAdditiveFringe,    12, 2.15,     4, 115452
+4x4,    71.txt, astar, nonAdditiveFringe,     8, 1.60,     5, 111559
