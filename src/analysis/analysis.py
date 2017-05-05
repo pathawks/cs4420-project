@@ -1,6 +1,6 @@
-# Cell width
+# Cell width for easy viewing
 from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:100% !important; }</style>"))
+display(HTML("<style>.container { width:90% !important; }</style>"))
 
 # Libraries
 import pandas as pd
@@ -26,6 +26,7 @@ dtypes = {
 
 # Directories
 results_dir = '../../data/results/'
+canonical_dir = results_dir + 'canonical/'
 plots_dir = '../../docs/analysis/'
 
 # files
@@ -41,11 +42,15 @@ nmax_f = results_dir + 'NMaxSwap.csv'
 nAdd_m_f = results_dir + 'nonAdditiveMax.csv'
 nAdd_f_f = results_dir + 'nonAdditiveFringe.csv'
 
-combined_f = results_dir + 'combined.csv'
+# Final results
+combined_f = canonical_dir + 'combined.csv'
+parcord_f = canonical_dir + 'parcord.csv'
+algos_f = canonical_dir + 'algos.csv'
 
+# All together
 files = [
     djPDB_h_f, djPDB_v_f, djPDB_m_f,
-    linC_f, ida_f, 
+    linC_f, ida_f,
     manhat_f, nmax_f,
     nAdd_m_f, nAdd_f_f
     ]
