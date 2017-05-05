@@ -1,18 +1,34 @@
 # A* Puzzle Solver
 Using A* to solve 8 and 15 tile puzzles
 
-## Authors
+##### Authors
   * Pat Hawks
   * Ryan Larson
   * Rui Yang
 
-## Data Files
-  * `data/3x3.tgz` Archive of all 3x3 puzzles solvable in 20 or fewer moves
-  * `data/4x4.tgz` Archive of all 4x4 puzzles solvable in 20 or fewer moves
+### Directory Structure
 
-## How to run
-Compile with `make` and run with
-
-```sh
-scala Project.jar <file.txt> <search> <heuristic>
 ```
+.
+├── data
+│   ├── 3x3.tgz           # Boards archive
+│   ├── 4x4.tgz           # Boards archive
+│   ├── results           # Experimental results
+|   |   └── canonical     # Processed data
+│   └── test-board.txt
+├── docs
+│   ├── analysis          # Chart outputs
+│   ├── notes.md
+│   ├── outline.md
+│   └── paper.md
+├── index.html            # Interactive analysis
+├── launch.sh
+├── Makefile
+├── README.md
+└── src
+    ├── analysis          # Results analysis
+    └── main              # Application
+```
+
+### How to run
+Compile with `make` and run in your shell with `scala Project.jar <file.txt> <search> <heuristic>`.
