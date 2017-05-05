@@ -61,3 +61,8 @@ Experiments -> technical details & recipe
   * What, if any, trade offs are there within the heuristics?
 
 #### Conclusion
+
+
+#### References
+- disjoint pattern database heuristics by Korf & Felner
+- by The pathology of heuristic search in the 8-puzzle by Piltaver, Rok ; Luštrek, Mitja ; Gams, Matjaž
