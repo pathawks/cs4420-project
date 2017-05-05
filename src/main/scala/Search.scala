@@ -119,12 +119,12 @@ object Search {
       * @return list of steps required to find goal, or Nil if goal was not found
       */
     def search(a: T, currentCost: Int, currentDepth: Int): Option[List[S]] = {
-      expandedNodes += 1
       if (a == goal) {
         costOfSolution = currentCost
         depth = currentDepth
         Some(Nil: List[S])
       } else {
+        expandedNodes += 1
         var children: List[(T, S)]    = makeNodes(a)
         var solution: Option[List[S]] = None
         while (children != Nil && solution == None) {
