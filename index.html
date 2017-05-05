@@ -25,6 +25,9 @@
 		#pcp {
 			width:1200px;
 		}
+		text.label {
+			font-size: 100%;
+		}
 	</style>
 </head>
 
@@ -34,67 +37,104 @@
 		<div class="row">
 			<div class='col-xs-12'>
 				<h1>Artificial Intelligence <strong>Project</strong></h1>
-				<p>Multivariate plotting</p>
+				<p>Multivariate plotting the 8 and 15-Puzzles search algorithms.</p>
+				<p>Mouseover the heuristic's label to highlight all of it's experiments. Brush the axes to filter views, and rearrange as you see fit.</p>
 			</div>
+		<br>
+		<hr>
+		<br>
 		</div>
 		<div class="row">
-
 				<div class="parcoords" id="pcp"></div>
-
 		</div>
 	</div>
 </div>
 
 <script>
-var color = d3.scale.ordinal().range(colorbrewer.Pastel1[9]);
+var axes = {
+	'algo': {
+		type: 'string',
+		title: 'Algorithm',
+		tickPadding: 20
+	},
+	'heur': {
+		type: 'string',
+		title: 'Heuristic',
+		tickPadding: 20
+	},
+	'size': {
+			type: 'string',
+			title: 'Board Size',
+			tickPadding: 20
+	},
+	'expanded': {
+		type: 'number',
+		title: 'Nodes Expanded'
+	},
+	'branching': {
+		type: 'number',
+		title: 'Effective Branching Factor'
+	},
+	'time': {
+		type: 'number',
+		title: 'Time (ms)'
+	},
+	'cost' : {
+		type: 'number',
+		title: 'Cost',
+		orient: 'right'
+	}
+};
+
+
+
+var color = d3.scale.ordinal().range(colorbrewer.Dark2[8]);
 var parcoords = d3.parcoords()("#pcp")
-  .alpha(0.4)
+  .alpha(0.1)
   .mode("queue") // progressive rendering
   .height(300)
   .width(1200)
   .margin({
-    top: 36,
-    left: 0,
-    right: 0,
-    bottom: 16
+    top: 25,
+    left: 50,
+    right: 15,
+    bottom: 15
   });
 
-d3.csv('data/results/canonical/combined.csv', function(data) {
-	var data = data.map(function(d) { return format_trial(d); });
+d3.csv('data/results/canonical/parcord.csv', function(data) {
 
-	console.log(data);
+	var data = data.map(function(d) { return format_trial(d); });
 	var heuristics = d3.set(
 		data.map(function(d) { return d.heur; })
-		).values();
+	).values();
 
 	// set the colors for each heuristic
 	color.domain(heuristics);
-
 	// create the parallel coordinate plot
-	parallelCoordinates(data);
+	parallelCoordinates(data, heuristics);
+
+	// Grab heuristic ticks
+	var heuristic_ticks = d3.selectAll('.tick')[0]
+		.filter(function(d) { return heuristics.indexOf(d.__data__) > -1; });
+
+	// set interactivity on heuristic labels
+	d3.selectAll(heuristic_ticks)
+		.on('mouseover', function(d) { highlight(data, d); })
+		.on('mouseout', function(d) { unhighlight(data, d); });
 });
 
 // create chart from loaded data
-function parallelCoordinates(data) {
+function parallelCoordinates(data, heuristics) {
 
   parcoords
     .data(data)
     .hideAxis(['boardID'])
+		.dimensions(axes)
     .color(function(d) { return color(d.heur); })
     .render()
     .reorderable()
-    .brushMode("1D-axes");
-
-  // setting up grid
-  var column_keys = d3.keys(data[0]);
-  var columns = column_keys.map(function(key,i) {
-    return {
-      id: key,
-      name: key,
-      field: key,
-      sortable: true
-    }
-  });
+    .brushMode("1D-axes")
+		.render();
 };
 
 function format_trial(d) {
@@ -105,5 +145,13 @@ function format_trial(d) {
 	return d;
 }
 
+function highlight(data, heuristic) {
+	var filt = data.filter(function(d) { return d['heur'] === heuristic; });
+	parcoords.highlight(filt);
+}
+function unhighlight(data, heuristic) {
+	var filt = data.filter(function(d) { return d['heur'] === heuristic; });
+	parcoords.unhighlight(filt);
+}
 </script>
 </body>
