@@ -32,7 +32,7 @@ object heuristics {
 
   // Linear-conflict heuristics
 
-    def linearConflict(s: State): Int = {
+  def linearConflict(s: State): Int = {
     val State(Board(size, tiles), _) = s
     var sum = manhattan(s)
 
@@ -69,7 +69,7 @@ object heuristics {
     var iter = 0
     var buffer = 0
     val totalSize = length * length
-    var P = Array.tabulate(totalSize)(n=>totalSize)
+    var P = Array.tabulate(totalSize)(n => totalSize)
     var B = Array.tabulate(totalSize)(n => 0)
     val solution = Array.tabulate(totalSize)(_ + 1)
 
@@ -86,20 +86,20 @@ object heuristics {
     }
 
     for (pair <- tiles) {
-      val index = (pair._1._1 - 1) * length + pair._1._2-1
+      val index = (pair._1._1 - 1) * length + pair._1._2 - 1
       val n = pair._2
       P(index) = n; B(n - 1) = index
     }
-    B(totalSize-1) = P.indexOf(totalSize)
-    while (P(totalSize-1) != totalSize) {
-      swap(B(totalSize-1), B(B(totalSize-1)))
+    B(totalSize - 1) = P.indexOf(totalSize)
+    while (P(totalSize - 1) != totalSize) {
+      swap(B(totalSize - 1), B(B(totalSize - 1)))
     }
     val unsort = P.filter(n => n != P.apply(n - 1))
-      breakable{
-       for (e <- unsort) {
-         if (solution.sameElements(P)) break
-         swap(e - 1, B(totalSize-1)); swap(B(e - 1), e - 1)
-       }
+    breakable {
+      for (e <- unsort) {
+        if (solution.sameElements(P)) break
+        swap(e - 1, B(totalSize - 1)); swap(B(e - 1), e - 1)
+      }
     }
     iter
   }

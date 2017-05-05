@@ -12,27 +12,57 @@ import scala.collection.mutable.PriorityQueue
 import scala.collection.mutable.Set
 
 /**
- * Non-additive Pattern Database Heuristics
- * @param initial state
- * @param makeNodes function that returns a list of all children for a given
- *        node, as well as the step to get from current node to that child
- * @param maxCost maximium number of moves from initial state to obtain pattern databases
- * @param mode subtypes of heuristics 0:fringe 1.corner 2.max(fringe,corner)
- */
+  * Non-additive Pattern Database Heuristics
+  *
+  * @param initial   state
+  * @param makeNodes function that returns a list of all children for a given
+  *                  node, as well as the step to get from current node to that child
+  * @param maxCost   maximium number of moves from initial state to obtain pattern databases
+  * @param mode      subtypes of heuristics 0:fringe 1.corner 2.max(fringe,corner)
+  */
 
 object PatternDatabase {
-  var fpdb:Map[State,Int]=Map()  // Fringe Pattern Database
-  var cpdb:Map[State,Int]=Map()  // Corner Pattern Database
+  var fpdb: Map[State, Int] = Map() // Fringe Pattern Database
+  var cpdb: Map[State, Int] = Map() // Corner Pattern Database
+
+  // Non-additive pattern database heuristics
+  // Three modes 1:fringe 2.corner 3.max(fringe,corner)
+  def nonAdditive(s: State, mode: Int): Int = {
+    var heuristics = 0;
+    val State(Board(size, tiles), _) = s
+    // if fringe or corner database is empty, then generate corresponding one.
+    val max = if (size == 3) 30 else {
+      20
+    }
+    if ((mode == 0 & fpdb.size == 0) | (mode == 1 & cpdb.size == 0)) {
+      getNAPDB(goalState(size), validMoves, max, mode)
+    }
+    // to calculate max heuristics between fringe and corner pettern database, generate both of them.
+    if (mode == 2 & (fpdb.size == 0 | cpdb.size == 0)) {
+      getNAPDB(goalState(size), validMoves, max, mode)
+    }
+    if (mode == 0 | mode == 2) {
+      // get fringe pattern and its heuristic cost from the fpdb map
+      val p = pattern(s, true);
+      heuristics += fpdb(p);
+    }
+    if (mode == 1 | mode == 2) {
+      // get corner pattern and its heuristic cost from the cpdb map
+      val p2 = pattern(s, false);
+      if (heuristics < cpdb(p2)) heuristics = cpdb(p2)
+    }
+    heuristics
+  }
 
   // Generate above Pattern Databases
-  def getNAPDB(initial: State, makeNodes: State => List[(State, Operator)], maxCost: Int, mode:Int): Unit = {
+  def getNAPDB(initial: State, makeNodes: State => List[(State, Operator)], maxCost: Int, mode: Int): Unit = {
     val fringe = PriorityQueue.empty[(Int, State)](
       Ordering.by((_: (Int, State))._1).reverse)
     val seen = Set[State]()
 
-    def search(a: State, g: Int, mode:Int): Unit = {
+    def search(a: State, g: Int, mode: Int): Unit = {
       // update fringe pattern databse
-      if (mode==0 |mode==2){
+      if (mode == 0 | mode == 2) {
         val fp = pattern(a, true)
         // if this pattern never seen before, update it into fringe database map
         if (!(fpdb contains fp))
@@ -43,19 +73,20 @@ object PatternDatabase {
           if (fpdb(fp) > g)
             fpdb = fpdb + (fp -> g)
         }
-      // generate corner pattern database
+        // generate corner pattern database
       }
-      if (mode==0 |mode==2){
+      if (mode == 0 | mode == 2) {
         val cp = pattern(a, false)
         // if this pattern never seen before, update it into corner database map
         if (!(cpdb contains cp))
           cpdb = cpdb + (cp -> g)
         else {
-           // if this state has less number of moves than previous states having the same corner pattern,
+          // if this state has less number of moves than previous states having the same corner pattern,
           // update the cost into corner database map
           if (cpdb(cp) > g)
             cpdb = cpdb + (cp -> g)
-        }      }
+        }
+      }
 
       // Find all valid moves from a state, and add them to the state fringe queue,
       // if its cost is less than maximium assigned cost.
@@ -130,31 +161,6 @@ object PatternDatabase {
         }
       }
     }
-  }
-
-  // Non-additive pattern database heuristics
-  // Three modes 1:fringe 2.corner 3.max(fringe,corner)
-  def nonAdditive(s: State, mode: Int): Int = {
-    var heuristics = 0;
-    val State(Board(size,tiles),_)=s
-    // if fringe or corner database is empty, then generate corresponding one.
-    val max= if (size==3) 30 else {20}
-    if ((mode==0 & fpdb.size==0) | (mode==1 & cpdb.size==0)) {
-      getNAPDB(goalState(size),validMoves,max,mode) }
-    // to calculate max heuristics between fringe and corner pettern database, generate both of them.
-    if (mode==2 & (fpdb.size==0 | cpdb.size==0)) {
-      getNAPDB(goalState(size),validMoves, max, mode) }
-    if (mode == 0 | mode == 2) {
-      // get fringe pattern and its heuristic cost from the fpdb map
-      val p = pattern(s, true);
-      heuristics += fpdb(p);
-    }
-    if (mode == 1 | mode == 2) {
-      // get corner pattern and its heuristic cost from the cpdb map
-      val p2 = pattern(s, false);
-      if (heuristics < cpdb(p2)) heuristics= cpdb(p2)
-    }
-    heuristics
   }
 
 }
