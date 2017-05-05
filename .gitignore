@@ -7,3 +7,6 @@ __pycache__
 
 target/
 project/target/
+
+data/3x3/*
+data/4x4/*
