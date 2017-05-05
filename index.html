@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Artificial Intelligence Project</title>
+
+	<!-- CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,900" rel="stylesheet">
+
+	<!-- D3.js + TopoJson -->
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+
+	<!-- Parallel coordinates -->
+	<script src="https://syntagmatic.github.io/parallel-coordinates/d3.parcoords.js"></script>
+	<link href="https://syntagmatic.github.io/parallel-coordinates/d3.parcoords.css" rel="stylesheet">
+
+	<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+	
+	<!-- Styling -->
+	<style>
+		body, html {
+		  overflow: hidden;
+		  font-family: 'Raleway', 'Arial', 'sans-serif';
+		}
+		#pcp {
+			width:1200px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="content">
+		<div class="row">
+			<div class='col-xs-12'>
+				<h1>Artificial Intelligence <strong>Project</strong></h1>
+				<p>Multivariate plotting</p>
+			</div>
+		</div>
+		<div class="row">
+
+				<div class="parcoords" id="pcp"></div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+var color = d3.scale.ordinal().range(colorbrewer.Pastel1[9]);
+var parcoords = d3.parcoords()("#pcp")
+  .alpha(0.4)
+  .mode("queue") // progressive rendering
+  .height(300)
+  .width(1200)
+  .margin({
+    top: 36,
+    left: 0,
+    right: 0,
+    bottom: 16
+  });
+
+d3.csv('data/results/combined.csv', function(data) {
+	var data = data.map(function(d) { return format_trial(d); });
+
+	console.log(data);
+	var heuristics = d3.set(
+		data.map(function(d) { return d.heur; })
+		).values();
+
+	// set the colors for each heuristic
+	color.domain(heuristics);
+
+	// create the parallel coordinate plot
+	parallelCoordinates(data);
+});
+
+// create chart from loaded data
+function parallelCoordinates(data) {
+
+  parcoords
+    .data(data)
+    .hideAxis(['boardID'])
+    .color(function(d) { return color(d.heur); })
+    .render()
+    .reorderable()
+    .brushMode("1D-axes");
+
+  // setting up grid
+  var column_keys = d3.keys(data[0]);
+  var columns = column_keys.map(function(key,i) {
+    return {
+      id: key,
+      name: key,
+      field: key,
+      sortable: true
+    }
+  });
+};
+
+function format_trial(d) {
+	d.branching = +d.branching;
+	d.time = +d.time;
+	d.cost = +d.cost;
+	d.expanded = +d.expanded;
+	return d;
+}
+
+</script>
+</body>
