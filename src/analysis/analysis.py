@@ -40,7 +40,7 @@ nmax_f = results_dir + 'NMaxSwap.csv'
 nAdd_m_f = results_dir + 'nonAdditiveMax.csv'
 nAdd_f_f = results_dir + 'nonAdditiveFringe.csv'
 
-astar_f = results_dir + 'combined-astar.csv'
+combined_f = results_dir + 'combined.csv'
 
 files = [
     djPDB_h_f, djPDB_v_f, djPDB_m_f,
