@@ -20,6 +20,11 @@ import project.Utility._
  *   2 - Heuristic to use
  */
 object Main extends App {
+  if (args.length != 3) {
+    println("Please provide a filename, a search algorithm, and a heuristic")
+    System.exit(-4)
+  }
+
   val inFile = args(0)
   val s: State = try {
     read_board_to_state(inFile)
