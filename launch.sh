@@ -15,7 +15,7 @@ do
             scala ../../../Project.jar $board astar linearConflict        >> ../../results/linearConflict.csv
             scala ../../../Project.jar $board astar NMaxSwap              >> ../../results/NMaxSwap.csv
             scala ../../../Project.jar $board astar nonAdditiveFringe     >> ../../results/nonAdditiveFringe.csv
-            scala ../../../Project.jar $board astar nonAdditiveCorner     >> ../../results/nonAdditiveCorner.csv
+#           scala ../../../Project.jar $board astar nonAdditiveCorner     >> ../../results/nonAdditiveCorner.csv
             scala ../../../Project.jar $board astar nonAdditiveMax        >> ../../results/nonAdditiveMax.csv
             scala ../../../Project.jar $board astar disjointPDBVertical   >> ../../results/disjointPDBVertical.csv
             scala ../../../Project.jar $board astar disjointPDBHorizontal >> ../../results/disjointPDBHorizontal.csv
