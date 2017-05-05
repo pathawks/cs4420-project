@@ -34,6 +34,7 @@ djPDB_v_f = results_dir + 'disjointPDBVertical.csv'
 djPDB_m_f = results_dir + 'disjointPDBMax.csv'
 
 linC_f = results_dir + 'linearConflict.csv'
+ida_f = results_dir + 'ida-linearConflict.csv'
 manhat_f = results_dir + 'manhattan.csv'
 nmax_f = results_dir + 'NMaxSwap.csv'
 
@@ -44,6 +45,7 @@ combined_f = results_dir + 'combined.csv'
 
 files = [
     djPDB_h_f, djPDB_v_f, djPDB_m_f,
-    linC_f, manhat_f, nmax_f,
+    linC_f, ida_f, 
+    manhat_f, nmax_f,
     nAdd_m_f, nAdd_f_f
     ]
