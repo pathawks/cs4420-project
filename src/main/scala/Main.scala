@@ -34,7 +34,11 @@ object Main extends App {
   val search_algo :(State, State, State=>List[(State, Operator)], State=>Int, (State, Operator)=>Int)=>Option[List[Operator]]  = args(1) match {
     case "astar" => astar
     case "ida"   => ida
-    //case _       => throw "Unknown search"
+    case _ => {
+      println("Unknown search algorithm. Must be one of: astar ida")
+      System.exit(-2)
+      astar
+    }
   }
 
   val heuristic : State=>Int = args(2) match {
@@ -45,11 +49,16 @@ object Main extends App {
     case "nonAdditiveFringe"    => nonAdditive(_, 0)
     case "nonAdditiveCorner"    => nonAdditive(_, 1)
     case "nonAdditiveMax"       => nonAdditive(_, 2)
-      // disjointPDB(s:State, mode:Int, move:Int)
     case "disjointPDBVertical"  => disjointPDB(_, 0)
     case "disjointPDBHorizontal"=> disjointPDB(_, 1)
     case "disjointPDBMax"       => disjointPDB(_, 2)
-    //case _                => throw "Unknown Search"
+    case _ => {
+      println("Unknown heuristic. Must be one of: dummy manhattan linearConflict NMaxSwap")
+      println("                                   nonAdditiveFringe nonAdditiveCorner nonAdditiveMax")
+      println("                                   disjointPDBVertical disjointPDFHorizontal disjointPDBMax")
+      System.exit(-3)
+      dummy
+    }
   }
 
   val State(Board(size, _), _) = s
