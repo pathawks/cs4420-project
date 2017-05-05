@@ -11,15 +11,16 @@ import EBFsolver.EBF
 import scala.collection.mutable.PriorityQueue
 
 /**
- * A* search
- * @param initial state
- * @param goal state we are looking for
- * @param makeNodes function that returns a list of all children for a given
- *        node, as well as the step to get from current node to that child
- * @param heuristic function that analyzes the desirability of the current state
- * @param costs function that return the cost of moving a step from a state
- * @return list of steps required to find goal, or Nil if goal was not found
- */
+  * A* search
+  *
+  * @param initial   state
+  * @param goal      state we are looking for
+  * @param makeNodes function that returns a list of all children for a given
+  *                  node, as well as the step to get from current node to that child
+  * @param heuristic function that analyzes the desirability of the current state
+  * @param costs     function that return the cost of moving a step from a state
+  * @return list of steps required to find goal, or Nil if goal was not found
+  */
 object Search {
   def astar[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): Option[List[S]] = {
     /**
@@ -108,8 +109,8 @@ object Search {
     /**
       * Inner function that actually does the searching
       *
-      * @param a state
-      * @param currentCost sum of all costs to get to this state
+      * @param a            state
+      * @param currentCost  sum of all costs to get to this state
       * @param currentDepth incremented at each depth
       * @return Some List of solution steps if found, otherwise None
       */

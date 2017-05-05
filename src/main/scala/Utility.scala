@@ -1,10 +1,10 @@
 /**
-UTILITIES script
-  Functions:
-    -read_board_to_state: function to read txt boards
-
-  Authors:
-    -Ryan Larson
+  * UTILITIES script
+  * Functions:
+  * -read_board_to_state: function to read txt boards
+  * *
+  * Authors:
+  * -Ryan Larson
   */
 package project
 
@@ -27,8 +27,8 @@ object Utility {
     val file_lines = Source.fromFile(fName).getLines.toList
     val n_size_board = file_lines(0).trim.split(" ").length
 
-    var tiles:Map[Pos, Tile] = Map()
-    var emptyTile: Pos = (0,0)
+    var tiles: Map[Pos, Tile] = Map()
+    var emptyTile: Pos = (0, 0)
 
     var i = 0;
     for (row <- file_lines) {
