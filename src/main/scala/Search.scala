@@ -41,6 +41,8 @@ object Search {
       * Inner function that actually does the searching
       *
       * @param a        state
+      * @param g        actual cost to reach this state from initial
+      * @param d        depth of this node
       * @param solution steps required to get from initial to a
       * @return list of steps required to find goal, or Nil if goal was not found
       */
@@ -55,9 +57,9 @@ object Search {
         makeNodes(a).foreach {
           case (a, s) => {
             generatedNodes += 1
-            val hScore = heuristic(a)
-            val cost = g + costs(a, s)
-            val score = cost + hScore
+            val hScore = heuristic(a)  //        h(x)
+            val cost = g + costs(a, s) // g(x)
+            val score = cost + hScore  // g(x) + h(x)
             val newSolution = s :: solution
             val node = (score, a, cost, d + 1, newSolution)
             fringe += node
@@ -74,9 +76,9 @@ object Search {
       }
     }
 
-    val startTime = System.currentTimeMillis()
+    val startTime = System.currentTimeMillis
     val result = search(initial, 0, 0, Nil)
-    val endTime = System.currentTimeMillis()
+    val endTime = System.currentTimeMillis
     val eftBranchingFactor = EBF(generatedNodes, depth)
     result match {
       case None    => {
@@ -145,14 +147,14 @@ object Search {
       }
     }
 
-    val startTime = System.currentTimeMillis()
+    val startTime = System.currentTimeMillis
     var result: Option[List[S]] = None
     while (result == None) {
       result = search(initial, 0, 0)
       idaLimit = min
       min = defaultMin
     }
-    val endTime = System.currentTimeMillis()
+    val endTime = System.currentTimeMillis
     val eftBranchingFactor = EBF(expandedNodes, depth)
     result match {
       case None    => {
