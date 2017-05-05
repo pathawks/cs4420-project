@@ -96,14 +96,6 @@ object Search {
   }
 
   def ida[T, S](initial: T, goal: T, makeNodes: T => List[(T, S)], heuristic: T => Int, costs: (T, S) => Int): Option[List[S]] = {
-    /**
-      * Our fringe will hold nodes and the list of steps to get to that node
-      * We are keeping track of:
-      *   - the score of a given state (g(x) + h(x))
-      *   - the state itself
-      *   - the actual cost to reach this state from the root node
-      *   - the path to reach this node from the root node
-      */
     var expandedNodes = 0
     var costOfSolution = 0
     var idaLimit = heuristic(initial)
@@ -114,9 +106,10 @@ object Search {
     /**
       * Inner function that actually does the searching
       *
-      * @param a        state
-      * @param solution steps required to get from initial to a
-      * @return list of steps required to find goal, or Nil if goal was not found
+      * @param a state
+      * @param currentCost sum of all costs to get to this state
+      * @param currentDepth incremented at each depth
+      * @return Some List of solution steps if found, otherwise None
       */
     def search(a: T, currentCost: Int, currentDepth: Int): Option[List[S]] = {
       if (a == goal) {
@@ -127,21 +120,25 @@ object Search {
         expandedNodes += 1
         var children: List[(T, S)]    = makeNodes(a)
         var solution: Option[List[S]] = None
+
+        /* While there are child nodes to search
+         * and no solution has been found:
+         */
         while (children != Nil && solution == None) {
-          val (node, move) :: t = children
-          children = t
-          val stepCost = costs(node, move)
-          val h = heuristic(node)
+          val (node, move) :: t = children // Pick a child
+          children = t                     // Remove it from the list
+          val stepCost = costs(node, move) // Calculate its cost
+          val h = heuristic(node)          // Estimate its distance from goal
           val newCost = currentCost + stepCost
-          val score = newCost + h
-          if (score <= idaLimit) {
+          val score = newCost + h          // score = g(x) + h(x)
+          if (score <= idaLimit) {         // if this *might* be an optimal path
             val newDepth = currentDepth + 1
-            search(node, newCost, newDepth) match {
+            search(node, newCost, newDepth) match { // recursively search it
               case Some(l) => solution = Some(move :: l)
               case None => {} // solution is already None, no need to set
             }
-          } else if (score <= min) {
-            min = score
+          } else if (score <= min) { // if this is *not* an optimal path
+            min = score // possibly update minimum seen estimated cost
           }
         }
         solution
