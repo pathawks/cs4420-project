@@ -15,7 +15,7 @@
 	<link href="https://syntagmatic.github.io/parallel-coordinates/d3.parcoords.css" rel="stylesheet">
 
 	<script src="https://d3js.org/colorbrewer.v1.min.js"></script>
-	
+
 	<!-- Styling -->
 	<style>
 		body, html {
@@ -59,7 +59,7 @@ var parcoords = d3.parcoords()("#pcp")
     bottom: 16
   });
 
-d3.csv('data/results/combined.csv', function(data) {
+d3.csv('data/results/canonical/combined.csv', function(data) {
 	var data = data.map(function(d) { return format_trial(d); });
 
 	console.log(data);
