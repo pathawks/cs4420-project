@@ -100,4 +100,11 @@ The 3x3 board only has 181,400 possible states. Because of it's relatively small
 
 ##### Algorithm Discussion
 
+We only had one test case that ran our of memory, so IDA* did not solve any
+puzzles that A* was unable to solve. However, IDA* was a bit faster than A* in
+our tests. This was a suprise. Our intuition suggested that IDA* would be no
+faster, and possibly slower than A*, on account of possibly restarting the
+search multiple times. In practice, this was not an issue, and seems to be more
+than offset by not having to keep sorted a priority queue of nodes.
+
 ##### Critique
