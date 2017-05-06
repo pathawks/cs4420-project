@@ -41,8 +41,7 @@ Experiments -> technical details & recipe
     * Max
 - Algorithms:
   1. A*
-  2. Iterative Deepening
-  3. SMA
+  2. Iterative Deepening A*
 
 #### Results
 
