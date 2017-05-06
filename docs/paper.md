@@ -9,7 +9,40 @@ The sliding block puzzle family provide a fertile {area/oppurtunity} to develop 
 - disjoint pattern database heuristics by Korf & Felner
 - The pathology of heuristic search in the 8-puzzle
 
-- design of algorithms(?, nice-to-have)
+##### Search Algorithms
+
+###### A*
+
+Our A* search algorithm is general purpose. It takes as arguments:
+
+  1. An initial node (Can be any type that can be compared for equality)
+  2. A goal node
+  3. A `makeNodes` function which generates children of a node, and also returns
+     the move from the current node to each child.
+  4. A heuristic function, which takes a node and returns the estimated distance
+     from that node to the goal as an `int`. This is the `h(x)` function.
+  5. A cost function, which takes a child node and a step and returns the cost
+     to that child by that step. This is the `g(x)` function.
+
+A* will add generated nodes to a priority queue sorted by minimum value of a
+score which is calculated by `∑g(x) + h(x)`. As nodes are dequeued, they are
+compared to the goal node and, if they are not the goal, their children are
+generated and added to the priority queue.
+
+###### Iterative Deepening A*
+
+This works similar to uninformed Iterative Deepening Depth-First search except
+that the depth limit is determined by the heuristic function. Because the
+heuristic function must underestimate the cost of reaching the goal, we are
+guaranteed that any solution we find is the optimal solution.
+
+The advantage of IDA* over A* is that the priority queue is no longer necessary,
+thus the memory requirements are dramatically reduced. Branches that exceed the
+cost limit are never explored.
+
+The disadvantage of IDA* is that the tree may be traversed multiple times if the
+cost was underestimated the first time. In practice however this is not an
+issue, and IDA* runtime was usually lower than A*
 
 #### Methods
 
