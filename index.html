@@ -52,7 +52,22 @@
 		<br height=10>
 
 		<div class="row">
+				<h4>Overview</h4>
 				<div class="parcoords" id="pcp"></div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+				<h4>A* with the Linear Heuristic Family.</h4>
+				<div class="parcoords" id="astar"></div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+				<h4>A* and IDA Comaparison</h4>
+				<div class="parcoords" id="algoCompare"></div>
 		</div>
 	</div>
 </div>
@@ -93,59 +108,69 @@ var axes = {
 	}
 };
 
-
 var color = d3.scale.ordinal().range(['#1b9e77','#d95f02','#7570b3','#e7298a','#66a61e','#e6ab02','#999999', '#a6761d']);
-var parcoords = d3.parcoords()("#pcp")
-  .alpha(0.1)
-  .mode("queue") // progressive rendering
-  .height(300)
-  .width(1200)
-  .margin({
-    top: 25,
-    left: 50,
-    right: 15,
-    bottom: 15
-  });
 
-d3.csv('data/results/canonical/parcord.csv', function(data) {
 
-	var data = data.map(function(d) { return format_trial(d); });
-	var heuristics = d3.set(
-		data.map(function(d) { return d.heur; })
-	).values();
+createParallelCoordinates('#pcp', 'data/results/canonical/parcord.csv');
+createParallelCoordinates('#astar', 'data/results/canonical/parcords-linear-man-astar.csv');
+createParallelCoordinates('#algoCompare', 'data/results/canonical/parcords-linear.csv');
 
-	color.domain(heuristics);								// set the colors for each heuristic
-	parallelCoordinates(data, heuristics);	// create the parallel coordinate plot
+function createParallelCoordinates(id, data_f) {
+	var parcoords = d3.parcoords()(id)
+		.alpha(0.1)
+	  .mode("queue") // progressive rendering
+	  .height(300)
+	  .width(1200)
+	  .margin({
+	    top: 25,
+	    left: 50,
+	    right: 15,
+	    bottom: 15
+	  });
 
-	// Grab heuristic ticks
-	var heuristic_ticks = d3.selectAll('.tick')[0]
-		.filter(function(d) { return heuristics.indexOf(d.__data__) > -1; });
+		d3.csv(data_f, function(err, data) {
+			if (err) console.log(err);
+			console.log(data);
 
-	// set interactivity on heuristic labels
-	d3.selectAll(heuristic_ticks)
-		.on('mouseover', function(d) { highlight(data, d); })
-		.on('mouseout', function(d) { unhighlight(data, d); });
+			var data = data.map(function(d) { return format_trial(d); });
+			var heuristics = d3.set(
+				data.map(function(d) { return d.heur; })
+			).values();
 
-	// tick backgrounds
-	d3.selectAll(heuristic_ticks).each(function(d,i){
-	  var tick = d3.select(this),
-	      text = tick.select('text'),
-	      bBox = text.node().getBBox();
+			color.domain(heuristics);								// set the colors for each heuristic
+			drawParallelCoordinates(data, heuristics, parcoords);	// create the parallel coordinate plot
 
-	  tick.insert('rect', ':first-child')
-			.attr('class', 'heurLabel')
-	    .attr('x', bBox.x - 3)
-	    .attr('y', bBox.y - 3)
-	    .attr('height', bBox.height + 6)
-	    .attr('width', bBox.width + 6)
-	    .style('fill', '#fff');
-	});
-});
+			// Grab heuristic ticks
+			var heuristic_ticks = d3.select(id).selectAll('.tick')[0]
+				.filter(function(d) { return heuristics.indexOf(d.__data__) > -1; });
+
+			// set interactivity on heuristic labels
+			d3.selectAll(heuristic_ticks)
+				.on('mouseover', function(d) { highlight(data, d, parcoords); })
+				.on('mouseout', function(d) { unhighlight(data, d, parcoords); });
+
+			// tick backgrounds
+			d3.selectAll(heuristic_ticks).each(function(d,i){
+			  var tick = d3.select(this),
+			      text = tick.select('text'),
+			      bBox = text.node().getBBox();
+
+			  tick.insert('rect', ':first-child')
+					.attr('class', 'heurLabel')
+			    .attr('x', bBox.x - 3)
+			    .attr('y', bBox.y - 3)
+			    .attr('height', bBox.height + 6)
+			    .attr('width', bBox.width + 6)
+			    .style('fill', '#fff');
+			});
+		});
+		return parcoords;
+}
 
 // create chart from loaded data
-function parallelCoordinates(data, heuristics) {
+function drawParallelCoordinates(data, heuristics, pc) {
 
-  parcoords
+  pc
     .data(data)
     .hideAxis(['boardID'])
 		.dimensions(axes)
@@ -155,7 +180,7 @@ function parallelCoordinates(data, heuristics) {
     .brushMode("1D-axes")
 		.render();
 
-	parcoords.ctx.highlight.lineWidth = 1;	// set the highlight to be less intrusive
+	pc.ctx.highlight.lineWidth = 1;	// set the highlight to be less intrusive
 	window.onresize = function(d) { parcoords.ctx.highlight.lineWidth = 1; };
 };
 
@@ -167,17 +192,17 @@ function format_trial(d) {
 	return d;
 }
 
-function highlight(data, heuristic) {
+function highlight(data, heuristic, pc) {
 	var filt = data.filter(function(d) { return d['heur'] === heuristic; });
 
-	var old_alpha = parcoords.ctx.highlight.globalAlpha;
-	parcoords.ctx.highlight.globalAlpha = 0.7;
-	parcoords.highlight(filt).alpha(0.7);
-	parcoords.ctx.highlight.globalAlpha = old_alpha;
+	var old_alpha = pc.ctx.highlight.globalAlpha;
+	pc.ctx.highlight.globalAlpha = 0.7;
+	pc.highlight(filt).alpha(0.7);
+	pc.ctx.highlight.globalAlpha = old_alpha;
 }
-function unhighlight(data, heuristic) {
+function unhighlight(data, heuristic, pc) {
 	var filt = data.filter(function(d) { return d['heur'] === heuristic; });
-	parcoords.unhighlight(filt);
+	pc.unhighlight(filt);
 }
 </script>
 </body>
