@@ -19,11 +19,7 @@
 	<!-- Styling -->
 	<style>
 		body, html {
-		  overflow: hidden;
-		  font-family: 'Raleway', 'Arial', 'sans-serif';
-		}
-		#pcp {
-			width:1200px;
+			font-family: 'Raleway', 'Arial', 'sans-serif';
 		}
 		text.label {
 			font-size: 100%;
@@ -32,6 +28,18 @@
 			stroke: #333;
 			stroke-opacity: 0.15;
 			stroke-width: 0.25;
+		}
+		.row {
+			height: 350px;
+			margin: 2em 0;
+			padding-top: 1em;
+			border-top: 1px solid #999;
+		}
+		.row:first-child {
+			height: auto;
+			margin:0;
+			padding-top:0;
+			border-top:0;
 		}
 	</style>
 </head>
@@ -47,23 +55,15 @@
 			</div>
 		</div>
 
-		<br height=10>
-		<hr>
-		<br height=10>
-
 		<div class="row">
 				<h4>Overview</h4>
 				<div class="parcoords" id="pcp"></div>
 		</div>
 
-		<hr>
-
 		<div class="row">
 				<h4>A* with the Linear Heuristic Family.</h4>
 				<div class="parcoords" id="astar"></div>
 		</div>
-
-		<hr>
 
 		<div class="row">
 				<h4>A* and IDA Comaparison</h4>
