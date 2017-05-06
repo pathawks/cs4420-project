@@ -98,6 +98,13 @@ The 3x3 board only has 181,400 possible states. Because of it's relatively small
 
 ##### Heuristic Patterns
 
+While Linear Conflict was a good heuristic for puzzles that can be solved in 20
+or fewer moves, it seems that it would not be good enough for more complicated
+puzzles. Already in our test data, we noticed that the number of nodes expanded
+started growing rapidly around 16 step solutions. We did try to solve a couple
+puzzles with an 80 step optimal solution (the maximum for 15-Puzzles), and
+neither A* nor IDA* was able to find a solution after 10 hours.
+
 ##### Algorithm Discussion
 
 We only had one test case that ran our of memory, so IDA* did not solve any
@@ -110,7 +117,6 @@ than offset by not having to keep sorted a priority queue of nodes.
 Since memory did not seem to be a limiting factor for us, we would have liked to
 explore a Bidirectional A* where one tree starts from the initial state and
 branches toward the goal, while another tree starts from the goal and branches
-toward the initial state, and eventually the trees meet in the middle.
 
 ##### Critique
 
