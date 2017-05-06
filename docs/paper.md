@@ -118,3 +118,9 @@ regenerating it each time, it would have eventually outperformed the others. In
 our tests, the time it took to generate this database was *far* greater than the
 time it took other heuristics to find a solution that the overhead was never
 worth it.
+
+If we had more time, we would have liked to test *every* puzzle solvable in 20
+or fewer moves, rather than just a subset of puzzles. It is _conceivable_
+(though not particularly likely) that we just happened to find a subset that one
+heuristic was especially well suited for, and testing more puzzles would have
+eliminated this possibility.
