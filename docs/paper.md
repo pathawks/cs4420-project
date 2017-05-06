@@ -102,7 +102,7 @@ While Linear Conflict was a good heuristic for puzzles that can be solved in 20
 or fewer moves, it seems that it would not be good enough for more complicated
 puzzles. Already in our test data, we noticed that the number of nodes expanded
 started growing rapidly around 16 step solutions. We did try to solve a couple
-puzzles with an 80 step optimal solution (the maximum for 15-Puzzles), and
+puzzles with an 80 step optimal solution (the maximum for 15-Puzzles (Korf)), and
 neither A* nor IDA* was able to find a solution after 10 hours.
 
 ##### Algorithm Discussion
