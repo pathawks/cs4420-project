@@ -107,6 +107,11 @@ faster, and possibly slower than A*, on account of possibly restarting the
 search multiple times. In practice, this was not an issue, and seems to be more
 than offset by not having to keep sorted a priority queue of nodes.
 
+Since memory did not seem to be a limiting factor for us, we would have liked to
+explore a Bidirectional A* where one tree starts from the initial state and
+branches toward the goal, while another tree starts from the goal and branches
+toward the initial state, and eventually the trees meet in the middle.
+
 ##### Critique
 
 If we had more time, we would have liked to calculate the amortized time of the
