@@ -96,4 +96,8 @@ The 3x3 board only has 181,400 possible states. Because of it's relatively small
 
 #### Discussion
 
-**Heuristic patterns:**
+##### Heuristic Patterns
+
+##### Algorithm Discussion
+
+##### Critique
