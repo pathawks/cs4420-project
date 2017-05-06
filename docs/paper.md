@@ -1,6 +1,6 @@
 #### Introduction
 
-	The sliding block puzzle family provide a fertile area to develop heuristic functions for informed search strategies. This is by no means a new area in either puzzles or computer science, and puzzle problems contain a variety of strategies to use. This work takes a 10,000 foot perspective and evaluates several heuristics approaches using the traditional 8 and 15 puzzles. We are measuring the heuristic's performance on the number of nodes expanded, branching factor, time, and cost. Namely we characterize empty-tile-relaxed {manhattan, linear conflict} methods, adjacency-relaxed{nmaxswap}, and pattern databases {non-additive, disjoint} while using a grid search of different algorithms to illustrate the trade-offs of each. We hypothesize that in order of increasing performance, the empty-tile-relaxed and adjacency-relaxed will be similar with Linear Conflict out edging N-Max-Swap, which will be both be dominated by the pattern databases.
+	The sliding block puzzle family provide a fertile area to develop heuristic functions for informed search strategies. This is by no means a new area in either puzzles or computer science, and puzzle problems contain a variety of strategies to use. This work takes a 10,000 foot perspective and evaluates several heuristics approaches using the traditional 8 and 15 puzzles. We are measuring the heuristic's performance on the number of nodes expanded, branching factor, time, and cost. Namely we characterize empty-tile-relaxed (Manhattan and Linear Conflict) methods, adjacency-relaxed (N-Max-Swap), and pattern databases (non-additive and disjoint pattern databases) while using a grid search of different algorithms to illustrate the trade-offs of each. We hypothesize that in order of increasing performance, the empty-tile-relaxed and adjacency-relaxed will be similar with Linear Conflict out edging N-Max-Swap, which will be both be dominated by the pattern databases.
 
 
 ##### Prior Work
@@ -48,51 +48,54 @@ cost limit are never explored.
 
 The disadvantage of IDA* is that the tree may be traversed multiple times if the
 cost was underestimated the first time. In practice however this is not an
-issue, and IDA* runtime was usually lower than A*
+issue, and IDA* run time was usually lower than A*
 
 #### Methods
 At a high level our methodology follows: First we generate puzzle boards, then run multiple experiments over the same arbitrary subset of all possible puzzles using two algorithms (A* and IDA*) with each of our heuristics over two puzzle sizes (8 and 15). For each combination we record the board size, algorithm and heuristic used along with measuring the board cost (steps in optimal solution), time (milliseconds) elapsed, number of nodes expanded, and branching factor. Finally we aggregate our results, and conduct an multivariate analysis.
 
 The 8 and 15 puzzles are small enough that we can store all the states which are
-solvable in 20 or fewer moves. Thus for replication and uniformity we first generate all permutations and store them to text files. We did this by using breadth-first search plus memoization, starting from the goal state at the root and branching down via legal moves until we have generated all boards that are 20 moves or fewer away from the goal state. Because we used a breadth-first search, we could be certain that any board we saw was solvable in no fewer moves than the depth at which it was generated. After each state is generated it is saved to a text file, for which our application has a parser function. As previously noted each board is categorized into a directory heirarchy according to the board's cost, N-number moves.
+solvable in 20 or fewer moves. Thus for replication and uniformity we first generate all permutations and store them to text files. We did this by using breadth-first search plus memoization, starting from the goal state at the root and branching down via legal moves until we have generated all boards that are 20 moves or fewer away from the goal state. Because we used a breadth-first search, we could be certain that any board we saw was solvable in no fewer moves than the depth at which it was generated. After each state is generated it is saved to a text file, for which our application has a parser function. As previously noted each board is categorized into a directory hierarchy according to the board's cost, N-number moves.
 
 All of our tests were run on the same machine for uniformity: A Mac Pro with a 2.8GHz Quad-Core Intel Xeon processor, 16 GB of RAM, and Scala version 2.12.2. To give our solver flexibility with memory, we configured the Java Virtual Machine to start with an initial heap size of 4 GB, and a max heap size of 10 GB. We only ran out of memory once, while running A* with NMaxSwap on a 15-puzzle board that was solvable in 20 moves. Due to time constraints we are only able to perform one set of experiments.
 
-The 3x3 board only has 181,400 possible states. Because of it's relatively small size our first 8 puzzle experiment used A*. We use the same set of boards for each of our experiments, varying only the algorithm and heuristic. After setting the algorithm and heuristic we feed boards to our program in increasing cost. At lower N-cost boards we are able to exhuast the low number of possible states, and it isn't until {!!!stat, look for number of records by cost, 3x3} that we pick a limited number of state subsets.
+The 3x3 board only has 181,400 possible states. Because of it's relatively small size our first 8 puzzle experiment used A*. We use the same set of boards for each of our experiments, varying only the algorithm and heuristic. After setting the algorithm and heuristic we feed boards to our program in increasing cost. At lower N-cost boards we are able to exhaust the low number of possible states, and it isn't until {!!!stat, look for number of records by cost, 3x3} that we pick a limited number of state subsets.
 
- Our quasi grid-search used several heuristics; Manhattan, linear conflict, non-additive {methods?}, and disjoint pattern databases. The non-additive heuristic had three variations; horizontal, vertical, and maximum which uses the two previous variations. The disjoint pattern database also had fringe, corner and maximum variants. Each experiment is evaluated on four metrics, each is calculated by the formula in the table below:
+ Our quasi grid-search used several heuristics; Manhattan, linear conflict, non-additive, and disjoint pattern databases. The non-additive heuristic had three variations; horizontal, vertical, and maximum which uses the two previous variations. The disjoint pattern database also had fringe, corner and maximum variants. Each experiment is evaluated on four metrics, each is calculated by the formula in the table below:
 
 | Metric | Formula |
 |---|---|
 | Cost | N-number permutations away from goal state, ground truth from generation. |
 | Time | Elapsed time in milliseconds, taken from end time - start time. |
 | Nodes Expanded | A counter kept within the search function. |
-| Branching Factor | We use {!!!@RUI's method/Newton's method} to calculate the E.B.F. |
+| Branching Factor | We use the textbook provided method to calculate the E.B.F. |
 
 	After completing our 8-puzzle experiments we turn towards the 15 puzzle. A*'s effectiveness is limited by it's large fringe, so we use an iterative deepening A* instead. Our second set of experiments involve a much more constrained subset of attributes, we run the algorithms on both size boards with only one heuristic. Due to it’s performance in our 8-Puzzle experiments we choose the Linear Conflict as our control heuristic when comparing A* and IDA.
-	Finally, after running both sets of experiments we perform a multivariate analysis on the metrics results. This is done using the data analysis package Pandas for Python, along with Seaborn for statistical plots, and D3.js to facilitate interaction.
+	Finally, after running both sets of experiments we perform a multivariate analysis on the metrics results. This is done using the data analysis package Pandas 19.2 for Python, along with Seaborn 0.7.1 for statistical plots, and D3.js 3.0 to facilitate interaction.
 
 
 
 #### Results
 
-1. **8-Puzzle**
-	- Descriptive statistics
-		* Number of experiments for each algo, heuristic
-		* number of experiments that didn't complete within their time frame
-		* Distributions of each metric
-	- nodes expanded
-		* Which heuristics have the highest node expansions? Lowest?
-		*
-	- branching factor
-	- time
-		* which algorithms took the longest?
-		*
-	- cost
-		* How does increasing the state's cost effect the nodes expanded?
+Our first series of experiments were all conducted using A* on 8 and 15-Puzzle permutations. We completed 426 trials using each heuristic using the 8-Puzzle, due to time constraints we were not able to run all of the heuristics to completion on the 15-Puzzle. The Empty-Tile-Relaxed and Adjacency-relaxed heuristics were able to finish 440 trials, while the Pattern-based only ran for 84 trials. The exact figures are detailed in the table below.
 
 
-**15-Puzzle: **
+**# trials table**
+
+After collecting our metrics; nodes expanded, branching factor, time elapsed, and cost we begin our analysis. To test our hypotheses, we calculate descriptive statistics (median, mean, standard deviation) for all costs for each heuristic. The results are informative but unsurprising; the non-additive Pattern-based heuristics had the lowest number of expanded nodes. As predicted the non-additive max performed the best with a median of 13, 17.2 mean nodes expanded. We confirm our hypothesis that the non-additive max would be the most performant with regards to nodes expanded on a small board.
+
+**3x3 table**
+
+This was in clear contrast to the Manhattan and Linear Conflict Heuristics whose mean and median expanded nodes were almost 20 and 30 nodes greater, respectively. This was not a total loss, as the two heuristics were much faster than their patterned counterparts. The median search times for Manhattan and Linear Conflict are 0.023 and 0.045 compared to the Pattern-based 5+ seconds. This is due to the pattern database generation, however the time vs. efficiency trade off could not be adequately investigated due to computational limits.
+
+**Scatter grid**
+
+Our second set of experiments sought to evaluate A* and Iterative Deepening A*. In this section we discuss the 8 puzzle results followed by 15-Puzzle results. To this end we run the same experiments again with the algorithm used as our only experimental variable. The boards are fixed to the same subset used in the previous experiment and the only heuristic used is Linear Conflict. Across the board IDA performed slightly better than A*; mean expanded: 1278 vs. 1487, mean branching factor: 1.4 vs. 1.18, mean time: 0.1s vs 0.06s.
+
+**4x4 Table**
+
+IDA's lead during the 15-Puzzle grew on all metrics as well; mean expanded: 684 vs. 919, mean branching factor: 1.37 vs. 1.1, and a mean time of 0.1s vs. 0.05s. Another interesting results were the growth characteristics of each algorithm. Our scatter grid charts show how IDA's branching factor grows in a distinct way from A*.
+
+**Algo grid**
 
 #### Discussion
 
