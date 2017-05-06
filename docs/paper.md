@@ -108,3 +108,13 @@ search multiple times. In practice, this was not an issue, and seems to be more
 than offset by not having to keep sorted a priority queue of nodes.
 
 ##### Critique
+
+If we had more time, we would have liked to calculate the amortized time of the
+Pattern Database heuristics over a large number of test cases *with out*
+regenerating the database each time. Once the database was generated, these
+heuristics resulted in a lower branching factor and fewer nodes expanded than
+the linear heuristics. It seems that if we could store this database instead of
+regenerating it each time, it would have eventually outperformed the others. In
+our tests, the time it took to generate this database was *far* greater than the
+time it took other heuristics to find a solution that the overhead was never
+worth it.
